@@ -8,7 +8,7 @@
 ## Resumen
 
 El proyecto va en el segundo de cinco sprints de construcción. La
-especificación está completa y cerrada: cinco módulos, 198 requisitos
+especificación está completa y cerrada: cinco módulos, 194 requisitos
 funcionales, 14 no funcionales y 51 historias de usuario con criterios de
 aceptación verificables. El backlog está íntegramente estimado, asignado y
 repartido en hitos con fecha.
@@ -27,7 +27,7 @@ con sus cuatro historias abiertas.
 | Puntos comprometidos por delante | 96 |
 | Historias de usuario especificadas | 51 |
 | *Issues* en el tablero sin responsable | 0 |
-| Requisitos funcionales | 198 |
+| Requisitos funcionales | 194 |
 | Requisitos no funcionales | 14 |
 
 ```mermaid

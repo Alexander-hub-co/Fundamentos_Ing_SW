@@ -14,7 +14,7 @@ Se sigue la jerarquía vista en clase. Cada nivel agrupa al siguiente:
 | **Theme** | Meses | 5 | Los cinco módulos del sistema |
 | **Epic** | Semanas | 20 | Este documento |
 | **User Story** | Días | 51 | Este documento |
-| **Task** | Horas | 347 | `specs/*/tasks.md` |
+| **Task** | Horas | Se desglosan al planear cada sprint | [`Docs/Planning/`](../Planning/) |
 
 Los puntos de historia son la estimación inicial del equipo, revisable en cada
 sesión de planeación. Cada historia cumple **INVEST**: es autocontenida, negociable, entrega valor al
@@ -274,12 +274,11 @@ Se priorizó por **valor, coste y riesgo**, como se vio en clase.
 
 # THEME M5 · Taquilla — bicicletas y fichas
 
-> **Nota de alcance.** La especificación `specs/005-bicicletas-fichas/spec.md`
-> describe las fichas como un inventario de tarjetones físicos con estados y
-> coste de reposición. **Ese modelo quedó superado.** En el sistema actual una
-> ficha es sencillamente el tique impreso —donde en lugar de la placa dice
-> «Ficha 3»— y cuántas hay es la capacidad de bicicletas declarada. Las
-> historias que siguen describen el sistema tal como es.
+> **Qué es una ficha.** Una ficha es el tique impreso del movimiento, donde en
+> lugar de la placa dice «Ficha 3». Cuántas hay es la capacidad de bicicletas que
+> el establecimiento declaró, y un número está libre cuando ningún movimiento
+> abierto lo sostiene. No es un tarjetón físico con inventario propio, así que no
+> existe ni darla de baja ni cobrar su reposición.
 
 ## Épica E5.1 · Recibir una bicicleta y entregar su ficha — P1
 

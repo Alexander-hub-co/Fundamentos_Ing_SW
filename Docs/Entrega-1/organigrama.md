@@ -99,16 +99,33 @@ por el resultado, aunque varias lo ejecuten.
 
 ## Ceremonias
 
-| Ceremonia | Cuándo | Duración | Quiénes | Dónde queda el registro |
-|---|---|---|---|---|
-| Planeación del sprint | Primer día del sprint | 1 hora | Los cuatro | [`Docs/Planning/`](../Planning/) |
-| Sincronización | Dos veces por semana | 15 minutos | Los cuatro | [`Docs/Dailys/`](../Dailys/) |
-| Revisión del sprint | Último día del sprint | 45 minutos | Los cuatro, con demostración | [`Docs/Review/`](../Review/) |
-| Retrospectiva | Último día del sprint, tras la revisión | 30 minutos | Los cuatro | [`Docs/Retrospective/`](../Retrospective/) |
+El equipo se reúne **los martes y los viernes después de clase, de 7:00 a 9:00
+de la noche**, cadencia vigente desde el 25 de agosto de 2026. Los sprints cierran en lunes, de
+modo que la revisión, la retrospectiva y la planeación del siguiente caen todas
+dentro del bloque del martes posterior.
 
-Las decisiones que no pertenecen a una ceremonia concreta se consignan como
-actas en [`Docs/Actas/`](../Actas/).
+**Martes de cierre de sprint**
 
-La sincronización es dos veces por semana y no diaria porque el equipo cursa
-otras asignaturas y una reunión diaria que nadie puede sostener se abandona en
-la segunda semana. Se prefiere una cadencia que se cumpla.
+| Ceremonia | Horario | Quiénes | Dónde queda el registro |
+|---|---|---|---|
+| Revisión del sprint | 19:00 – 19:40 | Los cuatro, con demostración | [`Docs/Review/`](../Review/) |
+| Retrospectiva | 19:40 – 20:10 | Los cuatro | [`Docs/Retrospective/`](../Retrospective/) |
+| Planeación del sprint | 20:10 – 21:00 | Los cuatro | [`Docs/Planning/`](../Planning/) |
+
+**Los demás martes y todos los viernes**
+
+| Ceremonia | Horario | Quiénes | Dónde queda el registro |
+|---|---|---|---|
+| Sesión de trabajo | 19:00 – 21:00 | Los cuatro | [`Docs/Dailys/`](../Dailys/) |
+
+La sesión de trabajo abre con una vuelta corta —en qué va cada uno y qué lo está
+frenando— y el resto del bloque se trabaja en conjunto. Las decisiones que no
+pertenecen a una ceremonia concreta se consignan como actas en
+[`Docs/Actas/`](../Actas/).
+
+La cadencia es de dos veces por semana y no diaria porque el equipo cursa otras
+asignaturas, y una reunión diaria que nadie puede sostener se abandona en la
+segunda semana. Se prefiere una que se cumpla. Se fijó en días y horas concretos
+—martes y viernes, de 7 a 9 de la noche— para que no haya que convocarla cada
+vez, y justo después de clase porque es cuando los cuatro ya están reunidos y
+nadie tiene que desplazarse aparte.
