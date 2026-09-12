@@ -7,33 +7,90 @@ Pontificia Universidad Javeriana — Bogotá
 
 ## Descripción
 
-Un parqueadero cobra por tiempo, y ese cobro tiene que poder explicarse. Ésa es
-la idea que gobierna el sistema: cada movimiento guarda copia de la tarifa y del
-convenio que se le aplicaron, de modo que un cobro de hace un año puede
-justificarse aunque la tarifa ya no exista.
+**Parquivo es una aplicación web para administrar parqueaderos.** Reemplaza la
+libreta, la calculadora y el tarjetón de cartón con los que hoy trabaja la
+mayoría de los parqueaderos pequeños y medianos del país.
+
+Su objetivo es que **todo el dinero que entra a un parqueadero quede registrado,
+atribuido a alguien y explicable**. Que al cerrar la caja se sepa cuánto entró,
+en qué turno y por qué; y que cuando un cliente reclame por un cobro, la
+respuesta no sea «así me dio la cuenta» sino el detalle de cómo se calculó.
 
 Una sola instalación atiende a **varios establecimientos a la vez**, y cada uno
 mantiene sus tarifas, horarios, turnos, convenios e historial completamente
 separados de los demás.
 
-El producto se organiza alrededor de una pantalla, la **taquilla**, donde un
-operario pasa el día de pie con una fila delante. Todo lo demás —configurar
-tarifas, declarar convenios, revisar reportes— se visita una vez al mes.
+### El problema que resuelve
 
-### Qué resuelve
+Un parqueadero que cobra a mano tiene tres problemas que el dueño sufre a
+diario:
 
-- Entrada y salida de vehículos con **un solo campo**: se escribe la placa y el
-  sistema decide si el vehículo entra o sale.
-- Bicicletas mediante fichas numeradas, con los datos de quien la deja.
-- Tarifas por minuto o por intervalos, **versionadas por fecha**.
-- Convenios y descuentos configurables por establecimiento.
-- Turnos, cuadre de caja e **historial inmutable**.
-- Reportes por día, semana, mes y turno.
+1. **No sabe cuánto entró, ni por qué.** Al cerrar solo hay un total en un
+   cuaderno. Si no cuadra, no hay manera de reconstruir dónde se perdió.
+2. **No puede explicar un cobro.** Cuando un cliente reclama, no hay con qué
+   sustentar la cuenta. Eso cuesta clientes y discusiones.
+3. **Los acuerdos con los comercios vecinos se manejan de palabra.** El almacén
+   de al lado sella tiques y a fin de mes nadie sabe cuánto se dejó de cobrar
+   por eso.
+
+### Qué hace
+
+**Para el operario que atiende la taquilla**
+
+- Registra entradas y salidas de vehículos con **un solo campo**: se escribe la
+  placa y el sistema decide si el vehículo entra o sale, sin que haya que
+  elegir entre las dos opciones.
+- Deduce solo si es carro o moto, a partir del último carácter de la placa.
+- Calcula el cobro al salir y muestra **el desglose completo**: el importe base,
+  cada convenio con su efecto, los que no se aplicaron y por qué, y el redondeo.
+- Recibe bicicletas y les asigna un número de ficha automáticamente, con los
+  datos de quien la deja para poder devolvérsela aunque pierda el tique.
+- Imprime el comprobante, y si la impresora falla no detiene la fila: el
+  movimiento queda registrado y el comprobante pasa a pendientes.
+- Abre y cierra su turno, guardando la hora real además de la programada.
+
+**Para el administrador del establecimiento**
+
+- Declara las tarifas por tipo de vehículo, en dos modelos: por minuto o por
+  intervalos. Cada cambio **versiona** la tarifa anterior en vez de borrarla.
+- Declara el horario de atención, incluidos los que cruzan la medianoche y los
+  días de cierre.
+- Configura los convenios con comercios vecinos: qué descuento dan, si se
+  activan por placa o por sello, y cuántas veces al día aplican.
+- Da de alta operarios, arma el cuadrante de turnos y ve si quedan horas de
+  atención sin nadie asignado.
+- Consulta reportes por día, semana, mes y turno.
+
+**Para el administrador de la plataforma**
+
+- Da de alta establecimientos y sus administradores.
+- Gestiona el estado de cada cuenta: activa, pendiente o suspendida.
+- Con el establecimiento suspendido, el sistema impide entradas nuevas pero
+  **permite cerrar las que ya están adentro**, para que nadie quede encerrado
+  por un problema de facturación.
+
+### Qué lo distingue
+
+- **Cada cobro se puede explicar.** Todo movimiento cerrado guarda una copia de
+  la tarifa y de los convenios que se le aplicaron en ese instante, no una
+  referencia. Cambiar una tarifa hoy no altera lo que se cobró el año pasado.
+- **El historial no se reescribe.** Un movimiento cerrado no se edita ni se
+  borra; las correcciones se registran como asientos nuevos que apuntan al
+  original.
+- **El aislamiento entre establecimientos lo garantiza la base de datos**, con
+  seguridad a nivel de fila, no una comprobación en el código que alguien pueda
+  olvidar.
+- **La taquilla manda sobre el resto.** El producto se organiza alrededor de una
+  sola pantalla, donde un operario pasa el día de pie con una fila delante. Todo
+  lo demás —configurar tarifas, declarar convenios, revisar reportes— se visita
+  una vez al mes.
 
 ### Fuera del alcance
 
 Pasarela de pagos en línea, facturación electrónica, reconocimiento automático
-de placas por cámara y aplicación móvil nativa.
+de placas por cámara, aplicación móvil nativa y reserva anticipada de cupo. El
+porqué de cada exclusión está en la
+[hoja de ruta](Docs/Arquitectura/roadmap.md).
 
 ---
 
