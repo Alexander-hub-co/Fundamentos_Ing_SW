@@ -23,10 +23,10 @@ gantt
     Sprint 2 · Plataforma y seguridad        :active, s2, 2026-09-01, 2026-09-14
     Sprint 3 · Taquilla — entrada            :s3, 2026-09-15, 2026-09-28
     Sprint 4 · Motor de cobro                :s4, 2026-09-29, 2026-10-12
-    Sprint 5 · Administración y pruebas      :s5, 2026-10-13, 2026-10-26
+    Sprint 5 · Supervisión y pruebas        :s5, 2026-10-13, 2026-10-26
 
     section Cierre
-    Entrega Final · Documentación            :ef, 2026-10-27, 2026-11-16
+    Entrega Final · Administración y docs    :ef, 2026-10-27, 2026-11-16
 ```
 
 ---
@@ -97,7 +97,7 @@ que lo registrado no se pueda alterar después.
 
 ---
 
-## Sprint 4 · Motor de cobro · 21 puntos
+## Sprint 4 · Motor de cobro · 24 puntos
 
 **29 de septiembre – 12 de octubre de 2026**
 
@@ -106,43 +106,47 @@ Objetivo: que se pueda cobrar una salida y que el cobro se pueda explicar.
 | # | Historia | Puntos | Responsable |
 |---|---|:---:|---|
 | [#27](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/27) | Copia de tarifa y convenio al momento del cobro | 8 | Jacob Riveros |
-| [#29](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/29) | Historial de versiones de tarifa por tipo de vehículo | 5 | Sergio Alexander L. |
+| [#10](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/10) | Registro de salida de vehículos | 8 | Sergio Alexander L. |
 | [#30](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/30) | Detalle del cálculo del cobro | 5 | Santiago Arias |
 | [#33](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/33) | Tarifa obligatoria antes del primer cobro | 3 | Cristian Quevedo |
 
-Los cuatro van juntos a propósito: guardar una copia de la tarifa aplicada sin
-poder mostrar el desglose no sirve de nada, y mostrar un desglose que mañana
-cambia porque cambió la tarifa es peor que no mostrarlo.
+Los cuatro van juntos a propósito: la salida es lo que dispara el cálculo del
+importe, guardar una copia de la tarifa aplicada sin poder mostrar el desglose no
+sirve de nada, y mostrar un desglose que mañana cambia porque cambió la tarifa es
+peor que no mostrarlo.
 
 ---
 
-## Sprint 5 · Administración y pruebas · 24 puntos
+## Sprint 5 · Supervisión y pruebas · 21 puntos
 
 **13 de octubre – 26 de octubre de 2026**
 
-Objetivo: que el administrador pueda gobernar su establecimiento y que lo
-construido tenga red de seguridad.
+Objetivo: que el administrador pueda vigilar su establecimiento de lejos y que
+lo construido tenga red de seguridad.
 
 | # | Historia | Puntos | Responsable |
 |---|---|:---:|---|
 | [#8](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/8) | Módulo de consulta y supervisión remota | 8 | Cristian Quevedo |
-| [#9](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/9) | Gestión de usuarios y permisos | 8 | Sergio Alexander L. |
+| [#29](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/29) | Historial de versiones de tarifa por tipo de vehículo | 5 | Sergio Alexander L. |
 | [#7](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/7) | Pruebas unitarias de registro de entradas y salidas | 5 | Santiago Arias |
 | [#12](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/12) | Pruebas de acceso remoto y disponibilidad | 3 | Jacob Riveros |
 
 ---
 
-## Entrega Final · Documentación · 6 puntos
+## Entrega Final · Administración y documentación · 14 puntos
 
 **27 de octubre – 16 de noviembre de 2026**
 
 | # | Actividad | Puntos | Responsable |
 |---|---|:---:|---|
+| [#9](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/9) | Gestión de usuarios y permisos | 8 | Sergio Alexander L. |
 | [#6](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/6) | Documentar el despliegue del entorno de producción | 3 | Jacob Riveros |
 | [#13](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/13) | Manual de usuario para empleados | 3 | Santiago Arias |
 
-Tres semanas para seis puntos de trabajo: el margen es deliberado y absorbe lo
-que se corra de los sprints anteriores.
+La gestión de usuarios y permisos se dejó para el final a propósito: es
+administrativa y no está en el camino crítico del cobro, así que es lo primero
+que puede esperar cuando algo más urgente se corre. Aun así quedan tres semanas
+para catorce puntos, margen suficiente para absorber lo que se atrase.
 
 ---
 
@@ -152,14 +156,14 @@ que se corra de los sprints anteriores.
 |---|:---:|:---:|:---:|:---:|:---:|
 | Sprint 2 | 8 | 5 | 5 | 3 | **21** |
 | Sprint 3 | 8 | 3 | 5 | 8 | **24** |
-| Sprint 4 | 3 | 5 | 8 | 5 | **21** |
-| Sprint 5 | 8 | 8 | 3 | 5 | **24** |
-| Entrega Final | — | — | 3 | 3 | **6** |
-| **Total** | **27** | **21** | **24** | **24** | **96** |
+| Sprint 4 | 3 | 8 | 8 | 5 | **24** |
+| Sprint 5 | 8 | 5 | 3 | 5 | **21** |
+| Entrega Final | — | 8 | 3 | 3 | **14** |
+| **Total** | **27** | **29** | **24** | **24** | **104** |
 
 Las cuatro personas participan en los cuatro sprints de construcción, ningún
 sprint pasa de 24 puntos y la diferencia entre quien más carga y quien menos es
-de seis puntos sobre un total de noventa y seis.
+de cinco puntos sobre un total de ciento cuatro.
 
 La escala es Fibonacci: 1, 2, 3, 5, 8, 13. Una historia de 13 se parte antes de
 entrar a un sprint. Los puntos se revisan en cada planeación y se ajustan con lo

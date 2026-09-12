@@ -24,7 +24,7 @@ con sus cuatro historias abiertas.
 |---|---|
 | Sprints de construcción | 2 de 5 |
 | Puntos cerrados | 18 |
-| Puntos comprometidos por delante | 96 |
+| Puntos comprometidos por delante | 104 |
 | Historias de usuario especificadas | 51 |
 | *Issues* en el tablero sin responsable | 0 |
 | Requisitos funcionales | 194 |
@@ -35,9 +35,9 @@ flowchart LR
     S1["Sprint 1<br/>18 pts<br/>CERRADO"]
     S2["Sprint 2<br/>21 pts<br/>EN CURSO"]
     S3["Sprint 3<br/>24 pts"]
-    S4["Sprint 4<br/>21 pts"]
-    S5["Sprint 5<br/>24 pts"]
-    EF["Entrega Final<br/>6 pts"]
+    S4["Sprint 4<br/>24 pts"]
+    S5["Sprint 5<br/>21 pts"]
+    EF["Entrega Final<br/>14 pts"]
     S1 --> S2 --> S3 --> S4 --> S5 --> EF
 ```
 
@@ -53,7 +53,7 @@ especificación ya cerrada.
 
 | Módulo | Historias | Cuándo se construye |
 |---|:---:|---|
-| M1 · Plataforma y gestión de parqueaderos | 13 | Sprint 2 y Sprint 5 |
+| M1 · Plataforma y gestión de parqueaderos | 13 | Sprint 2, Sprint 5 y Entrega Final |
 | M2 · Configuración del establecimiento | 14 | Sprint 4 |
 | M3 · Convenios y descuentos | 6 | Posterior a esta entrega |
 | M4 · Taquilla — vehículos | 10 | Sprint 3 y Sprint 4 |
@@ -69,14 +69,14 @@ vehículos terminado y verificado antes que cinco módulos a medias.
 
 | Persona | Rol | Puntos | Participación |
 |---|---|:---:|:---:|
-| Cristian Quevedo | Product Owner y desarrollo | 27 | 28 % |
-| Jacob Riveros | Desarrollo | 24 | 25 % |
-| Santiago Arias | Desarrollo | 24 | 25 % |
-| Sergio Alexander L. | Scrum Master y desarrollo | 21 | 22 % |
+| Sergio Alexander L. | Scrum Master y desarrollo | 29 | 28 % |
+| Cristian Quevedo | Product Owner y desarrollo | 27 | 26 % |
+| Jacob Riveros | Desarrollo | 24 | 23 % |
+| Santiago Arias | Desarrollo | 24 | 23 % |
 
 Ningún sprint supera los 24 puntos y las cuatro personas participan en los
 cuatro sprints de construcción. La diferencia entre quien más carga y quien
-menos es de seis puntos sobre noventa y seis.
+menos es de cinco puntos sobre ciento cuatro.
 
 ---
 
@@ -104,6 +104,14 @@ menos es de seis puntos sobre noventa y seis.
    documentos que hay que reescribir.
 4. **Cada persona tiene un frente técnico.** No es una frontera cerrada, sino a
    quién se le pregunta primero y quién responde si algo de ese frente falla.
+5. **Se reabrió el registro de salida de vehículos.** Figuraba como terminado
+   desde el 24 de agosto, en pleno sprint de especificación, y antes que el
+   registro de entrada del que depende. Vuelve al Sprint 4, con el bloque de
+   cobro, porque la salida es lo que dispara el cálculo del importe. Para que
+   ningún sprint pasara de 24 puntos, el historial de versiones de tarifa se
+   corrió al Sprint 5 y la gestión de usuarios y permisos a la Entrega Final:
+   es administrativa y no está en el camino crítico del cobro, así que es lo
+   primero que puede esperar.
 
 ---
 
