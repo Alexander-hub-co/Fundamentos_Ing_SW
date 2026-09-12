@@ -440,29 +440,29 @@ Todas las fichas están entregadas y llega otro cliente.
 - **FR-002** — El sistema MUST permitir ampliar el conjunto sin alterar las fichas existentes ni sus movimientos
 - **FR-003** — El sistema MUST permitir dar de baja una ficha concreta, y MUST impedirlo mientras esa ficha esté entregada
 - **FR-004** — El sistema MUST mantener cada ficha en exactamente uno de estos estados: disponible, entregada, perdida o dada de baja
-- **FR-006** — El sistema MUST proponer automáticamente una ficha disponible al recibir una bicicleta, sin que el operario tenga que elegirla
-- **FR-007** — El sistema MUST garantizar que una ficha entregada no pueda entregarse otra vez, incluso si dos operarios reciben bicicletas simultáneamente
-- **FR-008** — El sistema MUST rechazar la recepción cuando no queden fichas disponibles, con un mensaje que diga eso y no un error técnico
-- **FR-009** — El sistema MUST mostrar en la taquilla cuántas fichas quedan disponibles
-- **FR-010** — El sistema MUST registrar la recepción como un movimiento con las mismas garantías que uno de vehículo: turno, operario, hora y copia embebida de lo que se aplicó
-- **FR-011** — El sistema MUST emitir un comprobante con el número de ficha destacado, con el mismo mecanismo de impresión y de pendientes que ya existe
-- **FR-012** — Los operarios MUST poder resolver la devolución escribiendo el número de ficha
-- **FR-013** — El sistema MUST calcular el cobro con la tarifa de bicicleta vigente, por el mismo motor que cobra los vehículos
-- **FR-014** — El sistema MUST devolver la ficha al conjunto disponible al cerrar el movimiento con devolución
-- **FR-015** — El sistema MUST rechazar la devolución de una ficha que no está entregada, sin registrar nada
-- **FR-016** — El sistema MUST permitir cerrar sin cobro, con motivo obligatorio, igual que la cortesía de vehículos
-- **FR-017** — Los operarios MUST poder buscar un movimiento de bicicleta abierto por la cédula de quien la dejó, sin el número de ficha
-- **FR-018** — Los operarios MUST poder cerrar un movimiento declarando que el tarjetón no volvió
-- **FR-019** — El sistema MUST dejar esa ficha como perdida y NO devolverla al conjunto disponible
-- **FR-020** — El sistema MUST registrar quién declaró la pérdida y cuándo
-- **FR-021** — El sistema MUST cobrar la permanencia normalmente al cerrar por pérdida, y MUST poder sumarle un valor de reposición del tarjetón que **cada establecimiento declara**, con cero como valor de partida. Va a configuración y no quemado porque toca dinero, que es exactamente lo que el Principio II reserva al establecimiento
-- **FR-022** — El sistema MUST permitir devolver al conjunto una ficha perdida que aparece después
-- **FR-023** — El sistema MUST usar la ficha como identificador del movimiento de una bicicleta; la cédula es la vía de recuperación, no el identificador
-- **FR-024** — El sistema MUST distinguir sin ambigüedad un número de ficha de una placa cuando ambos se escriben en el mismo campo
-- **FR-025** — El alcance de las fichas MUST limitarse a las bicicletas. Las motocicletas tienen placa y siguen entrando por el flujo que ya existe
-- **FR-026** — El sistema MUST tratar la cédula, el teléfono y la nota de la bicicleta como datos personales, con el mismo régimen que ya se aplica a las cuentas: se anonimizan cuando corresponde y no salen en ningún listado que no los necesite
-- **FR-027** — El sistema MUST mostrar al operario, en la pantalla de recepción, para qué se piden esos datos, de modo que pueda decírselo al cliente
-- **FR-028** — El sistema MUST purgar cédula y teléfono de los movimientos cerrados según el mismo plazo de retención que ya rige para el resto del historial, conservando el movimiento y su cobro
+- **FR-005** — El sistema MUST proponer automáticamente una ficha disponible al recibir una bicicleta, sin que el operario tenga que elegirla
+- **FR-006** — El sistema MUST garantizar que una ficha entregada no pueda entregarse otra vez, incluso si dos operarios reciben bicicletas simultáneamente
+- **FR-007** — El sistema MUST rechazar la recepción cuando no queden fichas disponibles, con un mensaje que diga eso y no un error técnico
+- **FR-008** — El sistema MUST mostrar en la taquilla cuántas fichas quedan disponibles
+- **FR-009** — El sistema MUST registrar la recepción como un movimiento con las mismas garantías que uno de vehículo: turno, operario, hora y copia embebida de lo que se aplicó
+- **FR-010** — El sistema MUST emitir un comprobante con el número de ficha destacado, con el mismo mecanismo de impresión y de pendientes que ya existe
+- **FR-011** — Los operarios MUST poder resolver la devolución escribiendo el número de ficha
+- **FR-012** — El sistema MUST calcular el cobro con la tarifa de bicicleta vigente, por el mismo motor que cobra los vehículos
+- **FR-013** — El sistema MUST devolver la ficha al conjunto disponible al cerrar el movimiento con devolución
+- **FR-014** — El sistema MUST rechazar la devolución de una ficha que no está entregada, sin registrar nada
+- **FR-015** — El sistema MUST permitir cerrar sin cobro, con motivo obligatorio, igual que la cortesía de vehículos
+- **FR-016** — Los operarios MUST poder buscar un movimiento de bicicleta abierto por la cédula de quien la dejó, sin el número de ficha
+- **FR-017** — Los operarios MUST poder cerrar un movimiento declarando que el tarjetón no volvió
+- **FR-018** — El sistema MUST dejar esa ficha como perdida y NO devolverla al conjunto disponible
+- **FR-019** — El sistema MUST registrar quién declaró la pérdida y cuándo
+- **FR-020** — El sistema MUST cobrar la permanencia normalmente al cerrar por pérdida, y MUST poder sumarle un valor de reposición del tarjetón que **cada establecimiento declara**, con cero como valor de partida. Va a configuración y no quemado porque toca dinero, que es exactamente lo que el Principio II reserva al establecimiento
+- **FR-021** — El sistema MUST permitir devolver al conjunto una ficha perdida que aparece después
+- **FR-022** — El sistema MUST usar la ficha como identificador del movimiento de una bicicleta; la cédula es la vía de recuperación, no el identificador
+- **FR-023** — El sistema MUST distinguir sin ambigüedad un número de ficha de una placa cuando ambos se escriben en el mismo campo
+- **FR-024** — El alcance de las fichas MUST limitarse a las bicicletas. Las motocicletas tienen placa y siguen entrando por el flujo que ya existe
+- **FR-025** — El sistema MUST tratar la cédula, el teléfono y la nota de la bicicleta como datos personales, con el mismo régimen que ya se aplica a las cuentas: se anonimizan cuando corresponde y no salen en ningún listado que no los necesite
+- **FR-026** — El sistema MUST mostrar al operario, en la pantalla de recepción, para qué se piden esos datos, de modo que pueda decírselo al cliente
+- **FR-027** — El sistema MUST purgar cédula y teléfono de los movimientos cerrados según el mismo plazo de retención que ya rige para el resto del historial, conservando el movimiento y su cobro
 
 ---
 
