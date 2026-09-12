@@ -113,7 +113,8 @@ npm run build        # compilación para producción
 .
 ├── Docs/
 │   ├── SRS/            Especificación de requisitos de software
-│   ├── Entrega-1/      Canvas, WBS, organigrama, historias, estimación
+│   ├── Entrega-1/      Canvas, modelo de características, casos de uso,
+│   │                   historias de usuario, organigrama, calendario
 │   ├── Arquitectura/   Decisiones de diseño y hoja de ruta
 │   ├── Mockups/        Maquetas de las pantallas
 │   ├── Dailys/         Reuniones diarias
@@ -147,7 +148,8 @@ npm run build        # compilación para producción
 - **Tablero:** [KAMBAN_FIS_2630_G#](https://github.com/users/Alexander-hub-co/projects/1)
 - **Issues:** etiquetados por módulo, prioridad y estimación en puntos de historia
 - **Sprints:** de dos semanas, registrados como *milestones*
-- **Ceremonias:** dailys, planning, review y retrospective, documentadas en `Docs/`
+- **Ceremonias:** planeación, sincronización dos veces por semana, revisión y retrospectiva, descritas en [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
+- **Roles Scrum y responsabilidades:** [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
 
 ---
 
@@ -157,6 +159,12 @@ npm run build        # compilación para producción
 |---|---|
 | Especificación de requisitos (SRS) | [`Docs/SRS/`](Docs/SRS/) |
 | Historias de usuario | [`Docs/Entrega-1/historias-de-usuario.md`](Docs/Entrega-1/historias-de-usuario.md) |
+| Casos de uso | [`Docs/Entrega-1/casos-de-uso.md`](Docs/Entrega-1/casos-de-uso.md) |
+| Propuesta del producto (Canvas) | [`Docs/Entrega-1/canvas.md`](Docs/Entrega-1/canvas.md) |
+| Modelo de características | [`Docs/Entrega-1/feature-model.md`](Docs/Entrega-1/feature-model.md) |
+| Organigrama y roles | [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md) |
+| Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
+| Reporte gerencial | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
 | Arquitectura | [`Docs/Arquitectura/`](Docs/Arquitectura/) |
 | Guía de uso | [`Docs/UserGuide/`](Docs/UserGuide/) |
 | Wiki del proyecto | [Wiki](../../wiki) |
