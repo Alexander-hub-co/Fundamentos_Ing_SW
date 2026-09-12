@@ -165,8 +165,8 @@ npm run build        # compilación para producción
 | Organigrama y roles | [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md) |
 | Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
 | Reporte gerencial | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
-| Arquitectura | [`Docs/Arquitectura/`](Docs/Arquitectura/) |
-| Guía de uso | [`Docs/UserGuide/`](Docs/UserGuide/) |
+| Hoja de ruta y decisiones de arquitectura | [`Docs/Arquitectura/roadmap.md`](Docs/Arquitectura/roadmap.md) |
+| Guía de uso por rol | [`Docs/UserGuide/`](Docs/UserGuide/) |
 | Wiki del proyecto | [Wiki](../../wiki) |
 
 ---
