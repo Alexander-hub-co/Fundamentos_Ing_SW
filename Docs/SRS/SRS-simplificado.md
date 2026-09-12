@@ -88,14 +88,12 @@ mediante seguridad a nivel de fila, no en el código de la aplicación.
 ## 3. Requisitos específicos
 
 Cada módulo agrupa sus historias de usuario y sus requisitos funcionales. La
-numeración `FR-xxx` se conserva por módulo, tal como aparece en las
-especificaciones detalladas de `specs/`.
+numeración `FR-xxx` empieza de nuevo en cada módulo.
 
 
 ### 3.1 M1 · Plataforma y gestión de parqueaderos
 
 **Actor principal:** Administrador general  
-**Especificación detallada:** `specs/001-gestion-parqueaderos/spec.md`
 
 #### Historias de usuario (5)
 
@@ -187,7 +185,6 @@ suspendidos y cuántas cuentas existen.
 ### 3.2 M2 · Configuración del establecimiento
 
 **Actor principal:** Administrador de parqueadero  
-**Especificación detallada:** `specs/002-configuracion-establecimiento/spec.md`
 
 #### Historias de usuario (5)
 
@@ -296,7 +293,6 @@ o para una placa concreta que estaciona todos los días.
 ### 3.3 M3 · Convenios y descuentos
 
 **Actor principal:** Administrador de parqueadero  
-**Especificación detallada:** `specs/003-convenios-configurables/spec.md`
 
 #### Historias de usuario (2)
 
@@ -341,7 +337,6 @@ aplicarían, y ve el total con el desglose de cómo se llegó a él.
 ### 3.4 M4 · Taquilla — vehículos
 
 **Actor principal:** Operario  
-**Especificación detallada:** `specs/004-taquilla-vehiculos/spec.md`
 
 #### Historias de usuario (3)
 
@@ -399,70 +394,70 @@ contra qué contrastarla.
 
 ### 3.5 M5 · Taquilla — bicicletas y fichas
 
-**Actor principal:** Operario  
-**Especificación detallada:** `specs/005-bicicletas-fichas/spec.md`
+**Actor principal:** Operario
 
 #### Historias de usuario (5)
 
 **HU-5.1 · Recibir una bicicleta y entregar su ficha** — prioridad P1
 
 Llega un cliente con una bicicleta. El operario le pide la cédula y el teléfono y los
-escribe, el sistema propone la ficha disponible que sigue, el operario le entrega ese
-tarjetón físico al cliente y confirma. Sale el comprobante con el número de ficha impreso.
-La cédula no es burocracia: **es lo que permite devolverle la bicicleta a alguien que perdió
-el tarjetón**, que es el caso que ocurre de verdad. Sin ella, un tarjetón perdido deja la
-bicicleta sin forma de vincularla a nadie.
+escribe, el sistema asigna el número de ficha que sigue, y sale el tique impreso con ese
+número. La cédula no es burocracia: **es lo que permite devolverle la bicicleta a alguien
+que perdió el tique**, que es el caso que ocurre de verdad. Sin ella, un tique perdido deja
+la bicicleta sin forma de vincularla a nadie.
 
 **HU-5.2 · Devolver la bicicleta y cobrar** — prioridad P1
 
-El cliente vuelve con el tarjetón. El operario escribe el número de ficha, el sistema
-muestra desde cuándo está la bicicleta y cuánto se le cobra, se cobra, y la ficha vuelve al
-conjunto disponible.
+El cliente vuelve con el tique. El operario escribe el número de ficha, el sistema muestra
+desde cuándo está la bicicleta y cuánto se le cobra, se cobra, y el número queda libre para
+la siguiente.
 
-**HU-5.3 · Declarar el conjunto de fichas** — prioridad P2
+**HU-5.3 · Declarar la capacidad de bicicletas** — prioridad P2
 
-El administrador declara cuántas fichas físicas tiene el establecimiento, y las da de baja
-cuando se rompen o se pierden.
+El administrador declara cuántas bicicletas caben en el establecimiento. Ese número define
+hasta dónde llegan los números de ficha y cuándo el sistema deja de recibir.
 
-**HU-5.4 · El cliente perdió la ficha** — prioridad P2
+**HU-5.4 · El cliente perdió el tique** — prioridad P2
 
-El cliente vuelve sin el tarjetón. El operario busca por la cédula que se registró al
-recibir la bicicleta, encuentra qué ficha tiene esa persona, le entrega la bicicleta y
-cierra el movimiento dejando registrado que el tarjetón no volvió.
+El cliente vuelve sin el papel. El operario busca por la cédula que se registró al recibir
+la bicicleta, encuentra qué número tiene esa persona, le entrega la bicicleta y cierra el
+movimiento dejando registrado que se cerró sin tique.
 
-**HU-5.5 · Se acabaron las fichas** — prioridad P3
+**HU-5.5 · Se acabaron los cupos** — prioridad P3
 
-Todas las fichas están entregadas y llega otro cliente.
+Todas las bicicletas que caben están adentro y llega otro cliente.
 
-#### Requisitos funcionales (27)
+> **Qué es una ficha.** Una ficha **no** es un tarjetón físico con inventario propio. Es el
+> tique impreso del movimiento, donde en lugar de la placa dice «Ficha 3». Cuántas hay es
+> la capacidad de bicicletas que el establecimiento declaró, y un número está libre cuando
+> ningún movimiento abierto lo sostiene. De ahí que no exista ni dar de baja una ficha ni
+> cobrar su reposición: no hay nada físico que reponer.
 
-- **FR-001** — El sistema MUST permitir que cada establecimiento declare cuántas fichas físicas tiene, numeradas correlativamente desde 1
-- **FR-002** — El sistema MUST permitir ampliar el conjunto sin alterar las fichas existentes ni sus movimientos
-- **FR-003** — El sistema MUST permitir dar de baja una ficha concreta, y MUST impedirlo mientras esa ficha esté entregada
-- **FR-004** — El sistema MUST mantener cada ficha en exactamente uno de estos estados: disponible, entregada, perdida o dada de baja
-- **FR-005** — El sistema MUST proponer automáticamente una ficha disponible al recibir una bicicleta, sin que el operario tenga que elegirla
-- **FR-006** — El sistema MUST garantizar que una ficha entregada no pueda entregarse otra vez, incluso si dos operarios reciben bicicletas simultáneamente
-- **FR-007** — El sistema MUST rechazar la recepción cuando no queden fichas disponibles, con un mensaje que diga eso y no un error técnico
-- **FR-008** — El sistema MUST mostrar en la taquilla cuántas fichas quedan disponibles
-- **FR-009** — El sistema MUST registrar la recepción como un movimiento con las mismas garantías que uno de vehículo: turno, operario, hora y copia embebida de lo que se aplicó
-- **FR-010** — El sistema MUST emitir un comprobante con el número de ficha destacado, con el mismo mecanismo de impresión y de pendientes que ya existe
-- **FR-011** — Los operarios MUST poder resolver la devolución escribiendo el número de ficha
-- **FR-012** — El sistema MUST calcular el cobro con la tarifa de bicicleta vigente, por el mismo motor que cobra los vehículos
-- **FR-013** — El sistema MUST devolver la ficha al conjunto disponible al cerrar el movimiento con devolución
-- **FR-014** — El sistema MUST rechazar la devolución de una ficha que no está entregada, sin registrar nada
-- **FR-015** — El sistema MUST permitir cerrar sin cobro, con motivo obligatorio, igual que la cortesía de vehículos
-- **FR-016** — Los operarios MUST poder buscar un movimiento de bicicleta abierto por la cédula de quien la dejó, sin el número de ficha
-- **FR-017** — Los operarios MUST poder cerrar un movimiento declarando que el tarjetón no volvió
-- **FR-018** — El sistema MUST dejar esa ficha como perdida y NO devolverla al conjunto disponible
-- **FR-019** — El sistema MUST registrar quién declaró la pérdida y cuándo
-- **FR-020** — El sistema MUST cobrar la permanencia normalmente al cerrar por pérdida, y MUST poder sumarle un valor de reposición del tarjetón que **cada establecimiento declara**, con cero como valor de partida. Va a configuración y no quemado porque toca dinero, que es exactamente lo que el Principio II reserva al establecimiento
-- **FR-021** — El sistema MUST permitir devolver al conjunto una ficha perdida que aparece después
-- **FR-022** — El sistema MUST usar la ficha como identificador del movimiento de una bicicleta; la cédula es la vía de recuperación, no el identificador
-- **FR-023** — El sistema MUST distinguir sin ambigüedad un número de ficha de una placa cuando ambos se escriben en el mismo campo
-- **FR-024** — El alcance de las fichas MUST limitarse a las bicicletas. Las motocicletas tienen placa y siguen entrando por el flujo que ya existe
-- **FR-025** — El sistema MUST tratar la cédula, el teléfono y la nota de la bicicleta como datos personales, con el mismo régimen que ya se aplica a las cuentas: se anonimizan cuando corresponde y no salen en ningún listado que no los necesite
-- **FR-026** — El sistema MUST mostrar al operario, en la pantalla de recepción, para qué se piden esos datos, de modo que pueda decírselo al cliente
-- **FR-027** — El sistema MUST purgar cédula y teléfono de los movimientos cerrados según el mismo plazo de retención que ya rige para el resto del historial, conservando el movimiento y su cobro
+#### Requisitos funcionales (23)
+
+- **FR-001** — El sistema MUST permitir que cada establecimiento declare cuántas bicicletas caben, y ese número MUST definir el rango de los números de ficha, desde 1 en adelante
+- **FR-002** — El sistema MUST permitir cambiar esa capacidad sin alterar los movimientos ya registrados
+- **FR-003** — El sistema MUST considerar libre todo número de ficha que no esté sostenido por un movimiento abierto
+- **FR-004** — El sistema MUST asignar automáticamente el número de ficha libre que sigue al recibir una bicicleta, sin que el operario tenga que elegirlo
+- **FR-005** — El sistema MUST garantizar que dos bicicletas no reciban el mismo número a la vez, incluso si dos operarios reciben simultáneamente
+- **FR-006** — El sistema MUST rechazar la recepción cuando no quede ningún número libre, con un mensaje que diga que no hay cupo y no un error técnico
+- **FR-007** — El sistema MUST mostrar en la taquilla cuántos cupos de bicicleta quedan
+- **FR-008** — El sistema MUST registrar la recepción como un movimiento con las mismas garantías que uno de vehículo: turno, operario, hora y copia embebida de lo que se aplicó
+- **FR-009** — El sistema MUST emitir un tique con el número de ficha destacado, con el mismo mecanismo de impresión y de pendientes que el de los vehículos
+- **FR-010** — Los operarios MUST poder resolver la devolución escribiendo el número de ficha
+- **FR-011** — El sistema MUST calcular el cobro con la tarifa de bicicleta vigente, por el mismo motor que cobra los vehículos
+- **FR-012** — El sistema MUST liberar el número de ficha al cerrar el movimiento
+- **FR-013** — El sistema MUST rechazar un número que no corresponde a ningún movimiento abierto, sin registrar nada
+- **FR-014** — El sistema MUST permitir cerrar sin cobro, con motivo obligatorio, igual que la cortesía de vehículos
+- **FR-015** — Los operarios MUST poder buscar un movimiento de bicicleta abierto por la cédula de quien la dejó, para cuando el cliente vuelve sin el tique
+- **FR-016** — El sistema MUST registrar que un movimiento se cerró sin tique, con el operario que lo autorizó y la hora
+- **FR-017** — Cerrar sin tique MUST cobrar la permanencia normalmente y MUST NOT sumar ningún valor adicional: el tique es papel impreso y no hay nada que reponer
+- **FR-018** — El sistema MUST usar el número de ficha como identificador del movimiento de una bicicleta; la cédula es la vía de recuperación, no el identificador
+- **FR-019** — El sistema MUST distinguir sin ambigüedad un número de ficha de una placa cuando ambos se escriben en el mismo campo
+- **FR-020** — El alcance de las fichas MUST limitarse a las bicicletas. Las motocicletas tienen placa y siguen entrando por el flujo que ya existe
+- **FR-021** — El sistema MUST tratar la cédula, el teléfono y la nota de la bicicleta como datos personales, con el mismo régimen que ya se aplica a las cuentas: se anonimizan cuando corresponde y no salen en ningún listado que no los necesite
+- **FR-022** — El sistema MUST mostrar al operario, en la pantalla de recepción, para qué se piden esos datos, de modo que pueda decírselo al cliente
+- **FR-023** — El sistema MUST purgar cédula y teléfono de los movimientos cerrados según el mismo plazo de retención que ya rige para el resto del historial, conservando el movimiento y su cobro
 
 ---
 
@@ -521,9 +516,9 @@ el sistema cumple.
 
 | Documento | Dónde está |
 |---|---|
-| Especificaciones detalladas por módulo | `specs/00X-*/spec.md` |
-| Planes técnicos | `specs/00X-*/plan.md` |
-| Tareas derivadas | `specs/00X-*/tasks.md` |
-| Principios que gobiernan las decisiones | `.specify/memory/constitution.md` |
-| Maquetas de las 44 pantallas | `Docs/Mockups/` |
-| Hoja de ruta por módulos | `Docs/Arquitectura/roadmap.md` |
+| Historias de usuario con criterios de aceptación | [`Docs/Entrega-1/historias-de-usuario.md`](../Entrega-1/historias-de-usuario.md) |
+| Casos de uso con flujos alternativos | [`Docs/Entrega-1/casos-de-uso.md`](../Entrega-1/casos-de-uso.md) |
+| Modelo de características y reglas de composición | [`Docs/Entrega-1/feature-model.md`](../Entrega-1/feature-model.md) |
+| Hoja de ruta y decisiones de arquitectura | [`Docs/Arquitectura/roadmap.md`](../Arquitectura/roadmap.md) |
+| Guía de uso por rol | [`Docs/UserGuide/`](../UserGuide/) |
+| Reparto en sprints y responsables | [`Docs/Entrega-1/calendario.md`](../Entrega-1/calendario.md) |
