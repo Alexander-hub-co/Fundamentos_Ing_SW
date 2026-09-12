@@ -178,7 +178,7 @@ npm run build        # compilación para producción
 │   ├── Planning/       Planeación de cada sprint
 │   ├── Review/         Revisión al cerrar cada sprint
 │   ├── Retrospective/  Retrospectiva de cada sprint
-│   ├── Actas/          Actas de reunión
+│   ├── Actas/         Actas de las reuniones del equipo          Actas de reunión
 │   └── UserGuide/      Guía de uso e instalación
 ├── Database/           Esquema y diagrama entidad-relación
 ├── Script/             Scripts de instalación y mantenimiento
@@ -222,6 +222,7 @@ npm run build        # compilación para producción
 | Organigrama y roles | [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md) |
 | Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
 | Reporte gerencial | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
+| Actas de reunión | [`Docs/Actas/`](Docs/Actas/) |
 | Hoja de ruta y decisiones de arquitectura | [`Docs/Arquitectura/roadmap.md`](Docs/Arquitectura/roadmap.md) |
 | Guía de uso por rol | [`Docs/UserGuide/`](Docs/UserGuide/) |
 | Wiki del proyecto | [Wiki](../../wiki) |
