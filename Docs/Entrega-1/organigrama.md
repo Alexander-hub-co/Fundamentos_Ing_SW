@@ -99,16 +99,21 @@ por el resultado, aunque varias lo ejecuten.
 
 ## Ceremonias
 
+El equipo se reúne **los martes y los viernes**, cadencia vigente desde el 25 de
+agosto de 2026. Los sprints cierran en lunes, de modo que la revisión, la
+retrospectiva y la planeación del siguiente caen todas en el martes posterior.
+
 | Ceremonia | Cuándo | Duración | Quiénes | Dónde queda el registro |
 |---|---|---|---|---|
-| Planeación del sprint | Primer día del sprint | 1 hora | Los cuatro | [`Docs/Planning/`](../Planning/) |
-| Sincronización | Dos veces por semana | 15 minutos | Los cuatro | [`Docs/Dailys/`](../Dailys/) |
-| Revisión del sprint | Último día del sprint | 45 minutos | Los cuatro, con demostración | [`Docs/Review/`](../Review/) |
-| Retrospectiva | Último día del sprint, tras la revisión | 30 minutos | Los cuatro | [`Docs/Retrospective/`](../Retrospective/) |
+| Revisión del sprint | Martes siguiente al cierre | 45 minutos | Los cuatro, con demostración | [`Docs/Review/`](../Review/) |
+| Retrospectiva | El mismo martes, tras la revisión | 30 minutos | Los cuatro | [`Docs/Retrospective/`](../Retrospective/) |
+| Planeación del sprint | El mismo martes, al final | 1 hora | Los cuatro | [`Docs/Planning/`](../Planning/) |
+| Sincronización | Los demás martes y todos los viernes | 15 minutos | Los cuatro | [`Docs/Dailys/`](../Dailys/) |
 
 Las decisiones que no pertenecen a una ceremonia concreta se consignan como
 actas en [`Docs/Actas/`](../Actas/).
 
 La sincronización es dos veces por semana y no diaria porque el equipo cursa
 otras asignaturas y una reunión diaria que nadie puede sostener se abandona en
-la segunda semana. Se prefiere una cadencia que se cumpla.
+la segunda semana. Se prefiere una cadencia que se cumpla, y se fijó en días
+concretos —martes y viernes— para que no haya que convocarla cada vez.

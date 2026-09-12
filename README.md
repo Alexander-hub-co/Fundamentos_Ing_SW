@@ -205,7 +205,7 @@ npm run build        # compilación para producción
 - **Tablero:** [KAMBAN_FIS_2630_G#](https://github.com/users/Alexander-hub-co/projects/1)
 - **Issues:** etiquetados por módulo, prioridad y estimación en puntos de historia
 - **Sprints:** de dos semanas, registrados como *milestones*
-- **Ceremonias:** planeación, sincronización dos veces por semana, revisión y retrospectiva, descritas en [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
+- **Ceremonias:** revisión, retrospectiva y planeación el martes posterior al cierre del sprint; sincronización los martes y viernes, descritas en [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
 - **Roles Scrum y responsabilidades:** [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
 
 ---
