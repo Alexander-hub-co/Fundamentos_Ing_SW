@@ -172,17 +172,17 @@ npm run build        # compilación para producción
 │   ├── SRS/            Especificación de requisitos de software
 │   ├── Entrega-1/      Canvas, modelo de características, casos de uso,
 │   │                   historias de usuario, organigrama, calendario
-│   ├── Arquitectura/   Decisiones de diseño y hoja de ruta
-│   ├── Mockups/        Maquetas de las pantallas
-│   ├── Dailys/         Reuniones diarias
+│   ├── Actas/          Actas de las reuniones del equipo
+│   ├── Arquitectura/   Hoja de ruta y decisiones de arquitectura
+│   ├── UserGuide/      Guía de uso por rol
 │   ├── Planning/       Planeación de cada sprint
 │   ├── Review/         Revisión al cerrar cada sprint
 │   ├── Retrospective/  Retrospectiva de cada sprint
-│   ├── Actas/         Actas de las reuniones del equipo          Actas de reunión
-│   └── UserGuide/      Guía de uso e instalación
-├── Database/           Esquema y diagrama entidad-relación
-├── Script/             Scripts de instalación y mantenimiento
-└── Gráficas/           Gráficos de avance y métricas
+│   ├── Dailys/         Sesiones de trabajo de martes y viernes
+│   └── Mockups/        Capturas de las pantallas del sistema
+├── Database/           Modelo entidad-relación
+├── Script/             Comprobación de coherencia del repositorio
+└── Gráficas/           Avance por sprint y reparto de la carga
 ```
 
 ---
@@ -205,6 +205,7 @@ npm run build        # compilación para producción
 - **Tablero:** [KAMBAN_FIS_2630_G#](https://github.com/users/Alexander-hub-co/projects/1)
 - **Issues:** etiquetados por módulo, prioridad y estimación en puntos de historia
 - **Sprints:** de dos semanas, registrados como *milestones*
+- **Comprobación:** `bash Script/verificar.sh` revisa que los enlaces resuelvan, que los conteos de requisitos cuadren y que ningún documento quede a medio llenar
 - **Ceremonias:** revisión, retrospectiva y planeación el martes posterior al cierre del sprint; sesiones de trabajo los martes y viernes después de clase, de 7 a 9 de la noche, descritas en [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
 - **Roles Scrum y responsabilidades:** [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
 
@@ -223,6 +224,8 @@ npm run build        # compilación para producción
 | Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
 | Reporte gerencial | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
 | Actas de reunión | [`Docs/Actas/`](Docs/Actas/) |
+| Modelo entidad-relación | [`Database/modelo-entidad-relacion.md`](Database/modelo-entidad-relacion.md) |
+| Gráficas de avance | [`Gráficas/avance.md`](Gráficas/avance.md) |
 | Hoja de ruta y decisiones de arquitectura | [`Docs/Arquitectura/roadmap.md`](Docs/Arquitectura/roadmap.md) |
 | Guía de uso por rol | [`Docs/UserGuide/`](Docs/UserGuide/) |
 | Wiki del proyecto | [Wiki](../../wiki) |
