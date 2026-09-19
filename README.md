@@ -94,33 +94,46 @@ porqué de cada exclusión está en la
 
 ---
 
-## Equipo del proyecto
+## Equipo del Proyecto
 
-| Integrante | Usuario de GitHub |
-|---|---|
-| Cristian Quevedo | [@CristianQ8907E](https://github.com/CristianQ8907E) |
-| Sergio Alexander L. | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
-| Jacob Riveros | [@JacobRiveros67](https://github.com/JacobRiveros67) |
-| Santiago Arias | [@IngSantiArias](https://github.com/IngSantiArias) |
+El equipo de **Parquivo** se encuentra organizado mediante roles definidos para
+apoyar la gestión, planificación, calidad y desarrollo del proyecto.
+
+| Integrante | Rol | GitHub |
+|---|---|---|
+| **Cristian Quevedo** | Product Owner | [@CristianQ8907E](https://github.com/CristianQ8907E) |
+| **Sergio Alexander L.** | Scrum Master | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
+| **Sergio Alexander L.** | Configuration Manager | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
+| **Santiago Arias** | Sprint Planner | [@IngSantiArias](https://github.com/IngSantiArias) |
+| **Santiago Arias** | QA Lead | [@IngSantiArias](https://github.com/IngSantiArias) |
+| **Jacob Riveros** | DevOps Engineer | [@JacobRiveros67](https://github.com/JacobRiveros67) |
+
+Los cuatro integran además el equipo de desarrollo: en un equipo de este tamaño,
+dejar a dos personas fuera de la construcción no tendría sentido. El detalle de
+qué responde cada rol está en el
+[organigrama](Docs/Entrega-1/organigrama.md).
 
 **Docente:** Ing. Kerwin de Jesús Barros Somerson — [@kbarrosDev](https://github.com/kbarrosDev)
 
 ---
 
-## Tecnologías
+## Tecnologías Utilizadas
 
-| Capa | Herramienta | Por qué |
-|---|---|---|
-| Lenguaje | TypeScript | Los errores de tipo salen al compilar, no delante de un cliente |
-| Interfaz | React 19 | Estándar de la industria |
-| Servidor | Next.js 16 (App Router) | La página se arma en el servidor: llega dibujada y sin parpadeo |
-| Base de datos | PostgreSQL | Aísla inquilinos de verdad, con seguridad a nivel de fila |
-| Acceso a datos | Drizzle ORM | Consultas con tipos verificados, sin SQL suelto en cadenas |
-| Autenticación | better-auth | Autenticación probada, sin criptografía propia |
-| Pruebas | Vitest | Se ejecuta contra una base de datos real |
+- **Lenguaje:** TypeScript
+- **Frontend:** React 19
+- **Framework de aplicación:** Next.js 16 (App Router)
+- **Base de Datos:** PostgreSQL con seguridad a nivel de fila
+- **Acceso a datos:** Drizzle ORM
+- **Autenticación:** better-auth
+- **Pruebas:** Vitest contra una base de datos real
+- **Gestión de dependencias:** npm + package-lock.json
+- **Control de versiones:** Git
 
-**Seis dependencias en total.** No se usa librería de componentes, de estilos ni
-de gráficos: todo eso está escrito a medida.
+**Seis dependencias de producción en total.** No se usa librería de componentes,
+de estilos ni de gráficos: todo eso está escrito a medida. Cada elección responde
+a una razón concreta —TypeScript para que los errores de tipo salgan al compilar
+y no delante de un cliente, PostgreSQL porque aísla inquilinos de verdad— y esas
+razones están en la [hoja de ruta](Docs/Arquitectura/roadmap.md).
 
 ---
 
@@ -164,25 +177,54 @@ npm run build        # compilación para producción
 
 ---
 
-## Estructura del proyecto
+## Estructura del Proyecto
 
 ```
-.
+Fundamentos_Ing_SW/
+│
 ├── Docs/
-│   ├── SRS/            Especificación de requisitos de software
-│   ├── Entrega-1/      Canvas, modelo de características, casos de uso,
-│   │                   historias de usuario, organigrama, calendario
-│   ├── Actas/          Actas de las reuniones del equipo
-│   ├── Arquitectura/   Hoja de ruta y decisiones de arquitectura
-│   ├── UserGuide/      Guía de uso por rol
-│   ├── Planning/       Planeación de cada sprint
-│   ├── Review/         Revisión al cerrar cada sprint
-│   ├── Retrospective/  Retrospectiva de cada sprint
-│   ├── Dailys/         Sesiones de trabajo de martes y viernes
-│   └── Mockups/        Capturas de las pantallas del sistema
-├── Database/           Modelo entidad-relación
-├── Script/             Comprobación de coherencia del repositorio
-└── Gráficas/           Avance por sprint y reparto de la carga
+│   ├── SRS/
+│   │   └── Especificación de requisitos de software del sistema.
+│   │
+│   ├── Entrega-1/
+│   │   └── Canvas, modelo de características, casos de uso, historias
+│   │       de usuario, organigrama, calendario y reporte gerencial.
+│   │
+│   ├── Actas/
+│   │   └── Actas de las reuniones del equipo, martes y viernes.
+│   │
+│   ├── Arquitectura/
+│   │   └── Hoja de ruta por módulos y decisiones de arquitectura.
+│   │
+│   ├── UserGuide/
+│   │   └── Guía de uso del sistema, separada por rol.
+│   │
+│   ├── Planning/
+│   │   └── Planeación de cada sprint.
+│   │
+│   ├── Review/
+│   │   └── Revisión al cerrar cada sprint.
+│   │
+│   ├── Retrospective/
+│   │   └── Retrospectiva de cada sprint.
+│   │
+│   ├── Dailys/
+│   │   └── Sesiones de trabajo de martes y viernes.
+│   │
+│   └── Mockups/
+│       └── Capturas de las pantallas del sistema.
+│
+├── Database/
+│   └── Modelo entidad-relación y decisiones del esquema.
+│
+├── Script/
+│   └── Comprobación de coherencia de la documentación del repositorio.
+│
+├── Gráficas/
+│   └── Avance por sprint, trabajo restante y reparto de la carga.
+│
+└── README.md
+    └── Este documento.
 ```
 
 ---
@@ -234,4 +276,20 @@ npm run build        # compilación para producción
 
 ## Contacto
 
-**Cristian Quevedo** — cristianq8907e@gmail.com
+**Equipo de desarrollo:**
+
+**Cristian Quevedo**
+Estudiante de Ingeniería de Sistemas, Pontificia Universidad Javeriana
+[@CristianQ8907E](https://github.com/CristianQ8907E)
+
+**Sergio Alexander L.**
+Estudiante de Ingeniería de Sistemas, Pontificia Universidad Javeriana
+[@Alexander-hub-co](https://github.com/Alexander-hub-co)
+
+**Jacob Riveros**
+Estudiante de Ingeniería de Sistemas, Pontificia Universidad Javeriana
+[@JacobRiveros67](https://github.com/JacobRiveros67)
+
+**Santiago Arias**
+Estudiante de Ingeniería de Sistemas, Pontificia Universidad Javeriana
+[@IngSantiArias](https://github.com/IngSantiArias)
