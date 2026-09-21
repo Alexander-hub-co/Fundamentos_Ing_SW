@@ -178,7 +178,7 @@ npm run build        # compilación para producción
 │   ├── Planning/       Planeación de cada sprint
 │   ├── Review/         Revisión al cerrar cada sprint
 │   ├── Retrospective/  Retrospectiva de cada sprint
-│   ├── Actas/         Actas de las reuniones del equipo          Actas de reunión
+│   ├── Actas/         Actas de las reuniones del equipo
 │   └── UserGuide/      Guía de uso e instalación
 ├── Database/           Esquema y diagrama entidad-relación
 ├── Script/             Scripts de instalación y mantenimiento
