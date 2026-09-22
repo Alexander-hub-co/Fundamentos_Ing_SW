@@ -26,6 +26,8 @@ while IFS= read -r archivo; do
     [ -z "$destino" ] && continue
     case "$destino" in http*|\#*|mailto:*|../../wiki) continue ;; esac
     ruta="${destino%%#*}"
+    # los enlaces de markdown pueden venir codificados (%20 por espacio)
+    ruta=$(printf '%b' "${ruta//%/\\x}")
     [ -z "$ruta" ] && continue
     [ -e "$base/$ruta" ] || { aviso "$archivo apunta a $ruta, que no existe"; rotos=1; }
   done < <(grep -oE '\]\([^)]+\)' "$archivo" | sed 's/^](//; s/)$//')
