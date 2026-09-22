@@ -214,6 +214,41 @@ Fundamentos_Ing_SW/
 │   └── Mockups/
 │       └── Capturas de las pantallas del sistema.
 │
+├── src/
+│   ├── app/
+│   │   └── Las pantallas y sus acciones de servidor, por rol:
+│   │       acceso, establecimiento y plataforma.
+│   │
+│   ├── dominio/
+│   │   └── Las reglas de negocio puras: cálculo del cobro,
+│   │       clasificación por placa, jornadas y convenios.
+│   │
+│   ├── db/
+│   │   └── Esquema, migraciones y el blindaje de seguridad
+│   │       a nivel de fila.
+│   │
+│   └── lib/
+│       └── Autenticación, autorización y utilidades comunes.
+│
+├── tests/
+│   ├── aislamiento/
+│   │   └── Que un establecimiento no alcance nada de otro.
+│   │
+│   ├── integracion/
+│   │   └── Reglas de negocio contra PostgreSQL real.
+│   │
+│   └── unit/
+│       └── Cálculos puros y forma de las pantallas.
+│
+├── specs/
+│   └── Especificación, plan técnico y tareas de cada módulo.
+│
+├── scripts/
+│   └── Preparación de la base de datos y datos de ejemplo.
+│
+├── design_handoff_parquivo/
+│   └── Maquetas de las pantallas, entregadas por diseño.
+│
 ├── Database/
 │   └── Modelo entidad-relación y decisiones del esquema.
 │
@@ -222,6 +257,16 @@ Fundamentos_Ing_SW/
 │
 ├── Gráficas/
 │   └── Avance por sprint, trabajo restante y reparto de la carga.
+│
+├── .github/workflows/
+│   └── Integración continua: tipos, análisis estático y pruebas.
+│
+├── package.json
+│   └── Seis dependencias de producción y las órdenes del proyecto.
+│
+├── .env.example
+│   └── Las variables de entorno que hay que definir. El .env real
+│       nunca se versiona.
 │
 └── README.md
     └── Este documento.

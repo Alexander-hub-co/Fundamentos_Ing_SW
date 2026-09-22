@@ -1,0 +1,2 @@
+ALTER TABLE "cambio_estado" ENABLE ROW LEVEL SECURITY;--> statement-breakpoint
+CREATE POLICY "cambio_estado_ambito" ON "cambio_estado" AS PERMISSIVE FOR ALL TO public USING (parqueadero_id = nullif(current_setting('app.parqueadero_id', true), '')::uuid) WITH CHECK (parqueadero_id = nullif(current_setting('app.parqueadero_id', true), '')::uuid);
