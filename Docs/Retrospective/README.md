@@ -3,9 +3,10 @@
 La retrospectiva va **tras la revisión**, de 19:40 a 20:10 del martes siguiente
 al cierre de cada sprint. Queda registrada dentro del acta de esa reunión.
 
-| Sprint | Cuándo | Acta |
+| Sprint | Cuándo | Documentos |
 |---|---|---|
-| Sprint 1 | Martes 1 de septiembre de 2026 | [Acta 003](../Actas/ACTA-003-2026-09-01.md) |
+| Sprint 1 | Martes 1 de septiembre de 2026 | [Retrospectiva](sprint-1-retrospectiva.md) · [Acta 003](../Actas/ACTA-003-2026-09-01.md) |
+| Sprint 2 | Martes 15 de septiembre de 2026 | [Retrospectiva](sprint-2-retrospectiva.md) · [Acta 007](../Actas/ACTA-007-2026-09-15.md) |
 
 ## Cambios que han salido de una retrospectiva
 

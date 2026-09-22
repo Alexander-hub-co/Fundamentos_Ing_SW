@@ -13,6 +13,8 @@ La cadencia está vigente desde el 25 de agosto de 2026 y se describe en el
 | [004](ACTA-004-2026-09-04.md) | 4 de septiembre de 2026 | viernes | Sesión de trabajo — Sprint 2 |
 | [005](ACTA-005-2026-09-08.md) | 8 de septiembre de 2026 | martes | Sesión de trabajo — Sprint 2 |
 | [006](ACTA-006-2026-09-11.md) | 11 de septiembre de 2026 | viernes | Depuración del backlog, asignación y rebalanceo |
+| [007](ACTA-007-2026-09-15.md) | 15 de septiembre de 2026 | martes | Revisión y retrospectiva del Sprint 2, planeación del Sprint 3 |
+| [008](ACTA-008-2026-09-18.md) | 18 de septiembre de 2026 | viernes | Sesión de trabajo — Sprint 3 |
 
 Los martes en que cierra un sprint, el bloque se reparte entre la revisión, la
 retrospectiva y la planeación del siguiente. Los demás martes y todos los

@@ -266,6 +266,10 @@ Fundamentos_Ing_SW/
 | Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
 | Reporte gerencial | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
 | Actas de reunión | [`Docs/Actas/`](Docs/Actas/) |
+| Planeación de cada sprint | [`Docs/Planning/`](Docs/Planning/) |
+| Revisión de cada sprint | [`Docs/Review/`](Docs/Review/) |
+| Retrospectiva de cada sprint | [`Docs/Retrospective/`](Docs/Retrospective/) |
+| Capturas de las pantallas | [`Docs/Mockups/`](Docs/Mockups/) |
 | Modelo entidad-relación | [`Database/modelo-entidad-relacion.md`](Database/modelo-entidad-relacion.md) |
 | Gráficas de avance | [`Gráficas/avance.md`](Gráficas/avance.md) |
 | Hoja de ruta y decisiones de arquitectura | [`Docs/Arquitectura/roadmap.md`](Docs/Arquitectura/roadmap.md) |
@@ -276,20 +280,23 @@ Fundamentos_Ing_SW/
 
 ## Contacto
 
-**Equipo de desarrollo:**
+**Equipo de desarrollo.** Los cuatro son estudiantes de cuarto semestre de
+Ingeniería de Sistemas en la Pontificia Universidad Javeriana.
 
 **Cristian Quevedo**
-Estudiante de Ingeniería de Sistemas, Pontificia Universidad Javeriana
-[@CristianQ8907E](https://github.com/CristianQ8907E)
+Estudiante de Ingeniería de Sistemas, cuarto semestre — Pontificia Universidad Javeriana
+[quevedoecj@javeriana.edu.co](mailto:quevedoecj@javeriana.edu.co) · [@CristianQ8907E](https://github.com/CristianQ8907E)
 
-**Sergio Alexander L.**
-Estudiante de Ingeniería de Sistemas, Pontificia Universidad Javeriana
-[@Alexander-hub-co](https://github.com/Alexander-hub-co)
-
-**Jacob Riveros**
-Estudiante de Ingeniería de Sistemas, Pontificia Universidad Javeriana
-[@JacobRiveros67](https://github.com/JacobRiveros67)
+**Sergio Alexander Lara Bonilla**
+Estudiante de Ingeniería de Sistemas, cuarto semestre — Pontificia Universidad Javeriana
+[sergioalexlb@gmail.com](mailto:sergioalexlb@gmail.com) · [@Alexander-hub-co](https://github.com/Alexander-hub-co)
 
 **Santiago Arias**
-Estudiante de Ingeniería de Sistemas, Pontificia Universidad Javeriana
-[@IngSantiArias](https://github.com/IngSantiArias)
+Estudiante de Ingeniería de Sistemas, cuarto semestre — Pontificia Universidad Javeriana
+[santiagoariast1@gmail.com](mailto:santiagoariast1@gmail.com) · [@IngSantiArias](https://github.com/IngSantiArias)
+
+**Jacob Riveros**
+Estudiante de Ingeniería de Sistemas, cuarto semestre — Pontificia Universidad Javeriana
+[@JacobRiveros67](https://github.com/JacobRiveros67)
+
+**Docente:** Ing. Kerwin de Jesús Barros Somerson — [@kbarrosDev](https://github.com/kbarrosDev)

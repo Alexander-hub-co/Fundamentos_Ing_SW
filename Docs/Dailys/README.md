@@ -15,6 +15,7 @@ frenando— y el resto del bloque se trabaja en conjunto.
 | 4 de septiembre de 2026 | viernes | [Acta 004](../Actas/ACTA-004-2026-09-04.md) |
 | 8 de septiembre de 2026 | martes | [Acta 005](../Actas/ACTA-005-2026-09-08.md) |
 | 11 de septiembre de 2026 | viernes | [Acta 006](../Actas/ACTA-006-2026-09-11.md) |
+| 18 de septiembre de 2026 | viernes | [Acta 008](../Actas/ACTA-008-2026-09-18.md) |
 
 La cadencia es de dos veces por semana y no diaria porque el equipo cursa otras
 asignaturas, y una reunión diaria que nadie puede sostener se abandona en la

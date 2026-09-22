@@ -1,7 +1,7 @@
 # Gráficas de avance
 
 **Parquivo** · Fundamentos de Ingeniería de Software (12946) · 2026-2
-**Corte:** 12 de septiembre de 2026
+**Corte:** 22 de septiembre de 2026
 
 ---
 
@@ -15,7 +15,9 @@ xychart-beta
     bar [18, 21, 24, 24, 21, 14]
 ```
 
-El Sprint 1 es el único cerrado: 18 de 18 puntos. Los demás son compromisos.
+Cerrados van dos: el Sprint 1 con 18 de 18 puntos y el Sprint 2 con 21 de 21.
+El Sprint 3 está en curso y cierra el 28 de septiembre. Los demás son
+compromisos.
 
 El tope de 24 puntos no es arbitrario: la única velocidad medida del equipo son
 los 18 del Sprint 1, y comprometerse muy por encima de lo que uno ha demostrado
@@ -33,7 +35,8 @@ xychart-beta
     line [122, 104, 83, 59, 35, 14, 0]
 ```
 
-La pendiente es deliberadamente pareja. Un plan con un sprint de 45 puntos y
+Los dos primeros tramos ya se recorrieron completos: de 122 puntos restantes se
+pasó a 83. La pendiente es deliberadamente pareja. Un plan con un sprint de 45 puntos y
 otro de 9 no se cumple: el sobrecargado arrastra al siguiente y el liviano no
 compensa.
 
@@ -64,6 +67,26 @@ cuatro personas participan en los cuatro sprints de construcción.
 | Sprint 5 | 8 | 5 | 3 | 5 | **21** |
 | Entrega Final | — | 8 | 3 | 3 | **14** |
 | **Total** | **27** | **29** | **24** | **24** | **104** |
+
+---
+
+## Velocidad medida
+
+```mermaid
+xychart-beta
+    title "Puntos entregados frente a puntos comprometidos"
+    x-axis ["Sprint 1", "Sprint 2", "Sprint 3"]
+    y-axis "Puntos de historia" 0 --> 30
+    bar [18, 21, 0]
+    line [18, 21, 24]
+```
+
+La barra es lo entregado y la línea lo comprometido. Los dos sprints cerrados
+entregaron todo lo que pidieron. El Sprint 3 está en curso, así que su barra
+está en cero todavía.
+
+Media de 19,5 puntos por sprint. El Sprint 3 se comprometió con 24, que es un
+23 % por encima de esa media y más que el mejor sprint del equipo hasta ahora.
 
 ---
 

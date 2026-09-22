@@ -1,20 +1,21 @@
 # Reporte gerencial
 
 **Parquivo** · Fundamentos de Ingeniería de Software (12946) · 2026-2
-**Corte:** 12 de septiembre de 2026 · Sprint 2 en curso
+**Corte:** 22 de septiembre de 2026 · Sprint 3 en curso
 
 ---
 
 ## Resumen
 
-El proyecto va en el segundo de cinco sprints de construcción. La
+El proyecto va en el tercero de cinco sprints de construcción. La
 especificación está completa y cerrada: cinco módulos, 194 requisitos
 funcionales, 14 no funcionales y 51 historias de usuario con criterios de
 aceptación verificables. El backlog está íntegramente estimado, asignado y
 repartido en hitos con fecha.
 
-El riesgo mayor no es técnico sino de calendario: el Sprint 2 cierra en dos días
-con sus cuatro historias abiertas.
+Los dos primeros sprints cerraron completos, con 39 de 39 puntos comprometidos.
+El riesgo mayor ya no es de calendario sino de sobrecompromiso: el Sprint 3 pide
+24 puntos y la velocidad medida es de 19,5.
 
 ---
 
@@ -22,9 +23,10 @@ con sus cuatro historias abiertas.
 
 | Indicador | Valor |
 |---|---|
-| Sprints de construcción | 2 de 5 |
-| Puntos cerrados | 18 |
-| Puntos comprometidos por delante | 104 |
+| Sprints de construcción | 3 de 5 |
+| Puntos cerrados | 39 |
+| Velocidad media medida | 19,5 puntos por sprint |
+| Puntos comprometidos por delante | 83 |
 | Historias de usuario especificadas | 51 |
 | *Issues* en el tablero sin responsable | 0 |
 | Requisitos funcionales | 194 |
@@ -33,19 +35,21 @@ con sus cuatro historias abiertas.
 ```mermaid
 flowchart LR
     S1["Sprint 1<br/>18 pts<br/>CERRADO"]
-    S2["Sprint 2<br/>21 pts<br/>EN CURSO"]
-    S3["Sprint 3<br/>24 pts"]
+    S2["Sprint 2<br/>21 pts<br/>CERRADO"]
+    S3["Sprint 3<br/>24 pts<br/>EN CURSO"]
     S4["Sprint 4<br/>24 pts"]
     S5["Sprint 5<br/>21 pts"]
     EF["Entrega Final<br/>14 pts"]
     S1 --> S2 --> S3 --> S4 --> S5 --> EF
 ```
 
-La velocidad medida es de 18 puntos en el Sprint 1. Los sprints siguientes se
-comprometieron entre 21 y 24, un 17 a 33 % por encima de lo único que el equipo
-ha demostrado que puede sostener. Es una apuesta consciente: el Sprint 1 fue de
-diseño y documentación, más lento por naturaleza que escribir código sobre una
-especificación ya cerrada.
+La velocidad medida son 18 puntos en el Sprint 1 y 21 en el Sprint 2: media de
+19,5 y tendencia al alza. La apuesta de comprometerse por encima del primer dato
+salió bien, porque el Sprint 1 era de diseño y documentación, más lento por
+naturaleza que escribir código sobre una especificación ya cerrada.
+
+El Sprint 3 pide 24 puntos, un 23 % por encima de la media medida. Es el primero
+que se comprometió por encima del mejor sprint del equipo.
 
 ---
 
