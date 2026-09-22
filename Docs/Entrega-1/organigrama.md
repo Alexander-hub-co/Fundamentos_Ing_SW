@@ -11,24 +11,28 @@ flowchart TD
     D["Docente<br/>Ing. Kerwin de Jesús Barros Somerson"]
     PO["Product Owner<br/>Cristian Quevedo"]
     SM["Scrum Master<br/>Sergio Alexander L."]
-    ED["Equipo de desarrollo"]
-    E1["Cristian Quevedo<br/><i>dominio y reglas de negocio</i>"]
-    E2["Sergio Alexander L.<br/><i>seguridad y permisos</i>"]
-    E3["Jacob Riveros<br/><i>integridad del historial</i>"]
-    E4["Santiago Arias<br/><i>modelo de datos y taquilla</i>"]
+    CM["Configuration Manager<br/>Sergio Alexander L."]
+    SP["Sprint Planner<br/>Santiago Arias"]
+    QA["QA Lead<br/>Santiago Arias"]
+    DO["DevOps Engineer<br/>Jacob Riveros"]
+    ED["Equipo de desarrollo<br/>los cuatro integrantes"]
 
     D -.acompañamiento.-> SM
     PO --- SM
-    SM --> ED
-    ED --> E1
-    ED --> E2
-    ED --> E3
-    ED --> E4
+    SM --> CM
+    SM --> SP
+    SM --> QA
+    SM --> DO
+    CM --> ED
+    SP --> ED
+    QA --> ED
+    DO --> ED
 ```
 
-El equipo son cuatro personas, así que **el Product Owner y el Scrum Master
-también desarrollan**. Scrum no lo prohíbe y en un equipo de este tamaño lo
-contrario dejaría a dos personas escribiendo todo el código.
+El equipo son cuatro personas y los roles son seis, así que **dos integrantes
+sostienen dos roles cada uno y los cuatro desarrollan**. Scrum no lo prohíbe, y
+en un equipo de este tamaño lo contrario dejaría a dos personas escribiendo todo
+el código.
 
 ---
 
@@ -48,10 +52,42 @@ Responde por **qué se construye y en qué orden**.
 
 Responde por **que el proceso funcione**.
 
-- Administra el repositorio: permisos, hitos, etiquetas y flujo de ramas.
 - Convoca y modera la planeación, la revisión y la retrospectiva de cada sprint.
 - Retira los impedimentos que frenan al equipo.
 - Vigila que el alcance del sprint no cambie a mitad de camino.
+
+### Configuration Manager — Sergio Alexander L. · [@Alexander-hub-co](https://github.com/Alexander-hub-co)
+
+Responde por **el estado del repositorio y de las versiones**.
+
+- Administra permisos, hitos, etiquetas y el flujo de ramas.
+- Vigila que ningún cambio llegue a `main` sin pasar por una rama y su revisión.
+- Mantiene la trazabilidad entre lo que se acordó y lo que está publicado.
+
+### Sprint Planner — Santiago Arias · [@IngSantiArias](https://github.com/IngSantiArias)
+
+Responde por **que el sprint quepa en el sprint**.
+
+- Prepara el material de la planeación y la demostración de la revisión.
+- Vigila que ningún sprint pase del tope de puntos que el equipo acordó.
+- Lleva la cuenta de la velocidad medida y la contrasta con lo comprometido.
+
+### QA Lead — Santiago Arias · [@IngSantiArias](https://github.com/IngSantiArias)
+
+Responde por **que lo entregado esté probado**.
+
+- Revisa que cada historia tenga criterios de aceptación verificables antes de
+  entrar a un sprint.
+- Mantiene la suite de pruebas automatizadas y vigila que corra en verde.
+- Comprueba lo terminado contra sus criterios antes de la revisión del sprint.
+
+### DevOps Engineer — Jacob Riveros · [@JacobRiveros67](https://github.com/JacobRiveros67)
+
+Responde por **que el sistema se pueda desplegar y siga en pie**.
+
+- Documenta el despliegue del entorno de producción.
+- Comprueba el acceso remoto y la disponibilidad del sistema.
+- Mantiene las comprobaciones que corren antes de integrar un cambio.
 
 ### Equipo de desarrollo
 

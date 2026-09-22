@@ -94,33 +94,46 @@ porqué de cada exclusión está en la
 
 ---
 
-## Equipo del proyecto
+## Equipo del Proyecto
 
-| Integrante | Usuario de GitHub |
-|---|---|
-| Cristian Quevedo | [@CristianQ8907E](https://github.com/CristianQ8907E) |
-| Sergio Alexander L. | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
-| Jacob Riveros | [@JacobRiveros67](https://github.com/JacobRiveros67) |
-| Santiago Arias | [@IngSantiArias](https://github.com/IngSantiArias) |
+El equipo de **Parquivo** se encuentra organizado mediante roles definidos para
+apoyar la gestión, planificación, calidad y desarrollo del proyecto.
+
+| Integrante | Rol | GitHub |
+|---|---|---|
+| **Cristian Quevedo** | Product Owner | [@CristianQ8907E](https://github.com/CristianQ8907E) |
+| **Sergio Alexander L.** | Scrum Master | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
+| **Sergio Alexander L.** | Configuration Manager | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
+| **Santiago Arias** | Sprint Planner | [@IngSantiArias](https://github.com/IngSantiArias) |
+| **Santiago Arias** | QA Lead | [@IngSantiArias](https://github.com/IngSantiArias) |
+| **Jacob Riveros** | DevOps Engineer | [@JacobRiveros67](https://github.com/JacobRiveros67) |
+
+Los cuatro integran además el equipo de desarrollo: en un equipo de este tamaño,
+dejar a dos personas fuera de la construcción no tendría sentido. El detalle de
+qué responde cada rol está en el
+[organigrama](Docs/Entrega-1/organigrama.md).
 
 **Docente:** Ing. Kerwin de Jesús Barros Somerson — [@kbarrosDev](https://github.com/kbarrosDev)
 
 ---
 
-## Tecnologías
+## Tecnologías Utilizadas
 
-| Capa | Herramienta | Por qué |
-|---|---|---|
-| Lenguaje | TypeScript | Los errores de tipo salen al compilar, no delante de un cliente |
-| Interfaz | React 19 | Estándar de la industria |
-| Servidor | Next.js 16 (App Router) | La página se arma en el servidor: llega dibujada y sin parpadeo |
-| Base de datos | PostgreSQL | Aísla inquilinos de verdad, con seguridad a nivel de fila |
-| Acceso a datos | Drizzle ORM | Consultas con tipos verificados, sin SQL suelto en cadenas |
-| Autenticación | better-auth | Autenticación probada, sin criptografía propia |
-| Pruebas | Vitest | Se ejecuta contra una base de datos real |
+- **Lenguaje:** TypeScript
+- **Frontend:** React 19
+- **Framework de aplicación:** Next.js 16 (App Router)
+- **Base de Datos:** PostgreSQL con seguridad a nivel de fila
+- **Acceso a datos:** Drizzle ORM
+- **Autenticación:** better-auth
+- **Pruebas:** Vitest contra una base de datos real
+- **Gestión de dependencias:** npm + package-lock.json
+- **Control de versiones:** Git
 
-**Seis dependencias en total.** No se usa librería de componentes, de estilos ni
-de gráficos: todo eso está escrito a medida.
+**Seis dependencias de producción en total.** No se usa librería de componentes,
+de estilos ni de gráficos: todo eso está escrito a medida. Cada elección responde
+a una razón concreta —TypeScript para que los errores de tipo salgan al compilar
+y no delante de un cliente, PostgreSQL porque aísla inquilinos de verdad— y esas
+razones están en la [hoja de ruta](Docs/Arquitectura/roadmap.md).
 
 ---
 
@@ -164,25 +177,99 @@ npm run build        # compilación para producción
 
 ---
 
-## Estructura del proyecto
+## Estructura del Proyecto
 
 ```
-.
+Fundamentos_Ing_SW/
+│
 ├── Docs/
-│   ├── SRS/            Especificación de requisitos de software
-│   ├── Entrega-1/      Canvas, modelo de características, casos de uso,
-│   │                   historias de usuario, organigrama, calendario
-│   ├── Arquitectura/   Decisiones de diseño y hoja de ruta
-│   ├── Mockups/        Maquetas de las pantallas
-│   ├── Dailys/         Reuniones diarias
-│   ├── Planning/       Planeación de cada sprint
-│   ├── Review/         Revisión al cerrar cada sprint
-│   ├── Retrospective/  Retrospectiva de cada sprint
-│   ├── Actas/         Actas de las reuniones del equipo
-│   └── UserGuide/      Guía de uso e instalación
-├── Database/           Esquema y diagrama entidad-relación
-├── Script/             Scripts de instalación y mantenimiento
-└── Gráficas/           Gráficos de avance y métricas
+│   ├── SRS/
+│   │   └── Especificación de requisitos de software del sistema.
+│   │
+│   ├── Entrega-1/
+│   │   └── Canvas, modelo de características, casos de uso, historias
+│   │       de usuario, organigrama, calendario y reporte gerencial.
+│   │
+│   ├── Actas/
+│   │   └── Actas de las reuniones del equipo, martes y viernes.
+│   │
+│   ├── Arquitectura/
+│   │   └── Hoja de ruta por módulos y decisiones de arquitectura.
+│   │
+│   ├── UserGuide/
+│   │   └── Guía de uso del sistema, separada por rol.
+│   │
+│   ├── Planning/
+│   │   └── Planeación de cada sprint.
+│   │
+│   ├── Review/
+│   │   └── Revisión al cerrar cada sprint.
+│   │
+│   ├── Retrospective/
+│   │   └── Retrospectiva de cada sprint.
+│   │
+│   ├── Dailys/
+│   │   └── Sesiones de trabajo de martes y viernes.
+│   │
+│   └── Mockups/
+│       └── Capturas de las pantallas del sistema.
+│
+├── src/
+│   ├── app/
+│   │   └── Las pantallas y sus acciones de servidor, por rol:
+│   │       acceso, establecimiento y plataforma.
+│   │
+│   ├── dominio/
+│   │   └── Las reglas de negocio puras: cálculo del cobro,
+│   │       clasificación por placa, jornadas y convenios.
+│   │
+│   ├── db/
+│   │   └── Esquema, migraciones y el blindaje de seguridad
+│   │       a nivel de fila.
+│   │
+│   └── lib/
+│       └── Autenticación, autorización y utilidades comunes.
+│
+├── tests/
+│   ├── aislamiento/
+│   │   └── Que un establecimiento no alcance nada de otro.
+│   │
+│   ├── integracion/
+│   │   └── Reglas de negocio contra PostgreSQL real.
+│   │
+│   └── unit/
+│       └── Cálculos puros y forma de las pantallas.
+│
+├── specs/
+│   └── Especificación, plan técnico y tareas de cada módulo.
+│
+├── scripts/
+│   └── Preparación de la base de datos y datos de ejemplo.
+│
+├── design_handoff_parquivo/
+│   └── Maquetas de las pantallas, entregadas por diseño.
+│
+├── Database/
+│   └── Modelo entidad-relación y decisiones del esquema.
+│
+├── Script/
+│   └── Comprobación de coherencia de la documentación del repositorio.
+│
+├── Gráficas/
+│   └── Avance por sprint, trabajo restante y reparto de la carga.
+│
+├── .github/workflows/
+│   └── Integración continua: tipos, análisis estático y pruebas.
+│
+├── package.json
+│   └── Seis dependencias de producción y las órdenes del proyecto.
+│
+├── .env.example
+│   └── Las variables de entorno que hay que definir. El .env real
+│       nunca se versiona.
+│
+└── README.md
+    └── Este documento.
 ```
 
 ---
@@ -205,6 +292,7 @@ npm run build        # compilación para producción
 - **Tablero:** [KAMBAN_FIS_2630_G#](https://github.com/users/Alexander-hub-co/projects/1)
 - **Issues:** etiquetados por módulo, prioridad y estimación en puntos de historia
 - **Sprints:** de dos semanas, registrados como *milestones*
+- **Comprobación:** `bash Script/verificar.sh` revisa que los enlaces resuelvan, que los conteos de requisitos cuadren y que ningún documento quede a medio llenar
 - **Ceremonias:** revisión, retrospectiva y planeación el martes posterior al cierre del sprint; sesiones de trabajo los martes y viernes después de clase, de 7 a 9 de la noche, descritas en [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
 - **Roles Scrum y responsabilidades:** [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
 
@@ -223,6 +311,12 @@ npm run build        # compilación para producción
 | Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
 | Reporte gerencial | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
 | Actas de reunión | [`Docs/Actas/`](Docs/Actas/) |
+| Planeación de cada sprint | [`Docs/Planning/`](Docs/Planning/) |
+| Revisión de cada sprint | [`Docs/Review/`](Docs/Review/) |
+| Retrospectiva de cada sprint | [`Docs/Retrospective/`](Docs/Retrospective/) |
+| Capturas de las pantallas | [`Docs/Mockups/`](Docs/Mockups/) |
+| Modelo entidad-relación | [`Database/modelo-entidad-relacion.md`](Database/modelo-entidad-relacion.md) |
+| Gráficas de avance | [`Gráficas/avance.md`](Gráficas/avance.md) |
 | Hoja de ruta y decisiones de arquitectura | [`Docs/Arquitectura/roadmap.md`](Docs/Arquitectura/roadmap.md) |
 | Guía de uso por rol | [`Docs/UserGuide/`](Docs/UserGuide/) |
 | Wiki del proyecto | [Wiki](../../wiki) |
@@ -231,4 +325,23 @@ npm run build        # compilación para producción
 
 ## Contacto
 
-**Cristian Quevedo** — cristianq8907e@gmail.com
+**Equipo de desarrollo.** Los cuatro son estudiantes de cuarto semestre de
+Ingeniería de Sistemas en la Pontificia Universidad Javeriana.
+
+**Cristian Quevedo**
+Estudiante de Ingeniería de Sistemas, cuarto semestre — Pontificia Universidad Javeriana
+[quevedoecj@javeriana.edu.co](mailto:quevedoecj@javeriana.edu.co) · [@CristianQ8907E](https://github.com/CristianQ8907E)
+
+**Sergio Alexander Lara Bonilla**
+Estudiante de Ingeniería de Sistemas, cuarto semestre — Pontificia Universidad Javeriana
+[sergioalexlb@gmail.com](mailto:sergioalexlb@gmail.com) · [@Alexander-hub-co](https://github.com/Alexander-hub-co)
+
+**Santiago Arias**
+Estudiante de Ingeniería de Sistemas, cuarto semestre — Pontificia Universidad Javeriana
+[santiagoariast1@gmail.com](mailto:santiagoariast1@gmail.com) · [@IngSantiArias](https://github.com/IngSantiArias)
+
+**Jacob Riveros**
+Estudiante de Ingeniería de Sistemas, cuarto semestre — Pontificia Universidad Javeriana
+[@JacobRiveros67](https://github.com/JacobRiveros67)
+
+**Docente:** Ing. Kerwin de Jesús Barros Somerson — [@kbarrosDev](https://github.com/kbarrosDev)

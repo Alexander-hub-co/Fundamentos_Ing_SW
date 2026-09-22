@@ -1,0 +1,46 @@
+{
+  "name": "parquivo",
+  "version": "0.1.0",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "dev:movil": "bash scripts/dev-movil.sh",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:aislamiento": "vitest run --project aislamiento",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx --env-file=.env src/db/migrar.ts",
+    "db:migrate:test": "tsx --env-file=.env.test src/db/migrar.ts",
+    "db:semilla": "tsx --env-file=.env src/db/semilla.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "better-auth": "^1.6.29",
+    "drizzle-orm": "^0.45.2",
+    "next": "^16.3.1",
+    "pg": "^8.23.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/pg": "^8.21.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.1",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "private": true,
+  "description": "Parquivo \u2014 gesti\u00f3n inteligente para parqueaderos"
+}

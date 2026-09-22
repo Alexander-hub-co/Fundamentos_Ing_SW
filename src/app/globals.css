@@ -1,0 +1,1960 @@
+/**
+ * Paleta de marca de Parquivo.
+ *
+ * Los colores NO son inventados: salen de muestrear los píxeles opacos del
+ * propio archivo del logo. Los tres que dominan la imagen son
+ *
+ *   azul marino  #002454  — la "P", la palabra PARQ, todo lo estructural
+ *   azul vivo    #0060CC  — el degradado que ilumina la "P"
+ *   verde lima   #8CCF22  — la palabra UIVO y el destello lateral
+ *
+ * JERARQUÍA del tema claro: el lienzo es blanco, pero todo lo que lleva color
+ * —botones, acentos, insignias, bordes de control— sale de esas tres muestras.
+ * Un fondo claro con controles grises sería correcto y anónimo; la intención es
+ * que la aplicación se reconozca como Parquivo sin mirar el logotipo.
+ *
+ * Dos temas, elegidos SIEMPRE por la persona.
+ *
+ * Deliberadamente no se consulta `prefers-color-scheme`: el sistema operativo
+ * no decide por el usuario. Alguien puede tener su equipo en oscuro y aun así
+ * preferir Parquivo en claro, y esa elección se respeta.
+ *
+ * El tema llega en el atributo `data-tema` del elemento raíz, puesto por el
+ * servidor a partir de una cookie. Por eso no hay parpadeo al cargar.
+ *
+ * `color-scheme` acompaña al tema para que el navegador dibuje los campos de
+ * formulario y las barras de desplazamiento en el mismo registro.
+ *
+ * DOS REGLAS DE ACCESIBILIDAD, verificadas una por una:
+ *
+ * 1. El verde de marca da 1.90:1 sobre blanco, o sea falla todo. NUNCA se usa
+ *    para texto sobre claro: sirve de relleno, y encima del relleno va el azul
+ *    marino (8.01:1). Cuando hace falta verde en tipografía está
+ *    `--marca-texto`, que conserva el tono del logo y alcanza 5.14:1.
+ *
+ * 2. Hay dos bordes, y no son intercambiables. `--borde` separa tarjetas y
+ *    filas: es decorativo, puede ser suave. `--borde-control` dibuja botones
+ *    secundarios y campos de texto, donde el contorno es lo ÚNICO que indica
+ *    que algo es interactivo; ahí WCAG 1.4.11 exige 3:1 y este cumple 3.90:1
+ *    sobre el fondo y 3.25:1 sobre la superficie.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* --- Lienzo ---
+     Negro casi puro, con una gota de azul. Es el fondo del logo, y es además
+     el correcto para el uso: una caseta de parqueadero se atiende de noche y
+     con poca luz, y una pantalla blanca a las dos de la mañana deslumbra. */
+  --fondo: #08080b;
+  /* Apenas levantada sobre el fondo. Lo justo para separar sin dibujar una
+     caja: la separación la hace el espacio, no el relleno. */
+  --superficie: #12141a;
+
+  /* --- Marca, muestreada del logo ---
+     Tres colores y nada más: el negro del lienzo, el blanco de las letras y
+     el azul aciano de la Q. */
+  --marca: #6c8ad6;
+  --blanco: #f2f4f8;
+
+  /* --- Derivados de uso ---
+     Contrastes verificados sobre el fondo y sobre la superficie, que es la
+     peor de las dos. */
+  --texto: #f2f4f8; /* 18.2:1 y 16.7:1 */
+  --texto-tenue: #9aa3b8; /* 7.9:1 y 7.3:1 — azulado, no gris neutro */
+  --borde: #23262f; /* decorativo: separadores */
+  --borde-control: #5b6880; /* 3.3:1: botones y campos */
+  --marca-texto: #7fa0e4; /* 7.7:1 y 7.1:1 */
+  --acento: var(--marca-texto);
+
+  --boton-fondo: var(--marca);
+  --boton-texto: #08080b; /* 5.95:1 */
+  --boton-secundario-texto: var(--texto);
+
+  --error-texto: #f2a0a0;
+  --error-fondo: #1c1113;
+  --error-borde: #4a2226;
+
+  /* --- Convenio ---
+     Se distingue con un azul MÁS CLARO que el de marca, no con otro color: el
+     acento ya es azul, y meter un tercer tono para "hay un acuerdo de por
+     medio" haría competir dos señales en la misma pantalla. */
+  --convenio-fondo: #171b26;
+  --convenio-borde: #6c8ad6;
+  --convenio-texto: #b8caf0;
+  --convenio-insignia: #6c8ad6;
+  --convenio-insignia-texto: #08080b;
+
+  --aviso-fondo: #e0a83c;
+  --aviso-texto: #08080b;
+  --aviso-tinta: #e0a83c;
+}
+
+/**
+ * Tema claro.
+ *
+ * El lienzo se invierte: donde el logo pone negro, la pantalla pone blanco, y
+ * el azul de la Q se oscurece para seguir leyéndose. No es el mismo azul con
+ * otro fondo —eso daría 2:1 y sería ilegible—: es el mismo tono llevado a un
+ * valor que cumple.
+ *
+ * Contrastes verificados: texto 19.3:1 sobre el fondo y 17.7:1 sobre la
+ * superficie; texto tenue 6.7:1 y 6.2:1; acento 6.0:1 y 5.5:1; borde de
+ * control 3.7:1.
+ */
+:root[data-tema="claro"] {
+  color-scheme: light;
+
+  --fondo: #ffffff;
+  --superficie: #f3f5fa;
+
+  --texto: #0b0e15;
+  --texto-tenue: #545c6e;
+  --borde: #dde2ec;
+  --borde-control: #767f94;
+  --marca-texto: #3a5dbe;
+  --acento: var(--marca-texto);
+
+  --boton-fondo: #2f51ae;
+  --boton-texto: #ffffff; /* 7.2:1 */
+  --boton-secundario-texto: var(--texto);
+
+  --error-texto: #a3242b;
+  --error-fondo: #fdf2f3;
+  --error-borde: #f2c9cc;
+
+  --convenio-fondo: #eaeffa;
+  --convenio-borde: #3a5dbe;
+  --convenio-texto: #23407f;
+  --convenio-insignia: #2f51ae;
+  --convenio-insignia-texto: #ffffff;
+
+  --aviso-fondo: #e0a83c;
+  --aviso-texto: #0b0e15;
+  --aviso-tinta: #8a5c05;
+}
+
+/**
+ * El acento es la marca, y no se elige.
+ *
+ * Hubo un selector de tres acentos cuando la paleta tenía dos colores de marca
+ * y un verde. Con un solo azul, elegir entre tres tonos del mismo azul no es
+ * una decisión: es un ajuste que nadie sabe para qué sirve. `--acento` sale
+ * directo de la marca en cada tema.
+ */
+
+/**
+ * La marca de agua de quien hizo el software.
+ *
+ * Abajo a la derecha, fija, y fuera del flujo: no empuja nada ni se lleva un
+ * sitio que el contenido necesite. Se aparta del camino del dedo en el teléfono
+ * subiendo por encima de la barra de pestañas.
+ *
+ * `pointer-events` sólo sobre el enlace: el hueco alrededor no debe robar
+ * pulsaciones a lo que haya debajo.
+ */
+.marca-agua {
+  position: fixed;
+  right: 14px;
+  bottom: 12px;
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 160ms ease-out;
+}
+
+.marca-agua > * {
+  pointer-events: auto;
+}
+
+.marca-agua:hover {
+  opacity: 1;
+}
+
+@media (max-width: 52rem) {
+  /* Por encima de la barra de pestañas, que va fija abajo. */
+  .marca-agua {
+    bottom: 84px;
+    right: 10px;
+  }
+}
+
+/* En una pantalla de impresión no pinta nada. */
+@media print {
+  .marca-agua {
+    display: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Movimiento
+   ─────────────────────────────────────────────────────────────────────
+   Pocas curvas y pocas duraciones, porque un sistema de movimiento con
+   quince valores no es un sistema. Todas son salidas exponenciales: arrancan
+   rápido y frenan, que es como se mueven las cosas con masa. Una curva
+   simétrica se lee a máquina.
+
+   Y una regla que manda sobre todo lo demás: quien pidió menos movimiento en
+   su sistema operativo lo pidió en serio. No se atenúa, se apaga.
+   ───────────────────────────────────────────────────────────────────── */
+
+:root {
+  --sale: cubic-bezier(0.16, 1, 0.3, 1);
+  --entra: cubic-bezier(0.4, 0, 0.2, 1);
+  --rapido: 140ms;
+  --medio: 320ms;
+  --lento: 620ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Las superficies que el navegador dibuja y que no son de nadie. Teñirlas es
+   lo más barato que separa una página construida de una ensamblada. */
+::selection {
+  background: var(--marca);
+  color: var(--marca-sobre);
+}
+
+:root {
+  accent-color: var(--marca);
+  caret-color: var(--marca-texto);
+  scrollbar-color: var(--borde-control) transparent;
+  scrollbar-width: thin;
+}
+
+:focus-visible {
+  outline: 2px solid var(--marca-texto);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Los botones responden al puntero
+   ─────────────────────────────────────────────────────────────────────
+   Tres cosas a la vez y ninguna llamativa por su cuenta: se levanta un pelo,
+   el contorno se tiñe de marca, y aparece una sombra que de verdad tiene
+   desplazamiento y desenfoque —no un halo de color, que es decoración—.
+
+   Al pulsar vuelve abajo. Ese regreso es lo que hace que el botón se sienta
+   físico: sin él, un botón que sube y se queda arriba parece pegado.
+
+   La curva de salida es la misma de todo el producto, y quien pidió menos
+   movimiento en su sistema no ve nada de esto.
+   ───────────────────────────────────────────────────────────────────── */
+
+button,
+a,
+select,
+[role="switch"] {
+  transition:
+    background-color var(--rapido) var(--entra),
+    border-color var(--rapido) var(--entra),
+    color var(--rapido) var(--entra),
+    box-shadow var(--medio) var(--sale),
+    transform var(--medio) var(--sale),
+    opacity var(--rapido) var(--entra);
+}
+
+button:not(:disabled):hover,
+[role="switch"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px -6px color-mix(in oklab, var(--marca) 55%, transparent);
+}
+
+/* Al pulsar vuelve abajo: el botón tiene que sentirse físico. */
+button:not(:disabled):active,
+[role="switch"]:active {
+  transform: translateY(0);
+  box-shadow: none;
+  transition-duration: var(--rapido);
+}
+
+/* El secundario, que es un contorno, se tiñe de marca al acercarse. */
+button:not(:disabled):hover {
+  border-color: var(--marca-texto);
+}
+
+/* Un enlace que parece botón se comporta igual. Los de texto sólo subrayan,
+   porque levantar una palabra dentro de un párrafo la descuadra. */
+a[style*="border"]:hover {
+  transform: translateY(-1px);
+  border-color: var(--marca-texto);
+  box-shadow: 0 4px 14px -6px color-mix(in oklab, var(--marca) 55%, transparent);
+}
+
+button:disabled {
+  transform: none;
+  box-shadow: none;
+}
+
+input,
+textarea,
+select {
+  transition:
+    border-color var(--rapido) var(--entra),
+    box-shadow var(--rapido) var(--entra);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: var(--marca-texto);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   El lienzo
+   ─────────────────────────────────────────────────────────────────────
+   Una retícula de plazas vista desde arriba, en líneas finas, derivando muy
+   despacio en diagonal.
+
+   Va detrás de TODA la aplicación y no sólo del login, y eso es lo que permite
+   quitar las tarjetas: cuando el fondo tiene textura, un bloque relleno deja de
+   hacer falta para separar dos cosas. El espacio basta.
+
+   Detrás del contenido va MÁS TENUE y con la celda más grande que en el login.
+   Allí sólo hay dos campos; acá hay tablas, cifras y placas que alguien lee de
+   reojo con un carro esperando, y un fondo que compite con eso estorba.
+
+   Todo en CSS y sin una sola imagen: pesa cero, escala a cualquier pantalla y
+   cambia de tema solo.
+   ───────────────────────────────────────────────────────────────────── */
+
+.lienzo,
+.login-lienzo {
+  position: relative;
+  overflow: hidden;
+  background: var(--fondo);
+}
+
+.lienzo::before,
+.login-lienzo::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(var(--rejilla) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rejilla) 1px, transparent 1px);
+  background-size: 74px 74px;
+  /* Se desvanece hacia los bordes para que nunca compita con el texto. */
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, #000 0%, transparent 75%);
+  animation: deriva-rejilla 64s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Sobre el contenido, celda más grande y más apagada: un patrón menudo detrás
+   de una tabla de cifras se lee como ruido. */
+.lienzo::before {
+  background-size: 108px 108px;
+  mask-image: radial-gradient(ellipse 90% 70% at 20% 0%, #000 0%, transparent 80%);
+  opacity: 0.5;
+}
+
+/* Lo que va encima tiene que declararlo, o el fondo se le monta. */
+.lienzo > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Despacio y en diagonal: un movimiento que se nota sólo si uno se queda
+   mirando, que es lo que separa un fondo vivo de una animación que distrae
+   mientras se escribe una placa. */
+@keyframes deriva-rejilla {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(74px, 74px, 0);
+  }
+}
+
+/* La entrada de una sección, en cada cambio de pantalla.
+   Corta a propósito: ocurre en cada clic del menú, y medio segundo repetido
+   cien veces al día deja de ser elegante y pasa a ser una espera. */
+.seccion-entra {
+  animation: seccion-sube var(--medio) var(--sale) both;
+}
+
+@keyframes seccion-sube {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* El elemento activo del menú se desliza en vez de saltar. */
+.seccion {
+  transition:
+    background-color var(--rapido) var(--entra),
+    color var(--rapido) var(--entra);
+}
+
+.seccion-marca {
+  transition: background-color var(--medio) var(--sale);
+}
+
+/* La entrada de la pantalla: UN momento, no uno por bloque.
+   Sube desde una posición ya visible, así que si la animación no llega a
+   correr la pantalla se ve bien igual. */
+.login-entra {
+  animation: login-sube var(--lento) var(--sale) both;
+}
+
+.login-entra-tarde {
+  animation: login-sube var(--lento) var(--sale) 120ms both;
+}
+
+@keyframes login-sube {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* La talanquera del logo se levanta una vez al entrar. Es el gesto de la marca
+   y el único momento animado que se permite repetir en el producto. */
+.talanquera-sube {
+  animation: talanquera var(--lento) var(--sale) 260ms both;
+  transform-origin: left center;
+}
+
+@keyframes talanquera {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-4deg);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Los controles
+   ─────────────────────────────────────────────────────────────────────
+   Un campo es una LÍNEA, no una caja. Se enciende al enfocarse con el color de
+   marca y gana una segunda regla debajo, que es lo que da la sensación de que
+   el control responde sin dibujar un recuadro alrededor.
+
+   Va por elemento y no por clase para que alcance a los veintitantos
+   formularios del producto a la vez, y para que ningún estilo incrustado pueda
+   volver a ganarle: el foco no se puede escribir en un atributo `style`.
+   ───────────────────────────────────────────────────────────────────── */
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select,
+textarea {
+  border: none;
+  border-bottom: 1px solid var(--borde-control);
+  border-radius: 0;
+  background: transparent;
+  color: var(--texto);
+  padding: 9px 2px;
+  font-family: inherit;
+  font-size: 15px;
+  transition:
+    border-color var(--medio) var(--sale),
+    box-shadow var(--medio) var(--sale);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-bottom-color: var(--marca-texto);
+  box-shadow: 0 1px 0 0 var(--marca-texto);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--texto-tenue);
+}
+
+/* El desplegable conserva su flecha, que es lo que lo distingue de un campo de
+   texto; sin ella nadie sabe que se puede abrir. */
+select {
+  appearance: none;
+  padding-right: 22px;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    calc(100% - 11px) calc(50% + 1px),
+    calc(100% - 6px) calc(50% + 1px);
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Ritmo
+   ─────────────────────────────────────────────────────────────────────
+   Sin cajas, lo que agrupa es el ESPACIO, y para que el espacio agrupe tiene
+   que haber pocas distancias y muy distintas entre sí. Tres: lo que va junto,
+   lo que va separado, y lo que empieza otra cosa. Una escala con ocho pasos
+   parecidos no agrupa nada, que es como se ve una pantalla "desordenada".
+
+   La regla vieja de tipografía —más aire encima de un título que debajo—
+   aquí es lo único que dice dónde empieza una sección.
+   ───────────────────────────────────────────────────────────────────── */
+
+/* Entre secciones. Generoso: es lo que reemplaza al borde superior de la caja. */
+.pila > * + * {
+  margin-top: 44px;
+}
+
+/* Dentro de un grupo: pegado, porque va junto. */
+.grupo > * + * {
+  margin-top: 10px;
+}
+
+/* Una lista de filas separadas por filete, sin contorno alrededor.
+   El filete va A SANGRE del contenido y no acolchado dentro de una caja: eso
+   es lo que hace que se lea como una tabla y no como una pila de tarjetas. */
+.filas > * {
+  padding: 16px 0;
+  border-top: 1px solid var(--borde);
+}
+
+.filas > *:first-child {
+  border-top: none;
+  padding-top: 4px;
+}
+
+/* Filas de dos renglones —un período arriba y su contenido abajo— piden más
+   aire: con el mismo espacio que una fila de una línea, lo de abajo de una y
+   lo de arriba de la siguiente quedan a la misma distancia que las dos líneas
+   de una misma fila, y entonces deja de verse cuál va con cuál. */
+.filas-holgadas > * {
+  padding: 22px 0;
+}
+
+.filas-holgadas > *:first-child {
+  padding-top: 6px;
+}
+
+/* La fila responde al puntero cuando se puede hacer algo con ella. */
+.filas-vivas > *:hover {
+  background: color-mix(in oklab, var(--marca) 6%, transparent);
+  /* Se extiende un poco a los lados para que el resalte no corte justo en el
+     texto, sin tener que meter la fila en una caja. */
+  box-shadow:
+    -10px 0 0 0 color-mix(in oklab, var(--marca) 6%, transparent),
+    10px 0 0 0 color-mix(in oklab, var(--marca) 6%, transparent);
+  transition: background-color var(--rapido) var(--entra);
+}
+
+/* La cabecera de una tabla: sin fondo, sólo la letra menuda y su filete. */
+.cabecera-tabla {
+  display: flex;
+  gap: 10px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--borde-control);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-tenue);
+}
+
+/* El filete que acompaña a un rótulo de sección. Corre desde el texto hasta el
+   borde y reemplaza a encerrar el grupo en un recuadro: marca dónde empieza sin
+   dibujar cuatro lados. Es el gesto del "LABS" del logo. */
+.rotulo-filete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rotulo-filete::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--borde);
+}
+
+/* Un campo que NO es una caja.
+   La regla inferior es todo el control, y al enfocarse se enciende con el color
+   de marca y crece. Es lo contrario de encerrar cada cosa en un recuadro, y en
+   un formulario de dos campos se lee mejor: la vista va al texto, no al borde. */
+.campo-linea {
+  border: none !important;
+  border-bottom: 1px solid var(--borde-control) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 10px 2px !important;
+  font-size: 17px !important;
+  transition:
+    border-color var(--medio) var(--sale),
+    box-shadow var(--medio) var(--sale);
+}
+
+.campo-linea:focus-visible {
+  outline: none;
+  border-bottom-color: var(--marca-texto) !important;
+  /* La segunda línea, que es lo que da la sensación de que el campo se
+     "enciende" sin dibujar un recuadro alrededor. */
+  box-shadow: 0 1px 0 0 var(--marca-texto);
+}
+
+.campo-linea::placeholder {
+  color: var(--texto-tenue);
+}
+
+/** Sobre un relleno de marca siempre va el negro del lienzo: 5.95:1. */
+:root {
+  --marca-sobre: #08080b;
+  /* La retícula del lienzo. Apenas por encima del fondo: tiene que notarse al
+     mirarla y desaparecer al leer. */
+  --rejilla: #1b1e27;
+}
+
+:root[data-tema="claro"] {
+  --rejilla: #e9edf5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  /* Las variables las inyecta `next/font` en el elemento raíz. El respaldo
+     existe para el instante anterior a que la fuente cargue, no como sustituto
+     permanente. */
+  font-family: var(--fuente-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Variantes del logo -------------------------------------------------- */
+/* Se envían las dos y el tema decide cuál se muestra. La oculta lleva
+   aria-hidden, así que un lector de pantalla nunca anuncia el logo dos veces. */
+
+
+
+/* --- Cifras y códigos ---------------------------------------------------- */
+/* Placas, horas, importes e identificadores. No es decorativo: en columna, con
+   ancho variable, "MTQ845" y "GHZ109" no se alinean y el ojo pierde el
+   renglón. */
+code,
+kbd,
+samp,
+.cifra {
+  font-family: var(--fuente-mono), ui-monospace, "SFMono-Regular", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Barra lateral ------------------------------------------------------- */
+/*
+ * Queda pegada a la ventana, no al documento.
+ *
+ * Antes crecía con el contenido: en un listado largo como el de cuentas había
+ * que bajar hasta el final de la página para ver "Cerrar sesión", porque el pie
+ * de la barra estaba al pie del DOCUMENTO. Con `sticky` la barra ocupa siempre
+ * el alto de la ventana y sólo se desplaza la columna de la derecha.
+ *
+ * `align-self: flex-start` es imprescindible: sin él, el contenedor flex estira
+ * al hijo a la altura del contenido y `sticky` deja de tener margen donde
+ * pegarse, así que no hace nada.
+ *
+ * Si el propio menú no cupiera —ventana muy baja o menú muy largo—, lo que se
+ * desplaza es la lista de secciones por dentro; la cabecera y el pie no se
+ * pierden nunca.
+ */
+.barra-lateral {
+  /*
+   * El TAMAÑO vive acá y no en un estilo incrustado, y no es una preferencia:
+   * un estilo incrustado gana sobre una hoja. Mientras estos tres valores
+   * estuvieron en el componente, la consulta de medios que ponía la barra al
+   * ancho completo en el teléfono era letra muerta: se servía y no hacía nada,
+   * así que la barra se quedaba en 212px dentro de una pantalla de 390px y el
+   * menú se apretujaba adentro.
+   */
+  flex: 1 1 212px;
+  max-width: 212px;
+  min-width: 212px;
+
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100dvh;
+  overflow: hidden;
+  border-right: 1px solid var(--borde);
+}
+
+.barra-lateral-secciones {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* El elemento del menú: en el computador, una banda de lado a lado. */
+/* El elemento del menú.
+   El activo NO se rellena. Una banda de color de lado a lado es un bloque más
+   —y de los grandes— en una pantalla que se estaba quitando los bloques. Lo
+   que marca ahora es una regla vertical en el canto, el color de marca en el
+   texto y el peso: tres señales, ninguna de ellas una caja.
+
+   El desplazamiento de dos píxeles al pasar el puntero es lo que hace que el
+   menú se sienta vivo sin animar nada. */
+.seccion {
+  position: relative;
+  padding: 10px 20px;
+  color: var(--texto-tenue);
+  transition:
+    color var(--rapido) var(--entra),
+    transform var(--rapido) var(--sale);
+}
+
+.seccion::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  border-radius: 999px;
+  background: transparent;
+  transition:
+    background-color var(--medio) var(--sale),
+    transform var(--medio) var(--sale);
+  transform: scaleY(0.3);
+}
+
+.seccion:hover {
+  color: var(--texto);
+  transform: translateX(2px);
+}
+
+.seccion-activa {
+  color: var(--marca-texto);
+}
+
+.seccion-activa::before {
+  background: var(--marca-texto);
+  transform: scaleY(1);
+}
+
+/* La barrita que marca el activo sólo existe en la barra inferior del móvil. */
+.seccion-marca {
+  display: none;
+}
+
+/* Secciones que sólo existen en el teléfono.
+   "Adentro ahora" es el panel derecho de la taquilla en pantalla ancha:
+   ofrecerlo además en el menú mandaría a otra pantalla a ver lo mismo.
+
+   Se oculta el ELEMENTO DE LISTA y no su enlace: con el enlace oculto el `li`
+   seguía ocupando su sitio en la fila y dejaba un hueco entre pestañas. */
+.seccion-solo-movil {
+  display: none;
+}
+
+.seccion-texto-angosto {
+  display: none;
+}
+
+/*
+ * En pantalla angosta la barra pasa a ser una fila superior. Ahí no puede medir
+ * el alto de la ventana ni pegarse, o se comería la pantalla entera.
+ */
+/* El relleno del contenido. Vive acá y no incrustado porque en el teléfono
+   tiene que crecer para dejar sitio a la barra de pestañas, y una consulta de
+   medios no puede tocar un atributo `style`.
+
+   Va ANTES de la consulta de medios que lo modifica: si fuera después habría
+   que sostenerlo con `!important`, y una regla que sólo funciona por eso es una
+   que el próximo cambio rompe sin avisar. */
+.contenido {
+  padding: 26px 22px 48px;
+}
+
+/* La taquilla va a sangre: su panel lateral se pega al borde. */
+.contenido-sangre {
+  padding: 0;
+}
+
+@media (max-width: 52rem) {
+  /*
+   * La barra deja de ser lateral y se parte en dos, como en las maquetas
+   * móviles: arriba queda la identidad —marca, título y quién está dentro— y
+   * las secciones bajan a una barra fija al pie de la pantalla.
+   *
+   * Abajo y no arriba porque es donde llega el pulgar. En un teléfono que se
+   * sostiene con una mano, la mitad superior exige recolocar el aparato, y en
+   * una taquilla eso se paga en cada vehículo.
+   */
+  .barra-lateral {
+    position: static;
+    height: auto;
+    max-width: none;
+    min-width: 0;
+    width: 100%;
+    flex: 1 1 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .barra-lateral-secciones {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    border-top: 1px solid var(--borde);
+    background: var(--superficie);
+    /* El hueco de abajo lo pide el indicador de inicio del teléfono, que se
+       dibuja encima de la página y taparía los rótulos. */
+    padding: 0 0 18px;
+  }
+
+  .barra-lateral-secciones::-webkit-scrollbar {
+    display: none;
+  }
+
+  .barra-lateral-secciones > li {
+    flex: 1 0 auto;
+    min-width: 72px;
+  }
+
+  .seccion {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 56px;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /*
+   * El activo NO se marca con un fondo verde: se marca con una barrita encima
+   * del rótulo y el texto en verde. Un bloque de color relleno en una barra de
+   * cinco columnas se lee como un botón pulsado, no como "usted está aquí".
+   */
+  .seccion-activa {
+    background: transparent;
+    color: var(--acento);
+    font-weight: 700;
+  }
+
+  .seccion-marca {
+    display: block;
+    width: 22px;
+    height: 3px;
+    border-radius: 999px;
+    background: transparent;
+  }
+
+  .seccion-activa .seccion-marca {
+    background: var(--marca);
+  }
+
+  .seccion-texto-ancho {
+    display: none;
+  }
+
+  .seccion-texto-angosto {
+    display: inline;
+  }
+
+  /* Y acá sí aparece. */
+  .seccion-solo-movil {
+    display: block;
+  }
+
+  /* El contenido no puede quedar debajo de la barra fija. */
+  /* Sitio para la barra de pestañas, que va fija abajo y tapa lo que quede
+     debajo de ella. 56 de alto + 18 de respiro inferior + aire. */
+  .contenido {
+    padding-bottom: 96px;
+  }
+
+  /* Marca y nombre en una sola fila, como en las maquetas 7b y 7c. Apilados
+     ocupaban tres renglones antes de llegar a lo que se vino a hacer. */
+  .barra-cabecera {
+    /* En escritorio es un bloque con relleno, no un flex: hay que declararlo
+       acá o la fila no ocurre. */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px !important;
+  }
+
+  .barra-rotulo {
+    margin: 0 !important;
+  }
+
+  /* La cuenta y su salida se van a Ajustes: acá empujaban el campo de placa
+     fuera de la primera pantalla. */
+  .barra-pie {
+    display: none !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   La taquilla en pantalla angosta
+
+   En el computador son dos columnas: lo que se está atendiendo a la
+   izquierda y quién está adentro a la derecha. En un celular de 390px no
+   caben las dos, y la maqueta móvil lo resuelve como corresponde: el panel
+   de "adentro" pasa a ser su propia vista, alcanzable desde la taquilla.
+
+   Las medidas van acá y no en estilos incrustados porque una consulta de
+   medios no cabe en un atributo `style`. Es la misma razón por la que la
+   barra lateral ya vivía aquí.
+   ───────────────────────────────────────────────────────────────────── */
+
+.taquilla-columnas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 372px;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+/* Sólo en pantalla ancha existe la segunda columna. */
+.taquilla-lateral {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-y: auto;
+  border-left: 1px solid var(--borde);
+}
+
+.taquilla-principal {
+  border-right: 1px solid var(--borde);
+}
+
+/* Enlace a la vista de "adentro", que sólo hace falta cuando no cabe al lado. */
+.taquilla-enlace-adentro {
+  display: none;
+}
+
+/**
+ * Densidad cómoda: sólo la placa.
+ *
+ * Es la misma disposición a la que llega la pantalla angosta, pero por elección
+ * y no por falta de espacio, así que se consigue con una clase y no con una
+ * consulta de medios. La lista de adentro no se pierde: se llega por el enlace,
+ * que aparece justo cuando el panel deja de estar.
+ */
+.taquilla-comoda {
+  grid-template-columns: 1fr;
+}
+
+.taquilla-comoda .taquilla-principal {
+  border-right: none;
+}
+
+.taquilla-comoda .taquilla-lateral {
+  display: none;
+}
+
+.taquilla-comoda .taquilla-enlace-adentro {
+  display: flex;
+}
+
+@media (max-width: 64rem) {
+  .taquilla-columnas {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .taquilla-principal {
+    border-right: none;
+  }
+
+  .taquilla-lateral {
+    display: none;
+  }
+
+  .taquilla-enlace-adentro {
+    display: flex;
+  }
+
+  /* La columna izquierda deja de tener un borde que ya no separa nada. */
+  .taquilla-principal {
+    border-right: none;
+  }
+}
+
+/**
+ * Objetivos táctiles.
+ *
+ * 44px de alto mínimo es lo que la maqueta móvil pone en cada control, y no
+ * es un capricho: es el tamaño por debajo del cual un dedo empieza a fallar.
+ * Se aplica sólo en pantalla angosta para no engordar la interfaz de
+ * escritorio, donde se apunta con un ratón.
+ */
+@media (max-width: 64rem) {
+  .toque button,
+  .toque a,
+  .toque select,
+  .toque input:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 44px;
+  }
+}
+
+/**
+ * La placa, más pequeña en el teléfono.
+ *
+ * 64px en el computador y 48px en el celular, que es lo que pone cada maqueta.
+ * A 64px una placa de seis caracteres desborda una pantalla de 390px, y una
+ * placa cortada es peor que una placa pequeña.
+ */
+@media (max-width: 64rem) {
+  /* En el teléfono la placa se achica; el ajuste personal se respeta como
+     proporción, no como valor absoluto, porque 96px no caben en 390px. */
+  .campo-placa {
+    font-size: calc(var(--placa-tamano, 64px) * 0.75) !important;
+    height: calc(var(--placa-tamano, 64px) * 0.75 + 42px) !important;
+    border-radius: 14px !important;
+  }
+}
+
+
+
+/* El login en el teléfono: la misma columna, con menos aire alrededor. */
+@media (max-width: 40rem) {
+  .login-lienzo {
+    padding: 32px 22px;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────
+   Ningún campo por debajo de 16px en el teléfono
+
+   Safari en iPhone hace zoom sobre cualquier campo con letra menor que 16px
+   en cuanto recibe el foco, y deja la página descuadrada y a la persona
+   buscando cómo volver. No es un detalle: pasa en cada formulario del
+   producto.
+
+   Va como regla global y no campo por campo porque el proyecto usa estilos
+   incrustados y ya había SEIS controles que sobrescribían el tamaño para
+   caber en una fila apretada. Arreglarlos uno por uno dejaría el problema
+   resuelto hoy y abierto para el séptimo que alguien escriba el mes que
+   viene.
+
+   Lleva `!important` a propósito: un estilo incrustado gana sobre una hoja,
+   así que sin él la regla no haría nada. Es de los pocos sitios donde está
+   justificado, porque expresa una invariante del producto y no una
+   preferencia de un componente.
+
+   En escritorio no aplica: allí los tamaños los deciden las maquetas, que
+   usan 15px o menos en los controles compactos, y con un ratón no hay zoom
+   que temer.
+   ───────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 60rem) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Ficha a dos columnas — 8a "Mi parqueadero"
+   ─────────────────────────────────────────────────────────────────────
+   La maqueta de escritorio pone los datos a la izquierda y el estado de la
+   configuración a la derecha. Las proporciones son elásticas, así que la
+   disposición aguanta bastante antes de romperse; por debajo de 60rem las dos
+   columnas dejan de caber sin que las filas —rótulo, resumen y botón "Ver" en
+   el mismo renglón— empiecen a partirse, y ahí pasan a apilarse.
+
+   Vive acá por lo de siempre: una consulta de medios no cabe en un atributo
+   `style`.
+   ───────────────────────────────────────────────────────────────────── */
+
+.ficha-columnas {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 22px;
+  margin-top: 24px;
+  align-items: start;
+}
+
+@media (max-width: 60rem) {
+  .ficha-columnas {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Reportes — maqueta 2i
+   ─────────────────────────────────────────────────────────────────────
+   Cuatro cifras arriba y dos columnas debajo. Las medidas van acá y no en
+   estilos incrustados porque una consulta de medios no cabe en un atributo
+   `style`, que es la trampa que este proyecto ya pisó dos veces.
+   ───────────────────────────────────────────────────────────────────── */
+
+.reportes-cifras {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.reportes-columnas {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+  align-items: start;
+}
+
+/* El filete separa cifras, así que la última no lleva: una línea al final no
+   separa nada, sólo cierra una caja que ya no existe. */
+.reportes-cifras > *:last-child,
+.turno-cifras > *:last-child {
+  border-right: none;
+}
+
+@media (max-width: 72rem) {
+  .reportes-cifras {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* En dos columnas, la segunda de cada fila tampoco separa nada. */
+  .reportes-cifras > *:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 60rem) {
+  .reportes-columnas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Calendario de ingresos
+   ─────────────────────────────────────────────────────────────────────
+   Un mes son más de veinte días, y en barras las etiquetas se pisan hasta ser
+   ilegibles: eso fue lo que pasó. En calendario cabe el mes entero y además se
+   lee el patrón semanal, que en barras había que reconstruir contando.
+
+   La escala es SECUENCIAL —un solo tono, claro a oscuro— porque codifica
+   MAGNITUD, no identidad. Nada de arcoíris: dos colores distintos tienen que
+   significar dos cantidades distintas, no dos cosas distintas.
+
+   Cada paso lleva su propio color de texto, verificado contra su fondo. El
+   punto donde el texto pasa de oscuro a claro NO es el mismo en los dos temas,
+   porque la rampa va en direcciones opuestas: sobre claro el día flojo es
+   pálido y el fuerte es oscuro; sobre oscuro, al revés.
+   ───────────────────────────────────────────────────────────────────── */
+
+.dia-0 { background: var(--fondo); color: var(--texto-tenue); }
+.dia-1 { background: #dbe9ff; color: #002454; } /* 12,4:1 */
+.dia-2 { background: #a8c8ee; color: #002454; } /*  8,8:1 */
+.dia-3 { background: #6a9fd4; color: #002454; } /*  5,5:1 */
+.dia-4 { background: #2f6db0; color: #ffffff; } /*  5,3:1 */
+.dia-5 { background: #0b3f8f; color: #ffffff; } /*  9,7:1 */
+
+:root[data-tema="oscuro"] .dia-0 { background: #0a2242; color: var(--texto-tenue); }
+:root[data-tema="oscuro"] .dia-1 { background: #16406e; color: #eef4fb; }
+:root[data-tema="oscuro"] .dia-2 { background: #2f6db0; color: #eef4fb; } /* 4,7:1 */
+:root[data-tema="oscuro"] .dia-3 { background: #4f8cd9; color: #051a38; } /* 5,0:1 */
+:root[data-tema="oscuro"] .dia-4 { background: #7fb0e8; color: #051a38; }
+:root[data-tema="oscuro"] .dia-5 { background: #a8ccff; color: #051a38; } /* 10,5:1 */
+
+.calendario {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.calendario-celda {
+  min-width: 0;
+  border-radius: 7px;
+  padding: 7px 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 54px;
+}
+
+/* Los huecos del principio y el final del mes no son días en cero: no existen,
+   y pintarlos como celda haría contar mal la semana. */
+.calendario-hueco {
+  min-height: 54px;
+}
+
+/* Ajustes: las dos columnas necesitan más aire entre sí que una ficha, porque
+   cada grupo es una decisión distinta y no partes de un mismo dato. */
+.ajustes-columnas {
+  gap: 48px;
+  align-items: start;
+}
+
+/* Las cuatro cifras del turno abierto (maqueta 5a). */
+.turno-cifras {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+@media (max-width: 72rem) {
+  .turno-cifras {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* En el teléfono las cifras del turno van de a una.
+   A 390 px, dos columnas dejan 180 px por celda y "$412.500" a 34 px en
+   monoespaciada mide unos 196: se desborda o se parte. Una sola columna
+   conserva el tamaño, que es lo que hace que la cifra se lea de un vistazo
+   —que es para lo que está—. */
+@media (max-width: 30rem) {
+  .turno-cifras,
+  .reportes-cifras {
+    grid-template-columns: 1fr;
+  }
+
+  /* En una sola columna el filete vertical no separa: separa el horizontal. */
+  .reportes-cifras > *,
+  .turno-cifras > * {
+    border-right: none;
+    padding: 14px 0;
+    border-top: 1px solid var(--borde);
+  }
+
+  .reportes-cifras > *:first-child,
+  .turno-cifras > *:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+/* El calendario en el teléfono.
+   Siete columnas en 390 px dejan 48 px por celda, y ahí el importe no cabe con
+   el relleno de escritorio. Se aprieta en vez de esconderlo: el número tiene
+   que seguir escrito, porque el color está para ver el patrón, no para
+   transportar el dato. */
+@media (max-width: 30rem) {
+  .calendario {
+    gap: 3px;
+  }
+
+  .calendario-celda {
+    padding: 5px 3px 6px;
+    min-height: 46px;
+  }
+
+  .calendario-hueco {
+    min-height: 46px;
+  }
+
+  .calendario-celda span {
+    font-size: 10px !important;
+  }
+}
+
+/* El horario en el teléfono.
+   La fila del día es día + apertura + "a" + cierre. En 390 px eso no cabe en un
+   renglón, y dejándola envolver sola cada hora caía en el suyo: siete días
+   ocupaban pantalla y media. En rejilla, el nombre se lleva la primera línea y
+   las dos horas comparten la segunda. */
+/* La fila de un día del horario: día + apertura + "a" + cierre.
+   La disposición vive acá y no incrustada en el elemento, porque en el
+   teléfono cambia de fila a rejilla y un estilo incrustado no deja. */
+.fila-horario {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-wrap: wrap;
+}
+
+/* El renglón de una tarifa vigente. Misma razón. */
+.fila-tarifa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 40rem) {
+  .fila-horario {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px 10px;
+    align-items: center;
+  }
+
+  /* El nombre del día ocupa la línea entera. */
+  .fila-horario > label {
+    grid-column: 1 / -1;
+  }
+
+  /* Sin esto los campos de hora conservan su ancho natural, que en Android es
+     ancho, y se salen de su columna. */
+  .fila-horario input[type="time"] {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Las tarifas vigentes en el teléfono.
+   El renglón es nombre + descripción + "desde tal fecha". En una línea a la
+   descripción le quedaban unos 150 px y se partía en cuatro renglones. En
+   rejilla, nombre y fecha comparten la primera línea y la descripción se lleva
+   la segunda entera. */
+@media (max-width: 40rem) {
+  .fila-tarifa {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 10px;
+    align-items: baseline;
+  }
+
+  /* La colocación va escrita y no se deja al automático: en el marcado la
+     descripción viene ANTES que la fecha, así que sin esto la fecha caería en
+     su propia fila en vez de acompañar al nombre. */
+  .fila-tarifa > :nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .fila-tarifa > :nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .fila-tarifa > :nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+/* Una tabla ancha se desliza dentro de su tarjeta, nunca empuja la página. */
+.tabla-desliza {
+  overflow-x: auto;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Si el navegador llega a imprimir ESTA página
+   ─────────────────────────────────────────────────────────────────────
+   El ticket se imprime desde un marco aparte, con su propio documento y su
+   propio `@page` de 58 mm; estas reglas no lo alcanzan, porque es otro
+   documento.
+
+   Existen por lo que pasó una vez: un fallo de tiempos hizo que `print()`
+   saliera sobre un marco vacío, Chrome cayó de vuelta a imprimir la página que
+   lo contenía, y la taquilla entera salió paginada a tamaño carta sobre un
+   rollo térmico. Aquello se arregló en su origen —el contenido se carga antes
+   de insertar el marco, y sólo se imprime un documento que lleve la marca del
+   ticket—, pero el modo silencioso no abre ningún diálogo que avise, así que
+   una segunda línea de defensa cuesta poco y ahorra un rollo.
+
+   Si algún día una pantalla tiene que poder imprimirse, la excepción va acá.
+   ───────────────────────────────────────────────────────────────────── */
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  body::before {
+    content: "Parquivo — esta pantalla no está hecha para imprimirse.";
+    visibility: visible;
+    font: 12pt system-ui, sans-serif;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Control segmentado — una elección entre dos o tres
+   ─────────────────────────────────────────────────────────────────────
+   Reemplaza a las pastillas sueltas: eran dos rectángulos anchos, uno al lado
+   del otro, y leían como dos cajas. Un segmentado es UN control —una pista con
+   filetes internos— y por eso conserva el recuadro que la regla de este
+   proyecto exige para todo lo que se pueda pulsar, sin volver a encerrar nada.
+
+   Va en `inline-flex` a propósito: mide lo que miden sus palabras. Estirado a
+   todo el ancho, dos opciones de siete letras se convertían en dos bloques
+   enormes que dominaban la columna sin ser lo importante de ella.
+   ───────────────────────────────────────────────────────────────────── */
+
+.segmentado {
+  display: inline-flex;
+  border: 1px solid var(--borde-control);
+  border-radius: 9px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.segmentado > button {
+  padding: 10px 18px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--texto-tenue);
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--borde-control);
+  cursor: pointer;
+  transition:
+    color var(--rapido) var(--entra),
+    background-color var(--rapido) var(--entra);
+}
+
+.segmentado > button:first-child {
+  border-left: none;
+}
+
+.segmentado > button:hover {
+  color: var(--texto);
+  background: color-mix(in oklab, var(--marca) 8%, transparent);
+}
+
+.segmentado > button[aria-pressed="true"] {
+  color: var(--marca-sobre);
+  background: var(--marca);
+  font-weight: 700;
+}
+
+/* Miniaturas de tema. Cada una dibuja la aplicación en pequeño —riel, título,
+   renglones— en vez de tres barras abstractas: se elige mirando lo que se va a
+   ver, no un código de color. */
+.tema-opcion {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.tema-lienzo {
+  display: flex;
+  height: 108px;
+  overflow: hidden;
+  border-radius: 7px;
+  border: 1px solid var(--borde-control);
+  transition:
+    box-shadow var(--rapido) var(--entra),
+    transform var(--rapido) var(--sale);
+}
+
+.tema-opcion:hover .tema-lienzo {
+  transform: translateY(-2px);
+}
+
+.tema-opcion[aria-pressed="true"] .tema-lienzo {
+  border-color: var(--marca);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--marca) 55%, transparent);
+}
+
+.tema-pie {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-tenue);
+}
+
+.tema-opcion[aria-pressed="true"] .tema-pie {
+  color: var(--marca-texto);
+  font-weight: 700;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Operarios — maqueta 8c
+   ─────────────────────────────────────────────────────────────────────
+   Una rejilla y no seis `flex` sueltos: la cabecera, la fila y el panel que
+   se despliega debajo comparten la MISMA plantilla de columnas, así que se
+   alinean por construcción. Con proporciones repetidas a mano, cambiar una
+   columna obligaba a acordarse de los tres sitios.
+   ───────────────────────────────────────────────────────────────────── */
+
+.equipo-rejilla {
+  display: grid;
+  grid-template-columns:
+    4.5rem minmax(0, 1.5fr) minmax(0, 1.7fr)
+    8rem 7rem 6rem;
+  align-items: center;
+  gap: 14px;
+}
+
+/* El ancho por debajo del cual la tabla se desliza en vez de aplastarse.
+   Se midió contra el ancho útil de la maqueta —1180 menos el riel y los
+   márgenes, unos 55rem—: por encima de eso la tabla se desliza EN EL TAMAÑO
+   PARA EL QUE SE DISEÑÓ, que no es deslizarse, es no caber. */
+.equipo-tabla {
+  min-width: 48rem;
+}
+
+/* El panel de acciones de una fila. Aparece bajo su persona, con la sangría
+   de la columna del nombre para que se lea como suyo y no como una fila más. */
+.equipo-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 2px;
+  padding-left: calc(4.5rem + 14px);
+  animation: despliega-acciones var(--rapido) var(--sale) both;
+}
+
+@keyframes despliega-acciones {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* La barra que acompaña a lo vendido, dentro de su propia celda.
+   Reemplaza al gráfico aparte que la maqueta dibuja debajo: era la misma
+   cifra dos veces en la misma pantalla, una como número y otra como barra. */
+.equipo-barra {
+  display: block;
+  height: 3px;
+  margin-top: 5px;
+  border-radius: 999px;
+  background: var(--borde-control);
+}
+
+.equipo-barra-alta {
+  background: var(--marca);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .equipo-acciones {
+    animation: none;
+  }
+}
+
+/* El título de una pantalla con su acción principal al lado. Es la cabecera
+   que dibujan las maquetas 8c y 2b: no un recuadro, sólo la línea de abajo
+   que separa la cabecera del contenido. */
+.cabecera-pantalla {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 22px;
+  margin-bottom: 34px;
+  border-bottom: 1px solid var(--borde);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Mis turnos — maqueta 5a
+   ─────────────────────────────────────────────────────────────────────
+   El histórico manda y lo del turno actual lo acompaña: 1,55 contra 1, que es
+   la proporción de la maqueta.
+   ───────────────────────────────────────────────────────────────────── */
+
+/* Las dos listas cortas del turno abierto: entrega y vendido por tipo.
+   La rejilla vive DENTRO del bloque del turno y no envolviendo la pantalla
+   entera. Envolviéndola, sin turno abierto quedaba una columna vacía y la
+   tabla estrujada en el 60% del ancho: media pantalla en blanco. */
+.turno-detalle {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 44px;
+  align-items: start;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--borde);
+}
+
+@media (max-width: 62rem) {
+  .turno-detalle {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* La tabla de turnos anteriores. Misma plantilla para cabecera, filas y total,
+   así que las tres se alinean sin repetir proporciones. */
+/* A todo el ancho: el histórico es el sujeto de la pantalla cuando no hay
+   turno abierto, y el acompañante cuando lo hay, pero nunca media pantalla. */
+.turnos-rejilla {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr) 13rem 5rem 5.5rem minmax(8rem, 0.9fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.turnos-tabla {
+  min-width: 44rem;
+}
+
+/* La barra bajo el importe de cada turno. Convierte la lista de cifras en una
+   comparación: la pregunta al terminar no es "cuánto vendí" sino "cuánto
+   vendí comparado con mis otros turnos". */
+.turno-barra {
+  display: block;
+  height: 3px;
+  margin: 5px 0 0 auto;
+  border-radius: 999px;
+  background: var(--borde-control);
+}
+
+.turno-barra-alta {
+  background: var(--marca);
+}
+
+/* El turno cerrado: mismo lugar que el punto que late, sin latir. */
+.punto-apagado {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--borde-control);
+}
+
+/* El total no lleva fondo: lleva un filete grueso encima. Es una fila de otra
+   naturaleza, no una fila del mismo tipo resaltada con color. */
+.turnos-total {
+  padding-top: 14px;
+  margin-top: 4px;
+  border-top: 2px solid var(--borde-control);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* La franja de ventas por hora, al pie del turno abierto. */
+.turno-franja {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--borde);
+}
+
+@media (max-width: 46rem) {
+  .turno-franja {
+    flex-wrap: wrap;
+  }
+}
+
+/* El punto que dice que el turno está corriendo AHORA.
+   Es el único gesto animado de la pantalla, y reemplaza al recuadro de acento
+   que la maqueta dibuja alrededor de todo el bloque: un latido comunica
+   "en curso" mejor que un borde, y no encierra nada. */
+.punto-vivo {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--marca);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--marca) 65%, transparent);
+  animation: latido 2.4s var(--entra) infinite;
+}
+
+@keyframes latido {
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--marca) 0%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--marca) 0%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .punto-vivo {
+    animation: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Convenios — maqueta 8b
+   ─────────────────────────────────────────────────────────────────────
+   La maqueta dibuja cada convenio como una tarjeta con sus cinco cifras en
+   una fila flexible. Acá van en columnas, y el motivo es lo que se viene a
+   hacer a esta pantalla: no mirar un convenio, sino COMPARARLOS —cuál se
+   está usando y cuál está costando—. Con las cifras en una fila flexible,
+   "sin cobrar" cae en un sitio distinto en cada tarjeta y no hay barrido
+   posible.
+
+   Misma plantilla para cabecera y filas, declarada una vez.
+   ───────────────────────────────────────────────────────────────────── */
+
+.convenios-rejilla {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.3fr) minmax(0, 1.4fr)
+    3.5rem 4rem 7.5rem 6.5rem 5.5rem;
+  align-items: center;
+  gap: 14px;
+}
+
+.convenios-tabla {
+  min-width: 50rem;
+}
+
+/* Lo que se despliega al gestionar un convenio: sus placas, el alta de una
+   nueva y la acción de vencerlo. Sangrado bajo la columna del nombre, para
+   que se lea como suyo y no como una fila más de la tabla. */
+.convenios-gestion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px 0 4px;
+  padding: 16px 0 0;
+  border-top: 1px dashed var(--borde);
+  animation: despliega-convenio 140ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes despliega-convenio {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* Las placas. Se envuelven solas: un convenio de empresa tiene ciento
+   veintiocho y no caben en una línea. */
+.convenios-placas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.convenios-agregar {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Vencer va al final del desplegable y en estilo de peligro: no se deshace,
+   y la frase de al lado dice qué conserva y qué no. */
+.convenios-vencer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid var(--borde);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .convenios-gestion {
+    animation: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Turnos — el cuadrante semanal (maqueta 2h)
+   ─────────────────────────────────────────────────────────────────────
+   La maqueta marca cada día con un punto verde. Acá va el NOMBRE de quien
+   cubre ese turno ese día, que es la pregunta que se le hace a esta pantalla
+   —"¿quién está el martes por la mañana?"— y que con un punto obligaba a
+   volver a la columna de la izquierda a leer la lista del turno.
+
+   El fondo tenue de las celdas activas conserva lo único que el punto hacía
+   bien: que la forma de la semana se lea sin leer.
+   ───────────────────────────────────────────────────────────────────── */
+
+/*
+ * Un texto que sólo existe para quien no ve la pantalla.
+ *
+ * No se usa `display: none` ni `visibility: hidden`: eso lo escondería
+ * también del lector de pantalla, que es justo a quien va dirigido.
+ *
+ * Lo pide el cuadrante de turnos: un día libre se dibuja VACÍO, y una celda
+ * vacía leída en voz alta no dice nada. Con esto dice "martes: libre".
+ */
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.turnos-cuadrante {
+  width: 100%;
+  min-width: 52rem;
+  border-collapse: separate;
+  border-spacing: 3px 0;
+}
+
+/* La columna del turno: nombre y horario. Ancha, porque es la que ancla la
+   fila; el resto se reparte lo que queda a partes iguales. */
+.turnos-turno {
+  width: 13rem;
+  padding: 14px 14px 14px 0;
+  text-align: left;
+  font-weight: 400;
+  vertical-align: middle;
+  border-top: 1px solid var(--borde);
+}
+
+.turnos-cuadrante tbody tr:first-child .turnos-turno,
+.turnos-cuadrante tbody tr:first-child .turnos-celda {
+  border-top: none;
+}
+
+.turnos-celda {
+  padding: 10px 6px;
+  text-align: center;
+  vertical-align: middle;
+  border-top: 1px solid var(--borde);
+  border-radius: 10px;
+}
+
+/*
+ * El día que se trabaja.
+ *
+ * Fondo apenas teñido con el color de marca, no relleno sólido: siete
+ * bloques de color por fila serían una manta y taparían los nombres, que son
+ * lo que hay que leer. Al 8% se ve la forma de la semana de reojo y el nombre
+ * sigue teniendo todo el contraste.
+ */
+.turnos-celda-activa {
+  background: color-mix(in oklab, var(--marca) 8%, transparent);
+}
+
+.turnos-nombre {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--texto);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Un turno marcado que no cubre nadie. Es un aviso, no un dato: en ámbar,
+   que es el color que este producto usa para "esto reclama algo". */
+.turnos-vacante {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--aviso-tinta);
+}
+
+/*
+ * Un turno desactivado.
+ *
+ * No se atenúa con `opacity` sobre la fila entera: eso arrastraba al texto
+ * tenue, que ya iba al límite de contraste, y lo dejaba por debajo. Se apaga
+ * lo que significa "este turno corre" —el tinte de los días— y el nombre
+ * pasa a tinta tenue. Sigue siendo legible; lo que deja de ser es vigente.
+ */
+.turnos-cuadrante tr[data-inactivo] .turnos-celda-activa {
+  background: transparent;
+}
+
+.turnos-cuadrante tr[data-inactivo] .turnos-nombre,
+.turnos-cuadrante tr[data-inactivo] .turnos-turno strong {
+  color: var(--texto-tenue);
+  font-weight: 500;
+}
+
+/*
+ * En pantalla angosta el cuadrante se desliza, no se aplasta.
+ *
+ * Siete columnas con nombres no caben en 390px por mucho que se recorten, y
+ * un cuadrante con las columnas encogidas hasta partir los nombres no dice
+ * nada. Deslizarse conserva la rejilla entera; lo que se pierde es ver la
+ * semana completa a la vez, que en un teléfono se pierde igual.
+ */
+@media (max-width: 60rem) {
+  .turnos-turno {
+    width: 11rem;
+  }
+
+  .turnos-nombre {
+    font-size: 12px;
+  }
+}
+
+/* La gestión de un turno: su propia fila, bajo la del cuadrante. Sangrada
+   como el desplegable de Operarios, para que se lea como suya. */
+.turnos-gestion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 0 18px;
+  border-top: 1px dashed var(--borde);
+  animation: despliega-turno 140ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes despliega-turno {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .turnos-gestion {
+    animation: none;
+  }
+}
+
+/* Las franjas horarias que ningún turno cubre.
+   Una por renglón y en columnas: encadenadas con puntos medios había que
+   releer la frase entera para localizar un día. En rejilla se barre. */
+.turnos-huecos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 2px 22px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 56rem;
+}
+
+.turnos-huecos > li {
+  padding: 7px 0;
+  font-size: 13px;
+  color: var(--texto);
+  border-top: 1px solid var(--borde);
+}
+
+/* Convenios en modo lectura, que es lo que ve un operario: tres columnas en
+   vez de siete. Se le quitan las placas, los usos y lo dejado de cobrar
+   --datos del negocio-- y la columna de acciones, que no tiene. */
+.convenios-rejilla-lectura {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.6fr) 8rem;
+}
