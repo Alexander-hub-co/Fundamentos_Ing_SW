@@ -315,7 +315,7 @@ Fundamentos_Ing_SW/
 | Revisión de cada sprint | [`Docs/Review/`](Docs/Review/) |
 | Retrospectiva de cada sprint | [`Docs/Retrospective/`](Docs/Retrospective/) |
 | Capturas de las pantallas | [`Docs/Mockups/`](Docs/Mockups/) |
-| Informe técnico del sistema | [`Docs/informe-tecnico.docx`](Docs/informe-tecnico.docx) |
+| Informe técnico del sistema | [`Docs/informe-tecnico.pdf`](Docs/informe-tecnico.pdf) · [`.docx`](Docs/informe-tecnico.docx) |
 | Acuerdo de uso académico | [`Docs/contrato-uso-academico.pdf`](Docs/contrato-uso-academico.pdf) |
 | Diseño de la taquilla | [`Docs/Arquitectura/interfaz-taquilla.md`](Docs/Arquitectura/interfaz-taquilla.md) |
 | Modelo entidad-relación | [`Database/modelo-entidad-relacion.md`](Database/modelo-entidad-relacion.md) |
