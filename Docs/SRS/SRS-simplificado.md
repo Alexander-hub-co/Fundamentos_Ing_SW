@@ -2,7 +2,7 @@
 
 **Proyecto:** Parquivo — Sistema de gestión para parqueaderos
 **Asignatura:** Fundamentos de Ingeniería de Software (12946) · 2026-2
-**Autor del sistema:** Cristian Quevedo
+**Autor del sistema:** Cristian Quevedo.cobro
 
 ---
 
