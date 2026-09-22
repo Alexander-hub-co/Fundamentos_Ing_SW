@@ -1,0 +1,139 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1786902032209,
+      "tag": "0000_nappy_pet_avengers",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1786904140509,
+      "tag": "0001_faithful_vertigo",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1786922953615,
+      "tag": "0002_material_turbo",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1786935342237,
+      "tag": "0003_swift_tenebrous",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1786943028240,
+      "tag": "0004_crazy_magma",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1786943299619,
+      "tag": "0005_sparkling_zaran",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1787011933387,
+      "tag": "0006_acoustic_katie_power",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1787011933388,
+      "tag": "0007_tarifa_primera_hora",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1787011933389,
+      "tag": "0008_convenios_vocabulario",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1787011933390,
+      "tag": "0009_convenio_periodicidad",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1787011933391,
+      "tag": "0010_taquilla",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1787011933392,
+      "tag": "0011_preferencias",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1787011933393,
+      "tag": "0012_impresion",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1787011933394,
+      "tag": "0013_fichas",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1787011933395,
+      "tag": "0014_ficha_tope",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1787011933396,
+      "tag": "0015_fichas_son_el_ticket",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1787011933397,
+      "tag": "0016_convenio_bicicletas",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1787011933398,
+      "tag": "0017_impresion_por_tipo",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1787011933399,
+      "tag": "0018_volver_a_un_interruptor",
+      "breakpoints": true
+    }
+  ]
+}

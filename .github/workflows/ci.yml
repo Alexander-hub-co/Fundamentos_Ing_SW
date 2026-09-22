@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verificacion:
+    runs-on: ubuntu-latest
+
+    # Las pruebas de aislamiento corren contra PostgreSQL real. No admiten base
+    # simulada: lo que hay que demostrar es que las políticas del motor rechazan
+    # la fila, y sustituir la base eliminaría el sujeto de la prueba.
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: parquivo_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL_MIGRATOR: postgresql://ci:ci@localhost:5432/parquivo_test
+      DATABASE_URL_PLATFORM: postgresql://app_platform:ci_platform@localhost:5432/parquivo_test
+      DATABASE_URL_TENANT: postgresql://app_tenant:ci_tenant@localhost:5432/parquivo_test
+      AUTH_SECRET: secreto-solo-para-integracion-continua
+      APP_URL: http://localhost:3000
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Escribir .env.test
+        run: |
+          {
+            echo "DATABASE_URL_MIGRATOR=$DATABASE_URL_MIGRATOR"
+            echo "DATABASE_URL_PLATFORM=$DATABASE_URL_PLATFORM"
+            echo "DATABASE_URL_TENANT=$DATABASE_URL_TENANT"
+            echo "AUTH_SECRET=$AUTH_SECRET"
+            echo "APP_URL=$APP_URL"
+          } > .env.test
+
+      - run: npm run db:migrate:test
+
+      - run: npm run typecheck
+      - run: npm run lint
+
+      # ─────────────────────────────────────────────────────────────────
+      # PUERTA BLOQUEANTE
+      #
+      # El Principio I de la constitución es no negociable: un parqueadero
+      # viendo los datos de otro es el único fallo de este sistema que no
+      # admite reparación posterior.
+      #
+      # Si este paso falla, no se despliega. No se marca como permitido
+      # fallar, no se salta con una etiqueta, no se comenta "temporalmente".
+      # ─────────────────────────────────────────────────────────────────
+      - name: Puerta de aislamiento (Principio I)
+        run: npm run test:aislamiento
+
+      - name: Resto de las pruebas
+        run: npm test
+
+      - run: npm run build

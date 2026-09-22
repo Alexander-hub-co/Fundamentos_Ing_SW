@@ -1,0 +1,58 @@
+# --- Estado local del agente ---------------------------------------------
+# Las skills de Spec Kit en .claude/skills/ SÍ se versionan a propósito: son
+# los comandos del ciclo SDD y todo el equipo debe compartir la misma versión.
+# Sólo se excluye el estado por máquina, que es donde un agente podría dejar
+# credenciales o permisos locales.
+.claude/settings.local.json
+.claude/*.local.json
+
+# --- Sistema operativo y editores ----------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# --- Entorno -------------------------------------------------------------
+# Nunca versionar secretos.
+.env
+.env.*
+!.env.example
+
+# --- Node / Next.js ------------------------------------------------------
+node_modules/
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# --- Pruebas y cobertura -------------------------------------------------
+coverage/
+.vitest/
+
+# --- Registros -----------------------------------------------------------
+*.log
+npm-debug.log*
+
+# ─────────────────────────────────────────────────────────────────────
+# Fuera del repositorio compartido
+# ─────────────────────────────────────────────────────────────────────
+# Herramientas de trabajo del autor: cómo desarrolla y qué instrucciones
+# le da a sus asistentes. No hacen falta para que el proyecto corra ni
+# para la asignatura, y los archivos siguen en el disco: sólo dejan de
+# versionarse.
+.claude/skills/
+AGENTS.md
+CLAUDE.md
+
+# De .specify se va el andamiaje, pero NO la constitución: ésa es
+# documentación real del proyecto, citada en 31 archivos, y es la que
+# explica por qué el sistema está hecho como está.
+.specify/*
+!.specify/memory/
+.specify/memory/*
+!.specify/memory/constitution.md

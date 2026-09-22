@@ -1,0 +1,69 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Spike de impresión térmica</title>
+<style>
+  /* El rollo estándar de factura es de 58 mm; el de 80 mm también existe.
+     La altura va libre: el papel es continuo y se corta donde termine. */
+  @page { size: 58mm auto; margin: 0; }
+
+  body { margin: 0; font-family: system-ui, sans-serif; }
+
+  .comprobante {
+    width: 58mm;
+    padding: 4mm 3mm;
+    box-sizing: border-box;
+    /* Impresión térmica: no hay grises fiables ni color. Todo negro sobre
+       blanco, y con cuerpo suficiente para que se lea en papel barato. */
+    color: #000;
+    background: #fff;
+    font-size: 11pt;
+    line-height: 1.35;
+  }
+
+  .nombre { font-size: 12pt; font-weight: 700; text-align: center; }
+  .codigo { font-size: 16pt; font-weight: 700; text-align: center; letter-spacing: .05em; margin: 2mm 0; }
+  .placa {
+    font-size: 22pt; font-weight: 700; text-align: center;
+    letter-spacing: .12em; margin: 2mm 0 3mm;
+    border: 2px solid #000; padding: 1.5mm 0;
+  }
+  .fila { display: flex; justify-content: space-between; gap: 2mm; }
+  .fila span:last-child { font-weight: 700; text-align: right; }
+  hr { border: none; border-top: 1px dashed #000; margin: 2.5mm 0; }
+  .pie { font-size: 8pt; text-align: center; margin-top: 3mm; }
+
+  .controles { padding: 8mm; font-family: system-ui, sans-serif; }
+  @media print { .controles { display: none } }
+</style>
+
+<div class="controles">
+  <h1>Spike de impresión térmica</h1>
+  <p>Con el navegador en modo <code>--kiosk-printing</code> y la térmica puesta como
+     impresora predeterminada, esto debería salir <strong>sin ningún diálogo</strong>.</p>
+  <button onclick="window.print()">Imprimir comprobante de prueba</button>
+  <p style="color:#666">Ver <code>README.md</code> para qué mirar en el papel.</p>
+</div>
+
+<div class="comprobante">
+  <div class="nombre">PARQUEADERO CENTRO ANDINO</div>
+  <div style="text-align:center;font-size:8pt">Carrera 11 #82-71 · Bogotá</div>
+
+  <div class="codigo">PCA-000147</div>
+  <div class="placa">ABC123</div>
+
+  <div class="fila"><span>Tipo</span><span>Automóvil</span></div>
+  <div class="fila"><span>Entrada</span><span>19/08/2026 14:32</span></div>
+  <div class="fila"><span>Atendió</span><span>OP-04</span></div>
+
+  <hr>
+
+  <div class="fila"><span>Tarifa</span><span>$700 / 15 min</span></div>
+  <div class="fila"><span>Máximo día</span><span>$18.000</span></div>
+
+  <hr>
+
+  <div class="pie">
+    Conserve este comprobante.<br>
+    Sin él, la salida se verifica por la placa.
+  </div>
+</div>

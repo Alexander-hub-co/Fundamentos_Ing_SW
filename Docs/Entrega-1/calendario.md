@@ -20,8 +20,8 @@ gantt
     Sprint 1 · Planeación y especificación   :done, s1, 2026-08-17, 2026-08-31
 
     section Construcción
-    Sprint 2 · Plataforma y seguridad        :active, s2, 2026-09-01, 2026-09-14
-    Sprint 3 · Taquilla — entrada            :s3, 2026-09-15, 2026-09-28
+    Sprint 2 · Plataforma y seguridad        :done, s2, 2026-09-01, 2026-09-14
+    Sprint 3 · Taquilla — entrada            :active, s3, 2026-09-15, 2026-09-28
     Sprint 4 · Motor de cobro                :s4, 2026-09-29, 2026-10-12
     Sprint 5 · Supervisión y pruebas        :s5, 2026-10-13, 2026-10-26
 
@@ -55,13 +55,12 @@ código, en este sprint se levantó la especificación:
 | Levantar los casos de uso | Seis flujos principales con sus alternativas |
 | Montar el repositorio | Estructura de carpetas, hitos, etiquetas y flujo de ramas |
 
-Los 18 puntos cerrados en este sprint son la única medida de velocidad real que
-tiene el equipo, y son los que sostienen que 21 a 24 puntos por sprint sea un
-compromiso alcanzable y no un deseo.
+Los 18 puntos cerrados en este sprint fueron la primera medida de velocidad real
+del equipo, y son los que sostuvieron el compromiso de los sprints siguientes.
 
 ---
 
-## Sprint 2 · Plataforma y seguridad · 21 puntos
+## Sprint 2 · Plataforma y seguridad · 21 puntos · cerrado
 
 **1 de septiembre – 14 de septiembre de 2026**
 
@@ -79,14 +78,19 @@ El aislamiento va primero y no es negociable: montarlo después, sobre un
 esquema que ya tiene movimientos y tarifas, es el trabajo que nunca se termina
 de hacer bien.
 
+**Resultado: 21 de 21 puntos.** Las cuatro historias quedaron cerradas dentro
+del sprint.
+
 ---
 
-## Sprint 3 · Taquilla — entrada · 24 puntos
+## Sprint 3 · Taquilla — entrada · 24 puntos · en curso
 
 **15 de septiembre – 28 de septiembre de 2026**
 
 Objetivo: que un vehículo pueda entrar, que el sistema deduzca su tipo solo y
 que lo registrado no se pueda alterar después.
+
+Es el sprint en curso. Cierra el 28 de septiembre.
 
 | # | Historia | Puntos | Responsable |
 |---|---|:---:|---|
