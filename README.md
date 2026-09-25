@@ -249,6 +249,14 @@ Fundamentos_Ing_SW/
 ├── design_handoff_parquivo/
 │   └── Maquetas de las pantallas, entregadas por diseño.
 │
+├── Casos-de-uso-mas-importantes/
+│   ├── CU-07-registrar-entrada/
+│   │   └── Diagramas de clases, datos, componentes, despliegue
+│   │       e interfaz, más el código que lo implementa.
+│   │
+│   └── CU-08-cobrar-salida/
+│       └── Los mismos cinco diagramas y su código.
+│
 ├── Database/
 │   └── Modelo entidad-relación y decisiones del esquema.
 │
@@ -305,6 +313,7 @@ Fundamentos_Ing_SW/
 | Especificación de requisitos (SRS) | [`Docs/SRS/`](Docs/SRS/) |
 | Historias de usuario | [`Docs/Entrega-1/historias-de-usuario.md`](Docs/Entrega-1/historias-de-usuario.md) |
 | Casos de uso | [`Docs/Entrega-1/casos-de-uso.md`](Docs/Entrega-1/casos-de-uso.md) |
+| Los dos casos de uso más importantes, con sus diagramas y su código | [`Casos-de-uso-mas-importantes/`](Casos-de-uso-mas-importantes/) |
 | Propuesta del producto (Canvas) | [`Docs/Entrega-1/canvas.md`](Docs/Entrega-1/canvas.md) |
 | Modelo de características | [`Docs/Entrega-1/feature-model.md`](Docs/Entrega-1/feature-model.md) |
 | Organigrama y roles | [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md) |
