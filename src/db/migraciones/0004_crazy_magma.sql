@@ -1,5 +1,10 @@
 CREATE TYPE "public"."alcance_plena" AS ENUM('estadia', 'jornada');--> statement-breakpoint
-CREATE TYPE "public"."modelo_cobro" AS ENUM('por_minuto', 'por_intervalo');--> statement-breakpoint
+-- En una base nueva el tipo ya lo creó `migrar.ts` (paso 2), con todos sus
+-- valores, antes de que corra esta migración. Ver el comentario de ese paso.
+DO $$ BEGIN
+	CREATE TYPE "public"."modelo_cobro" AS ENUM('por_minuto', 'por_intervalo');
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;--> statement-breakpoint
 CREATE TABLE "tipo_vehiculo" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"codigo" text NOT NULL,
