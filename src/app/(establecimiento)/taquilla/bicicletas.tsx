@@ -92,10 +92,13 @@ function Recibir({ disponibles }: { disponibles: number }) {
   const yaMandado = useRef<string | null>(null);
 
   // El teléfono que esa cédula dio antes. Es lo que hace que un cliente
-  // habitual cueste UN dato en vez de dos.
-  useEffect(() => {
+  // habitual cueste UN dato en vez de dos. Se copia al campo durante el dibujo,
+  // al ver que la consulta cambió, para no redibujar dos veces.
+  const [conocidoVisto, setConocidoVisto] = useState(conocido.telefonoConocido);
+  if (conocido.telefonoConocido !== conocidoVisto) {
+    setConocidoVisto(conocido.telefonoConocido);
     if (conocido.telefonoConocido) setTelefono(conocido.telefonoConocido);
-  }, [conocido.telefonoConocido]);
+  }
 
   useEffect(() => {
     const papel = estado.comprobante;
