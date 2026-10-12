@@ -87,11 +87,25 @@ async function main() {
     // Drizzle: PostgreSQL no deja usar uno en la misma transacción que lo crea,
     // y las migraciones de Drizzle corren todas juntas en una. Es idempotente,
     // así que correr el migrador dos veces no molesta.
+    //
+    // En una base NUEVA el tipo todavía no existe (lo crearía la migración
+    // 0004), y un `alter type` sobre él tumbaba el migrador: por eso el CI
+    // fallaba siempre. En ese caso se crea aquí completo, y la 0004 lo tolera.
     console.log("2. Valores de enumeración");
-    await admin.query(
-      `alter type modelo_cobro add value if not exists 'primera_hora_y_fraccion'`,
+    const tipo = await admin.query(
+      "select 1 from pg_type where typname = 'modelo_cobro' and typnamespace = 'public'::regnamespace",
     );
-    console.log("  al día");
+    if (tipo.rowCount === 0) {
+      await admin.query(
+        `create type public.modelo_cobro as enum ('por_minuto', 'por_intervalo', 'primera_hora_y_fraccion')`,
+      );
+      console.log("  tipo modelo_cobro creado");
+    } else {
+      await admin.query(
+        `alter type public.modelo_cobro add value if not exists 'primera_hora_y_fraccion'`,
+      );
+      console.log("  al día");
+    }
 
     console.log("3. Migraciones de Drizzle");
     const { drizzle } = await import("drizzle-orm/node-postgres");
