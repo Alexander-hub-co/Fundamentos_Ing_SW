@@ -3,9 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import type { CSSProperties } from "react";
 import {
-  botonMenudo,
   botonSecundario,
-  cifra,
   importe as estiloImporte,
   rotuloSeccion,
   textoTenue,
@@ -136,17 +134,4 @@ const pastillaActiva: CSSProperties = {
   color: "var(--texto)",
   borderColor: "var(--borde-control)",
 };
-
-/** Con la zona fija: el servidor puede estar en UTC. */
-function fecha(d: Date): string {
-  return new Intl.DateTimeFormat("es-CO", {
-    day: "2-digit",
-    month: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-    timeZone: "America/Bogota",
-  }).format(d);
-}
-
 
