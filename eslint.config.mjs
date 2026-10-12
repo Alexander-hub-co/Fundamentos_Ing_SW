@@ -11,6 +11,9 @@ const config = [
       "out/**",
       "coverage/**",
       "next-env.d.ts",
+      // Extractos del código para la documentación: no compilan por sí solos
+      // porque les faltan los módulos que importan. El código real está en src/.
+      "Casos-de-uso-mas-importantes/**",
     ],
   },
   ...coreWebVitals,
