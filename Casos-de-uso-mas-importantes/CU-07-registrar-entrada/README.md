@@ -39,10 +39,9 @@
 
 ## Diagramas
 
-1. [Diagrama de clases](1-diagrama-de-clases.md)
-2. [Modelo de base de datos](2-modelo-de-base-de-datos.md)
-3. [Diagrama de componentes](3-diagrama-de-componentes.md)
-4. [Diagrama de despliegue](4-diagrama-de-despliegue.md)
-5. [Diagrama de interfaz](5-diagrama-de-interfaz.md)
+Los diagramas están en [`../Diagramas/`](../Diagramas/), hechos en draw.io:
+
+1. [Diagrama de clases](../Diagramas/diagrama-de-clases.drawio)
+2. [Modelo de base de datos](../Diagramas/modelo-de-base-de-datos.drawio)
 
 El código que lo implementa está en [`codigo/`](codigo/).
