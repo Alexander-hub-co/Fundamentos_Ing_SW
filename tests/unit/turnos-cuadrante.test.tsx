@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 
@@ -110,7 +111,7 @@ describe("la gestión", () => {
 
   it("el botón que retira a alguien dice que lo retira", () => {
     // Su nombre accesible era el de la persona más "— retirar" pegado.
-    const fuente = require("node:fs").readFileSync(
+    const fuente = readFileSync(
       "src/app/(establecimiento)/configuracion/turnos/panel.tsx",
       "utf8",
     );

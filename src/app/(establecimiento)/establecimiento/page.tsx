@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { redirect } from "next/navigation";
 import {
-  botonMenudo,
   botonSecundario,
   cifra,
   insignia,

@@ -67,12 +67,74 @@ export function CampoPlaca({
   const campo = useRef<HTMLInputElement>(null);
 
   const resolucion = consulta.resolucion;
-  const hecho = entrada.ok ?? salida.ok ?? cortesia.ok;
-  const falla = consulta.error ?? entrada.error ?? salida.error ?? cortesia.error;
+
+  /**
+   * Sobre qué resolución ya se actuó.
+   *
+   * El resultado de la consulta y el de la confirmación son dos estados
+   * separados, así que registrar la entrada NO borra la consulta que la
+   * originó: quedaba abajo una tarjeta ofreciendo "Registrar entrada" para un
+   * vehículo que ya estaba adentro, y pulsarla habría fallado contra el índice
+   * de placa duplicada. Peor todavía, invitaba a pulsarla.
+   *
+   * Se guarda una CLAVE y no un simple sí/no porque la resolución tiene que
+   * volver a aparecer en cuanto se consulte otra cosa —o la misma placa, que
+   * entonces ya resuelve una salida—. Con un booleano habría que acordarse de
+   * apagarlo, y el día que se olvidara la pantalla se quedaría muda.
+   */
+  const [actuado, setActuado] = useState<string | null>(null);
+
+  const claveDe = (res: NonNullable<typeof resolucion>): string =>
+    res.tipo === "entrada"
+      ? `entrada:${res.placa}`
+      : res.tipo === "salida"
+        ? `salida:${res.movimiento.id}`
+        : "rechazada";
+
+  /**
+   * El resultado de la ÚLTIMA acción que terminó, sea entrada, cobro o cortesía.
+   *
+   * Cada acción guarda su propio estado y lo conserva hasta que se vuelve a
+   * usar, así que encadenarlos con `??` dejaba ganando siempre a la entrada:
+   * después de cobrar una salida la pantalla seguía mostrando "ABC123 adentro",
+   * el botón imprimía el tique de entrada y la tarjeta de cobro no se retiraba.
+   * Por eso se compara cada estado con el que se vio en el dibujo anterior y se
+   * queda con el que cambió.
+   */
+  const [vistos, setVistos] = useState({ consulta, entrada, salida, cortesia });
+  const [ultimo, setUltimo] = useState<EstadoTaquilla>({});
+
+  if (
+    consulta !== vistos.consulta ||
+    entrada !== vistos.entrada ||
+    salida !== vistos.salida ||
+    cortesia !== vistos.cortesia
+  ) {
+    setVistos({ consulta, entrada, salida, cortesia });
+    const nuevo =
+      entrada !== vistos.entrada
+        ? entrada
+        : salida !== vistos.salida
+          ? salida
+          : cortesia !== vistos.cortesia
+            ? cortesia
+            : null;
+    if (nuevo) {
+      setUltimo(nuevo);
+      // Al confirmar, la resolución queda consumida.
+      if (nuevo.ok && resolucion) setActuado(claveDe(resolucion));
+    } else if (ultimo.error) {
+      // Una consulta nueva retira el error de la acción anterior.
+      setUltimo({ ...ultimo, error: undefined });
+    }
+  }
+
+  const hecho = ultimo.ok;
+  const falla = consulta.error ?? ultimo.error;
 
   // El papel del último movimiento registrado, venga de una entrada, un cobro
   // o una cortesía.
-  const papel = entrada.comprobante ?? salida.comprobante ?? cortesia.comprobante;
+  const papel = ultimo.comprobante;
   const [imprimiendo, setImprimiendo] = useState(false);
   const [falloImpresion, setFalloImpresion] = useState<string | null>(null);
   // Qué movimiento ya se mandó solo, para no repetirlo en cada redibujado.
@@ -107,44 +169,14 @@ export function CampoPlaca({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [papel?.movimientoId, papel?.automatico]);
 
-  /**
-   * Sobre qué resolución ya se actuó.
-   *
-   * El resultado de la consulta y el de la confirmación son dos estados
-   * separados, así que registrar la entrada NO borra la consulta que la
-   * originó: quedaba abajo una tarjeta ofreciendo "Registrar entrada" para un
-   * vehículo que ya estaba adentro, y pulsarla habría fallado contra el índice
-   * de placa duplicada. Peor todavía, invitaba a pulsarla.
-   *
-   * Se guarda una CLAVE y no un simple sí/no porque la resolución tiene que
-   * volver a aparecer en cuanto se consulte otra cosa —o la misma placa, que
-   * entonces ya resuelve una salida—. Con un booleano habría que acordarse de
-   * apagarlo, y el día que se olvidara la pantalla se quedaría muda.
-   */
-  const [actuado, setActuado] = useState<string | null>(null);
-
-  const claveDe = (res: NonNullable<typeof resolucion>): string =>
-    res.tipo === "entrada"
-      ? `entrada:${res.placa}`
-      : res.tipo === "salida"
-        ? `salida:${res.movimiento.id}`
-        : "rechazada";
-
-  // Al confirmar: se marca la resolución como consumida y el campo queda vacío
-  // y con el foco, listo para el vehículo siguiente. Quien atiende no debería
-  // tener que borrar la placa anterior a mano con la fila esperando.
+  // Al confirmar, el campo queda vacío y con el foco, listo para el vehículo
+  // siguiente. Quien atiende no debería tener que borrar la placa anterior a
+  // mano con la fila esperando.
   useEffect(() => {
-    if (!hecho || !resolucion) return;
-
-    setActuado(claveDe(resolucion));
-    if (campo.current) {
-      campo.current.value = "";
-      campo.current.focus();
-    }
-    // Se dispara con el mensaje de confirmación, que es lo que cambia cuando
-    // una acción termina bien.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hecho]);
+    if (!ultimo.ok || !campo.current) return;
+    campo.current.value = "";
+    campo.current.focus();
+  }, [ultimo]);
 
   /**
    * La resolución VIGENTE: nada si ya se actuó sobre ella.

@@ -39,16 +39,20 @@ atribuir los movimientos, los convenios para modificar el importe.
 | Archivo | Qué contiene |
 |---|---|
 | `README.md` | El caso de uso: actor, precondición, flujo principal y alternativos |
-| `1-diagrama-de-clases.md` | Los tipos y funciones que lo implementan, y cómo se relacionan |
-| `2-modelo-de-base-de-datos.md` | Las tablas que toca, con sus columnas y restricciones |
-| `3-diagrama-de-componentes.md` | Las piezas del sistema que intervienen y cómo se hablan |
-| `4-diagrama-de-despliegue.md` | Dónde se ejecuta cada pieza |
-| `5-diagrama-de-interfaz.md` | Las pantallas y los estados por los que pasa el operario |
 | `codigo/` | Los archivos fuente que lo implementan |
 
 Los archivos de `codigo/` son **copias** de `src/`, reunidas aquí para poder
 revisar un caso de uso completo sin recorrer el árbol. La versión que se compila
 y se prueba es la de `src/`; si las dos difieren, manda `src/`.
 
-Los diagramas están escritos en Mermaid, que GitHub dibuja solo al abrir el
-archivo.
+## Diagramas
+
+La carpeta [`Diagramas/`](Diagramas/) tiene los diagramas en formato draw.io:
+
+| Archivo | Qué contiene |
+|---|---|
+| `diagrama-de-clases.drawio` | Las clases del sistema, sus atributos, métodos y relaciones |
+| `modelo-de-base-de-datos.drawio` | Las tablas de PostgreSQL con sus llaves primarias y foráneas |
+
+Para abrirlos o editarlos: [app.diagrams.net](https://app.diagrams.net) →
+*Archivo → Abrir desde → Dispositivo*.
