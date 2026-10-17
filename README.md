@@ -159,8 +159,12 @@ cp .env.example .env
 #    Generar el secreto de sesión con:  openssl rand -base64 32
 
 # 3. Preparar la base de datos
-bash Script/crear-roles.sh     # crea los tres roles de PostgreSQL
-npm run migrar                 # aplica las migraciones
+#    El usuario de DATABASE_URL_MIGRATOR debe existir y ser dueño de la base.
+#    El migrador crea los roles app_tenant y app_platform con las contraseñas
+#    de .env, y luego aplica las migraciones y el blindaje.
+npm run db:migrate
+npm run db:semilla -- admin@ejemplo.com "Nombre Apellido" "contraseña"
+#                              # crea la cuenta inicial de administrador general
 
 # 4. Levantar en desarrollo
 npm run dev                    # http://localhost:3000
@@ -169,10 +173,11 @@ npm run dev                    # http://localhost:3000
 ### Comprobar que todo funciona
 
 ```bash
-npx tsc --noEmit     # verificación de tipos
-npx eslint src       # análisis estático
-npx vitest run       # suite de pruebas automatizadas
-npm run build        # compilación para producción
+npm run typecheck          # verificación de tipos
+npm run lint               # análisis estático
+npm run db:migrate:test    # prepara la base de pruebas (lee .env.test)
+npm test                   # suite de pruebas automatizadas
+npm run build              # compilación para producción
 ```
 
 ---
