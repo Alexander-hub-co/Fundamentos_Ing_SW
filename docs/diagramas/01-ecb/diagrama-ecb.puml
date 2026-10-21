@@ -1,0 +1,78 @@
+@startuml diagrama-ecb
+!pragma layout smetana
+left to right direction
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam ArrowColor #1F3B57
+skinparam ArrowFontSize 11
+skinparam ArrowFontColor #1F3B57
+skinparam actorBorderColor #1F3B57
+skinparam actorBackgroundColor #7CCBF2
+skinparam boundaryBorderColor #1F3B57
+skinparam boundaryBackgroundColor #7CCBF2
+skinparam controlBorderColor #1F3B57
+skinparam controlBackgroundColor #7CCBF2
+skinparam entityBorderColor #1F3B57
+skinparam entityBackgroundColor #7CCBF2
+skinparam rectangleBorderColor #1F3B57
+skinparam rectangleFontColor #1F3B57
+
+title Diagrama de Análisis (ECB) — Parquivo\nHU-008 · HU-007 · HU-004
+
+actor "Operario de\ntaquilla" as Operario
+actor "Administrador de\nparqueadero" as Admin
+
+rectangle "Límites (Boundary)" #FFFFFF {
+  boundary "CampoPlaca" as CampoPlaca
+  boundary "PanelSalida" as PanelSalida
+  boundary "ComprobanteImpreso" as Comprobante
+  boundary "FormularioTarifa" as FormTarifa
+}
+
+rectangle "Controles (Control)" #FFFFFF {
+  control "ResolverPlacaCtrl" as ResolverCtrl
+  control "RegistrarEntradaCtrl" as EntradaCtrl
+  control "CalcularCobroCtrl" as CobroCtrl
+  control "RegistrarSalidaCtrl" as SalidaCtrl
+  control "DeclararTarifaCtrl" as TarifaCtrl
+}
+
+rectangle "Entidades (Entity)" #FFFFFF {
+  entity "Movimiento" as Movimiento
+  entity "TipoVehiculo" as TipoVehiculo
+  entity "Tarifa" as Tarifa
+  entity "Convenio" as Convenio
+  entity "PoliticaCobro" as Politica
+  entity "SesionTurno" as Sesion
+}
+
+' --- HU-008 · Determinar entrada o salida según placa
+Operario --> CampoPlaca : escribe la placa
+CampoPlaca --> ResolverCtrl : placa
+ResolverCtrl --> Movimiento : busca abierto
+ResolverCtrl --> TipoVehiculo : clasifica
+ResolverCtrl --> EntradaCtrl : no está adentro
+ResolverCtrl --> CobroCtrl : está adentro
+EntradaCtrl --> Movimiento : crea
+EntradaCtrl --> Sesion : atribuye
+
+' --- HU-007 · Detalle del cálculo del cobro
+CobroCtrl --> Tarifa : vigente
+CobroCtrl --> Convenio : aplica
+CobroCtrl --> Politica : redondea
+CobroCtrl --> PanelSalida : desglose
+PanelSalida --> Operario : muestra tramos
+
+' --- HU-004 · Snapshot de tarifa y convenio al cobrar
+Operario --> PanelSalida : confirma salida
+PanelSalida --> SalidaCtrl : confirmar
+SalidaCtrl --> CobroCtrl : recalcula
+SalidaCtrl --> Movimiento : cierra con copia del cobro
+SalidaCtrl --> Comprobante : emite
+
+Admin --> FormTarifa : declara precios
+FormTarifa --> TarifaCtrl : datos de tarifa
+TarifaCtrl --> Tarifa : nueva versión
+@enduml
