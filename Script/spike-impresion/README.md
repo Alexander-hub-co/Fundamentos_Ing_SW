@@ -72,7 +72,7 @@ dos juegos, uno por ancho de rollo; se usa el que corresponda a la impresora:
 Y los mismos tres con prefijo `58mm-`. Mirar el mismo ticket en los dos anchos es la
 forma más rápida de ver cuál corresponde al rollo que hay puesto.
 
-Se regeneran con `npx tsx scripts/muestra-ticket.ts` si el diseño cambia. Conviene
+Se regeneran con `npx tsx Script/muestra-ticket.ts` si el diseño cambia. Conviene
 imprimir los tres: es la forma más barata de ver si el ancho, el cuerpo y la marca del pie
 quedan legibles antes de ponerse a registrar vehículos de prueba.
 

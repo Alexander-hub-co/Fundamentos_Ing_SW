@@ -3,9 +3,9 @@
  *
  * Salen del MISMO código que imprime la taquilla, así que lo que se ve acá es
  * exactamente lo que sale por el papel. Escribe los archivos en
- * `scripts/spike-impresion/`.
+ * `Script/spike-impresion/`.
  *
- *   npx tsx scripts/muestra-ticket.ts
+ *   npx tsx Script/muestra-ticket.ts
  */
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -90,7 +90,7 @@ const muestras: [string, Comprobante][] = [
 // corresponde al rollo que hay puesto.
 for (const ancho of [58, 80] as const) {
   for (const [archivo, c] of muestras) {
-    const destino = join("scripts", "spike-impresion", `${ancho}mm-${archivo}`);
+    const destino = join("Script", "spike-impresion", `${ancho}mm-${archivo}`);
     writeFileSync(destino, comprobanteHtml(c, ancho), "utf8");
     console.log("escrito", destino);
   }

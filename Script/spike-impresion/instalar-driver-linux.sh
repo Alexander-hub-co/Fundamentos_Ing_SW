@@ -12,7 +12,7 @@
 #
 # Usa zj-58, que es el driver habitual para las POS-58/POS-80 genéricas.
 #
-#   bash scripts/spike-impresion/instalar-driver-linux.sh
+#   bash Script/spike-impresion/instalar-driver-linux.sh
 #
 # Pide la contraseña dos veces: para instalar dependencias y para copiar el
 # driver a los directorios de CUPS.
@@ -62,7 +62,7 @@ echo
 echo "Listo. Comprobación:"
 lpstat -p "$NOMBRE" -d
 echo
-echo "Prueba:  lp -d $NOMBRE scripts/spike-impresion/58mm-ticket-salida.html"
+echo "Prueba:  lp -d $NOMBRE Script/spike-impresion/58mm-ticket-salida.html"
 echo "Si la cola vieja «POS-80» sigue estorbando:  sudo lpadmin -x POS-80"
 
 rm -rf "$TRABAJO"

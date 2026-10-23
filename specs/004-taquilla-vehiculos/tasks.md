@@ -46,8 +46,8 @@ pantalla. Es media jornada aquí contra una semana más tarde.
 > una impresora el spike sea enchufar y mirar, no empezar de cero.
 
 - [X] T001 Preparar una página de prueba del ancho de un rollo térmico que imprima un comprobante de ejemplo con placa, código, hora y tarifa, en `scripts/spike-impresion/`
-- [ ] T002 Probar la página de `scripts/spike-impresion/` contra una impresora térmica real por cada conexión disponible —cable, red y Bluetooth—, con el navegador en modo de impresión silenciosa, y anotar qué funcionó y qué no
-- [ ] T003 Comprobar con la misma página de `scripts/spike-impresion/` el punto que puede tumbar la decisión: que el ancho del rollo se respete sin recortes y que no aparezca ningún diálogo por vehículo
+- [ ] T002 Probar la página de `Script/spike-impresion/` contra una impresora térmica real por cada conexión disponible —cable, red y Bluetooth—, con el navegador en modo de impresión silenciosa, y anotar qué funcionó y qué no
+- [ ] T003 Comprobar con la misma página de `Script/spike-impresion/` el punto que puede tumbar la decisión: que el ancho del rollo se respete sin recortes y que no aparezca ningún diálogo por vehículo
 - [ ] T004 Escribir el resultado en `specs/004-taquilla-vehiculos/research.md`, bajo D1. **Si el spike falla, parar acá**: la decisión se revisa antes de escribir una línea de la funcionalidad
 
 **Checkpoint**: la forma de imprimir está confirmada o corregida. Recién ahora se construye.
