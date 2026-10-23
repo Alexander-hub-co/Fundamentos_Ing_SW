@@ -1,43 +1,32 @@
 # Diagrama de Despliegue
 
-![Diagrama de despliegue de Parquivo](despliegue.png)
+> Historia principal: **HU-008 (#31)**
 
-Fuente: [`fuentes/despliegue.puml`](fuentes/despliegue.puml)
+![Diagrama de Despliegue](despliegue.png)
 
-## Qué modela
+## ¿Qué muestra?
 
-La infraestructura donde corre Parquivo: cinco nodos físicos o virtuales, los
-artefactos desplegados en cada uno y los protocolos con sus puertos.
+Dónde corre cada parte del sistema: **5 nodos físicos** y cómo se comunican entre sí.
 
-### Nodos y artefactos
-
-| Nodo «device» | Entorno de ejecución | Artefactos |
-|---|---|---|
-| **PC de taquilla** | Navegador Chromium en modo `--kiosk-printing` | `bundle-frontend.js` (React 19 y CSS) |
-| **Impresora térmica 80 mm** | — | `comprobante.html` (el tiquete) |
-| **PC del administrador** | Navegador web | `bundle-frontend.js` |
-| **Servidor de aplicación** (plataforma gestionada) | Node.js ≥ 20.9 | `parquivo-next` (compilación `.next` de Next.js 16) y `migrar.js` (migraciones Drizzle) |
-| **Servidor de base de datos** | PostgreSQL 16 | Esquema `parqueadero` con sus tablas y políticas RLS, y `roles.sql` con los tres roles |
-
-### Comunicaciones
-
-| Desde | Hacia | Protocolo | Puerto |
-|---|---|---|---|
-| PC de taquilla | Servidor de aplicación | HTTPS (Server Actions y React Server Components) | 443 |
-| PC del administrador | Servidor de aplicación | HTTPS | 443 |
-| Servidor de aplicación | Servidor de base de datos | Protocolo PostgreSQL sobre TCP con TLS | 5432 |
-| PC de taquilla | Impresora térmica | Spooler del sistema operativo: USB, TCP (RAW) o Bluetooth | 9100 en red |
-
-## Infraestructura necesaria
-
-| Elemento | Requisito |
+| Nodo «device» | Qué contiene |
 |---|---|
-| PC de taquilla | Cualquier equipo capaz de ejecutar Chromium, con la impresora térmica configurada como predeterminada |
-| Impresora | Térmica de 80 mm, conectada por USB, red o Bluetooth |
-| Servidor de aplicación | Plataforma gestionada con Node.js 20.9 o superior y certificado TLS para el dominio |
-| Base de datos | PostgreSQL 16 o superior con **permiso para crear roles** (`BYPASSRLS`); si hay agrupador de conexiones, en modo transacción |
-| Variables de entorno | `DATABASE_URL_MIGRATOR`, `DATABASE_URL_PLATFORM`, `DATABASE_URL_TENANT`, `AUTH_SECRET`, `APP_URL` |
+| PC de la caja | Navegador web (Chrome) con la interfaz de taquilla |
+| Impresora térmica | Imprime tiquetes y comprobantes |
+| Celular / tablet (admin) | Navegador para configurar tarifas, convenios y turnos |
+| Servidor de aplicación | Node.js ejecutando el artefacto `parquivo` (Next.js) |
+| Servidor de BD | PostgreSQL 16 |
 
-Los tres roles de la base no son opcionales: `app_migrator` es el dueño del
-esquema, `app_platform` atraviesa RLS sólo para autenticación y administración
-global, y `app_tenant` atiende todo lo demás sin poder saltarse el aislamiento.
+## Comunicación
+
+| Desde → Hacia | Protocolo |
+|---|---|
+| PC de la caja → Servidor de aplicación | HTTPS |
+| Celular / tablet → Servidor de aplicación | HTTPS |
+| Servidor de aplicación → Servidor de BD | TCP/IP `:5432` |
+| PC de la caja → Impresora térmica | USB |
+
+## A tener en cuenta
+
+- La impresora está conectada por **USB a la PC de la caja**, no al servidor. Por eso el comprobante se imprime desde el navegador.
+- El servidor de BD necesita **permiso para crear roles**: el aislamiento por parqueadero usa `app_migrator`, `app_platform` y `app_tenant`.
+- Requisitos: Node.js 20.9 o superior, PostgreSQL 16 o superior y certificado TLS para el dominio.

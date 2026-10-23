@@ -220,6 +220,15 @@ El proceso muestra el flujo completo con sus decisiones: placa inválida, entrad
 o salida, vehículo sin tarifa, cortesía y falla de la impresora. Una impresora
 que no responde **no detiene la fila**: el comprobante queda en pendientes.
 
+### 6.4 Otros flujos del sistema
+
+Los diagramas de procesos y de secuencia de otros siete flujos —recibir y
+devolver una bicicleta, abrir y cerrar el turno, declarar y aplicar un convenio,
+declarar una tarifa, administrar la plataforma e iniciar sesión— están en
+[`Docs/Diagramas/flujos/`](../Diagramas/flujos/), cada uno con las historias que
+cubre. Los de las historias HU-001 a HU-010 están en
+[`Docs/Diagramas/historias/`](../Diagramas/README.md#diagramas-por-historia-de-usuario).
+
 ---
 
 ## 7. Patrones de diseño
@@ -282,6 +291,16 @@ arquitectónicos y GRASP que estructuran el sistema.
 
 ![Diagrama de despliegue](../Diagramas/despliegue.png)
 
+| Nodo «device» | Qué contiene | Comunicación |
+|---|---|---|
+| PC de la caja | Navegador web (Chrome) con la interfaz de taquilla | HTTPS hacia el servidor de aplicación; USB hacia la impresora |
+| Impresora térmica | Imprime tiquetes y comprobantes | USB desde la PC de la caja |
+| Celular / tablet del administrador | Navegador para configurar tarifas, convenios y turnos | HTTPS hacia el servidor de aplicación |
+| Servidor de aplicación | Node.js ejecutando el artefacto `parquivo` (Next.js) | TCP/IP :5432 hacia la base de datos |
+| Servidor de base de datos | PostgreSQL 16 | — |
+
+Explicación completa en [`Docs/Diagramas/despliegue.md`](../Diagramas/despliegue.md).
+
 | Nodo | Requisitos mínimos |
 |---|---|
 | PC de taquilla | Equipo capaz de ejecutar Chromium; impresora térmica de 80 mm como predeterminada |
@@ -289,7 +308,9 @@ arquitectónicos y GRASP que estructuran el sistema.
 | Servidor de base de datos | PostgreSQL 16 o superior con permiso para crear roles con `BYPASSRLS` |
 
 El procedimiento de instalación en producción está en el
-[manual de despliegue](../UserGuide/despliegue.md).
+[manual de despliegue](../UserGuide/despliegue.md). Una versión preliminar del
+diagrama, con los puertos de cada conexión, está en
+[`Docs/Diagramas/preliminares/`](../Diagramas/preliminares/despliegue.md).
 
 ---
 

@@ -22,7 +22,7 @@ hizo.
 | 1 | Análisis (ECB) | [analisis-ecb.md](../../Diagramas/analisis-ecb.md) | [PNG](../../Diagramas/analisis-ecb.png) |
 | 2 | Clases | [clases.md](../../Diagramas/clases.md) | [PNG](../../Diagramas/clases.png) |
 | 3 | Componentes | [componentes.md](../../Diagramas/componentes.md) | [PNG](../../Diagramas/componentes.png) |
-| 4 | Despliegue | [despliegue.md](../../Diagramas/despliegue.md) | [PNG](../../Diagramas/despliegue.png) |
+| 4 | Despliegue | [despliegue.md](../../Diagramas/preliminares/despliegue.md) | [PNG](../../Diagramas/preliminares/despliegue.png) |
 
 ## Informe
 
