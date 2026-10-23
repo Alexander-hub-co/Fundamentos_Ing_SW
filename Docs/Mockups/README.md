@@ -8,10 +8,6 @@ archivo es la pantalla completa, no sólo lo que cabe sin desplazarse.
 
 No son maquetas: son el sistema real, con datos de prueba.
 
-El diseño original de las pantallas, antes de construirlas, está en
-[`handoff/`](handoff/): las capturas muestran el sistema construido y el
-*handoff*, lo que se diseñó.
-
 ---
 
 ## Sin sesión iniciada
