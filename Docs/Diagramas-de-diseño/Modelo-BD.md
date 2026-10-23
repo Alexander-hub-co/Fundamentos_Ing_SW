@@ -1,6 +1,6 @@
 # Modelo de la Base de Datos
 
-> Complementa el [Diagrama de Componentes](diagrama-componentes.md)
+> Complementa el [Diagrama de Componentes](Diagrama-componentes.md)
 
 ![Modelo de la base de datos](img/2-Modelo-base-de-datos.drawio.png)
 
