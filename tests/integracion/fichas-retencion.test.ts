@@ -83,10 +83,17 @@ async function conBicicletas() {
   return p.id;
 }
 
-/** Un instante anterior al plazo de retención, para simular el paso del tiempo. */
+/**
+ * Un instante anterior al plazo de retención, para simular el paso del tiempo.
+ *
+ * Se fija a las 10:00 de Bogotá: si se usara la hora actual, al correr la
+ * prueba de noche la estadía de tres horas cruzaría la medianoche, se partiría
+ * en dos jornadas y el importe esperado dejaría de ser 3.000.
+ */
 function haceMasDeLaRetencion(): Date {
   const d = new Date();
   d.setMonth(d.getMonth() - RETENCION_MESES - 1);
+  d.setUTCHours(15, 0, 0, 0);
   return d;
 }
 
