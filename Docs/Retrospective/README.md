@@ -9,6 +9,7 @@ al cierre de cada sprint. Queda registrada dentro del acta de esa reunión.
 | Sprint 2 | Martes 15 de septiembre de 2026 | [Retrospectiva](sprint-2-retrospectiva.md) · [Acta 007](../Actas/ACTA-007-2026-09-15.md) |
 | Sprint 3 | Martes 29 de septiembre de 2026 | [Retrospectiva](sprint-3-retrospectiva.md) · [Acta 011](../Actas/ACTA-011-2026-09-29.md) |
 | Sprint 4 | Martes 13 de octubre de 2026 | [Retrospectiva](sprint-4-retrospectiva.md) · [Acta 015](../Actas/ACTA-015-2026-10-13.md) |
+| Sprint 5 (Starfish) | Jueves 22 de octubre de 2026 | [Diagrama Starfish](Diagrama-Starfish-Retrospective/) |
 
 ## Cambios que han salido de una retrospectiva
 
