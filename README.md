@@ -193,6 +193,8 @@ Fundamentos_Ing_SW/
 │   ├── Entrega-2/                Índice, diseño de la solución (SDD), reporte
 │   │                             gerencial y estándares de programación
 │   ├── Diagramas/                ÚNICO lugar de los diagramas del diseño (PNG),
+│   │   ├── historias/            secuencia y procesos de HU-001 a HU-010
+│   │   ├── flujos/               secuencia y procesos de otros siete flujos
 │   │   ├── fuentes/              con las fuentes con que se generan
 │   │   └── preliminares-drawio/  y la primera versión hecha en draw.io
 │   ├── Casos-de-uso-principales/ CU-07 y CU-08, con enlaces al código en src/
