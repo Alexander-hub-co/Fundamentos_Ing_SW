@@ -1,0 +1,36 @@
+flowchart LR
+    P["<b>PARQUIVO</b>"]
+
+    P --- M1["● M1<br/>Plataforma"]
+    P --- M2["● M2<br/>Configuración"]
+    P --- M3["○ M3<br/>Convenios"]
+    P --- M4["● M4<br/>Taquilla · vehículos"]
+    P --- M5["○ M5<br/>Taquilla · bicicletas"]
+
+    M1 --- F11["● Autenticación"]
+    M1 --- F12["● Aislamiento<br/>por establecimiento"]
+    M1 --- F13["● Gestión de<br/>establecimientos"]
+    M1 --- F14["● Gestión<br/>de cuentas"]
+    M1 --- F15["○ Panel global"]
+
+    M2 --- F21["● Tarifas"]
+    M2 --- F22["● Horario"]
+    M2 --- F23["● Capacidad"]
+    M2 --- F24["○ Equipo"]
+    M2 --- F25["○ Turnos"]
+
+    M3 --- F31["● Declaración<br/>de convenios"]
+    M3 --- F32["● Motor de<br/>descuentos"]
+    M3 --- F33["○ Redondeo"]
+    M3 --- F34["○ Comprobador"]
+
+    M4 --- F41["● Resolución<br/>por placa"]
+    M4 --- F42["● Entrada"]
+    M4 --- F43["● Salida y cobro"]
+    M4 --- F44["○ Cortesía"]
+    M4 --- F45["○ Comprobante<br/>impreso"]
+    M4 --- F46["○ Ocupación"]
+
+    M5 --- F51["● Recepción<br/>con ficha"]
+    M5 --- F52["● Devolución"]
+    M5 --- F53["○ Búsqueda<br/>por cédula"]
