@@ -1,0 +1,27 @@
+@startuml hu-002-procesos
+!include ../estilo.iuml
+title HU-002 · Autorización de rol para operaciones de creación — procesos
+|Usuario|
+start
+:Pedir una operación de creación\n(movimiento, tarifa o convenio);
+|Servidor|
+:Obtener rol, estado y delegaciones\ndel contexto de la sesión;
+if (¿El rol tiene el permiso?) then (sí)
+elseif (¿Tiene una delegación que lo otorgue?) then (sí)
+else (no)
+  :Rechazar con «No autorizado»;
+  stop
+endif
+if (¿El establecimiento está dado de baja?) then (sí)
+  :Rechazar la operación;
+  stop
+elseif (¿Está suspendido y la operación no se permite\nen modo restringido?) then (sí)
+  :Rechazar con aviso de modo restringido;
+  stop
+else (no)
+endif
+:Ejecutar la operación dentro del ámbito\ndel establecimiento;
+|Usuario|
+:Ver la confirmación;
+stop
+@enduml

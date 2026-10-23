@@ -1,0 +1,22 @@
+@startuml hu-007-procesos
+!include ../estilo.iuml
+title HU-007 · Detalle del cálculo del cobro — procesos
+|Operario|
+start
+:Escribir la placa de un vehículo que está adentro;
+|Sistema|
+:Calcular el tiempo dentro;
+:Partir el tiempo en tramos según el horario;
+:Calcular el importe base de cada tramo\ncon la tarifa vigente;
+:Revisar cada convenio aplicable;
+if (¿Supera su límite diario o lo desplaza otro?) then (sí)
+  :Marcarlo como no aplicado, con el motivo;
+else (no)
+  :Aplicar su descuento;
+endif
+:Redondear según la regla del establecimiento;
+:Mostrar el desglose completo;
+|Operario|
+:Explicar el cobro al cliente y confirmar;
+stop
+@enduml

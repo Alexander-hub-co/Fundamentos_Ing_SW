@@ -2,7 +2,20 @@
 
 **Proyecto:** Parquivo — Sistema de gestión para parqueaderos
 **Asignatura:** Fundamentos de Ingeniería de Software (12946) · 2026-2
-**Autor del sistema:** Cristian Quevedo.cobro
+
+| | |
+|---|---|
+| **Equipo** | Cristian Quevedo · Sergio Alexander Lara Bonilla · Jacob Riveros · Santiago Arias |
+| **Docente** | Ing. Kerwin de Jesús Barros Somerson |
+| **Versión** | 1.1 |
+| **Fecha** | 23 de octubre de 2026 |
+
+## Historial de versiones
+
+| Versión | Fecha | Cambios |
+|---|---|---|
+| 1.0 | 12 de septiembre de 2026 | Primera versión, para la Entrega 1: cinco módulos, 194 requisitos funcionales y 14 no funcionales |
+| 1.1 | 23 de octubre de 2026 | Encabezado con el equipo, el docente y la versión; historial de versiones |
 
 ---
 

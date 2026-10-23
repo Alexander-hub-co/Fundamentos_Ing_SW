@@ -1,0 +1,21 @@
+@startuml hu-004-procesos
+!include ../estilo.iuml
+title HU-004 · Snapshot de tarifa y convenio al momento del cobro — procesos
+|Operario|
+start
+:Confirmar la salida del vehículo;
+|Sistema|
+:Tomar la tarifa vigente y los convenios\naplicables en ese instante;
+:Calcular el cobro;
+:Guardar en el movimiento una copia completa\ndel cálculo (tarifa, tramos, convenios, redondeo);
+:Cerrar el movimiento;
+|Administrador|
+:Cambiar la tarifa o vencer un convenio;
+|Sistema|
+:Crear una versión nueva sin tocar\nlos movimientos ya cerrados;
+|Administrador|
+:Consultar un reporte de un mes anterior;
+|Sistema|
+:Leer el importe de la copia guardada\nen cada movimiento;
+stop
+@enduml

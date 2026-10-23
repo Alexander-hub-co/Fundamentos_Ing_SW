@@ -41,11 +41,11 @@ Complementa al SRS, que dice **qué** debe hacer el sistema; el SDD dice
 El diseño se centra en las tres historias de usuario más críticas, que forman
 el ciclo completo de un vehículo y son la ruta crítica del producto:
 
-| Issue | Historia | Prioridad | Puntos |
-|---|---|---|---|
-| [#31](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/31) | **HU-008 · Determinar entrada o salida según placa** — la más difícil | Alta | 8 |
-| [#27](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/27) | HU-004 · Snapshot de tarifa y convenio al momento del cobro | Alta | 8 |
-| [#30](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/30) | HU-007 · Detalle del cálculo del cobro | Alta | 5 |
+| Issue | Historia | HU del documento | Prioridad | Puntos |
+|---|---|---|---|---|
+| [#31](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/31) | **HU-008 · Determinar entrada o salida según placa** — la más difícil | HU-4.1.1, HU-4.1.3 | Alta | 8 |
+| [#27](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/27) | HU-004 · Snapshot de tarifa y convenio al momento del cobro | HU-2.1.3, HU-3.1.3 (en parte) | Alta | 8 |
+| [#30](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/30) | HU-007 · Detalle del cálculo del cobro | HU-4.1.4 | Alta | 5 |
 
 **HU-008 es la historia más difícil del backlog**: concentra la clasificación
 del vehículo por la placa, la decisión entre entrada y salida con una sola
@@ -80,7 +80,7 @@ Parquivo combina dos estilos:
   qué mostrar; el **modelo**, los módulos de `src/dominio/` con las reglas de
   negocio y `src/db/` con la persistencia.
 
-![Arquitectura en capas con MVC](imagenes/arquitectura-capas.png)
+![Arquitectura en capas con MVC](../Diagramas/arquitectura-capas.png)
 
 **Por qué este estilo.** El cobro tiene reglas que cambian por establecimiento
 (tarifas, convenios, redondeo) y no pueden quedar enredadas con la pantalla.
@@ -113,13 +113,13 @@ vive en la vista, que es el error del *Fat View* que se quiere evitar.
 
 ### 3.1 Diagrama de clases
 
-![Diagrama de clases](../../docs/diagramas/imagenes/diagrama-clases.png)
+![Diagrama de clases](../Diagramas/clases.png)
 
 Tres grupos: **servicios** con la lógica de negocio (`ServicioTaquilla`,
 `CalculadoraCobro`), **interfaces** de las que dependen (`ICalculadoraCobro`,
 repositorios, `IAutorizador`) y el **dominio** (`Movimiento`, `Tarifa`,
 `Convenio`, `Cobro`…). La explicación completa de relaciones y SOLID está en
-[`docs/diagramas/diagrama-clases.md`](../../docs/diagramas/diagrama-clases.md).
+[`docs/diagramas/diagrama-clases.md`](../Diagramas/clases.md).
 
 ### 3.2 Modelo de la base de datos
 
@@ -143,7 +143,7 @@ Detalle de tablas y columnas: [`Database/modelo-entidad-relacion.md`](../../Data
 
 ## 4. Diseño de componentes
 
-![Diagrama de componentes](../../docs/diagramas/imagenes/diagrama-componentes.png)
+![Diagrama de componentes](../Diagramas/componentes.png)
 
 | Interfaz | La provee | La requiere |
 |---|---|---|
@@ -156,7 +156,7 @@ Detalle de tablas y columnas: [`Database/modelo-entidad-relacion.md`](../../Data
 
 Ningún componente toca la base directamente: todo pasa por `IAmbito`, que fija
 el establecimiento antes de cualquier consulta. Explicación completa en
-[`docs/diagramas/diagrama-componentes.md`](../../docs/diagramas/diagrama-componentes.md).
+[`docs/diagramas/diagrama-componentes.md`](../Diagramas/componentes.md).
 
 ---
 
@@ -195,7 +195,7 @@ El diseño sigue los principios de usabilidad de Nielsen vistos en clase:
 
 ### 6.1 Secuencia — HU-008: entrada por placa
 
-![Diagrama de secuencia de la entrada](imagenes/secuencia-entrada.png)
+![Diagrama de secuencia de la entrada](../Diagramas/secuencia-entrada.png)
 
 La vista nunca habla con el modelo: todo pasa por la *Server Action*. La
 decisión entre entrada y salida es **una sola consulta** en el servidor. Si dos
@@ -204,7 +204,7 @@ la segunda inserción y el sistema responde «ya está adentro».
 
 ### 6.2 Secuencia — HU-007 y HU-004: cobro y copia del cobro
 
-![Diagrama de secuencia de la salida](imagenes/secuencia-salida.png)
+![Diagrama de secuencia de la salida](../Diagramas/secuencia-salida.png)
 
 Las consultas de tarifa, horario, redondeo y convenios se hacen **en
 paralelo**. El cálculo produce un `CobroConConvenios` con el desglose completo
@@ -214,7 +214,7 @@ impide cobrar dos veces el mismo movimiento.
 
 ### 6.3 Diagrama de procesos — atención de un vehículo
 
-![Diagrama de actividad de la taquilla](imagenes/proceso-taquilla.png)
+![Diagrama de actividad de la taquilla](../Diagramas/proceso-taquilla.png)
 
 El proceso muestra el flujo completo con sus decisiones: placa inválida, entrada
 o salida, vehículo sin tarifa, cortesía y falla de la impresora. Una impresora
@@ -229,7 +229,7 @@ arquitectónicos y GRASP que estructuran el sistema.
 
 ### 7.1 Strategy — cálculo del cobro según el modelo de tarifa
 
-![Patrón Strategy](imagenes/patron-strategy.png)
+![Patrón Strategy](../Diagramas/patron-strategy.png)
 
 | | |
 |---|---|
@@ -241,7 +241,7 @@ arquitectónicos y GRASP que estructuran el sistema.
 
 ### 7.2 Singleton — pool de conexiones a la base de datos
 
-![Patrón Singleton](imagenes/patron-singleton.png)
+![Patrón Singleton](../Diagramas/patron-singleton.png)
 
 | | |
 |---|---|
@@ -280,7 +280,7 @@ arquitectónicos y GRASP que estructuran el sistema.
 
 ## 9. Diseño de despliegue
 
-![Diagrama de despliegue](../../docs/diagramas/imagenes/diagrama-despliegue.png)
+![Diagrama de despliegue](../Diagramas/despliegue.png)
 
 | Nodo | Requisitos mínimos |
 |---|---|

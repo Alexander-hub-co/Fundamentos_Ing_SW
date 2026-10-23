@@ -1,0 +1,26 @@
+@startuml hu-006-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-006 · Historial de versiones de tarifa por tipo de vehículo — secuencia
+actor "Administrador" as Ad
+participant "FormularioTarifa" as F
+participant "guardarTarifa" as SA
+participant "declararTarifa\n(tarifas/declarar.ts)" as Dec
+participant "conAmbito" as Amb
+database "PostgreSQL" as DB
+participant "tarifaVigenteEn\n(tarifas/consultar.ts)" as Vig
+Ad -> F : nuevos valores para un tipo de vehículo
+F -> SA : guardarTarifa(datos)
+SA -> Dec : declararTarifa(contexto, datos)
+Dec -> Dec : exigir("parqueadero.editar.propio")\nvalidar(datos)
+Dec -> Amb : reemplazarVigente
+Amb -> DB : UPDATE tarifa SET vigente_hasta = ahora\nWHERE tipo = ? AND vigente_hasta IS NULL
+Amb -> DB : INSERT tarifa (vigente_desde = ahora)
+DB -> DB : índice tarifa_una_vigente_por_tipo
+DB --> Dec : nueva versión
+Dec --> SA : tarifa
+SA --> F : confirmación
+... al cobrar o al consultar un cobro pasado ...
+Vig -> DB : SELECT tarifa WHERE vigente_desde <= fecha\nAND (vigente_hasta IS NULL OR vigente_hasta > fecha)
+DB --> Vig : la versión vigente en esa fecha
+@enduml

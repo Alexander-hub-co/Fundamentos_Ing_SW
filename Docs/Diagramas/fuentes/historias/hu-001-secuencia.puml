@@ -1,0 +1,28 @@
+@startuml hu-001-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-001 · Aislamiento en consulta de movimientos — secuencia
+actor "Usuario del\nestablecimiento" as U
+participant "Pantalla de\nmovimientos" as V
+participant "contextoActual\n(lib/sesion.ts)" as Ses
+participant "Better Auth" as BA
+participant "Consulta de\nmovimientos (dominio)" as Dom
+participant "conAmbito\n(db/ambito.ts)" as Amb
+database "PostgreSQL\n(RLS)" as DB
+U -> V : abre la consulta de movimientos
+V -> Ses : contextoActual(cabeceras)
+Ses -> BA : sesión de la cookie
+BA --> Ses : usuario autenticado
+Ses --> V : Contexto (rol, parqueaderoId de la sesión)
+note right of Ses : El parqueadero sale SIEMPRE de la sesión,\nnunca de un valor que envíe el cliente
+V -> Dom : consultar(contexto)
+Dom -> Amb : conAmbito(parqueaderoId, consulta)
+Amb -> DB : BEGIN\nset_config('app.parqueadero_id', id, true)
+Amb -> DB : SELECT … FROM movimiento
+DB -> DB : política movimiento_ambito:\nparqueadero_id = app.parqueadero_id
+DB --> Amb : sólo filas del establecimiento propio
+Amb -> DB : COMMIT
+Amb --> Dom : filas
+Dom --> V : movimientos propios
+V --> U : lista sin datos de otros establecimientos
+@enduml

@@ -249,7 +249,7 @@ recibir una más.
 
 ## Restricción de diseño registrada
 
-**Esta funcionalidad no tiene maqueta.** Las 44 pantallas de `design_handoff_parquivo/` no
+**Esta funcionalidad no tiene maqueta.** Las 44 pantallas del material de diseño original (que ya no se versiona en el repositorio) no
 incluyen ninguna de fichas ni de bicicletas: los aciertos de la palabra "ficha" en el índice
 son fichas de registro —de un parqueadero, de una cuenta—, no el tarjetón físico.
 

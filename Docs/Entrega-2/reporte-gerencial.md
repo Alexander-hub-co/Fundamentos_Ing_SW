@@ -30,13 +30,13 @@ La sección 6 explica la causa y lo que se cambió.
 | Indicador | Entrega 1 (22 sep) | Entrega 2 (23 oct) |
 |---|:---:|:---:|
 | Sprints cerrados | 2 | 4 |
-| Puntos entregados | 39 | **100** |
-| Puntos que quedan | 83 | **22** |
+| Puntos entregados | 39 | **105** |
+| Puntos que quedan | 83 | **17** |
 | Velocidad media | 19,5 | **21,75** |
 | Cumplimiento de lo comprometido | 100 % | **100 %** |
 | *Issues* cerrados en el tablero | 18 | **42** |
 | *Pull requests* fusionados | 18 | **25** |
-| Avance total del proyecto (puntos) | 32 % | **82 %** |
+| Avance total del proyecto (puntos) | 32 % | **86 %** |
 
 ---
 
@@ -50,7 +50,7 @@ La sección 6 explica la causa y lo que se cambió.
 | Sprint 2 | 1 al 14 de septiembre | 21 | 21 | 0 % |
 | Sprint 3 | 15 al 28 de septiembre | 24 | 24 | 0 % |
 | Sprint 4 | 29 de septiembre al 12 de octubre | 24 | 24 | 0 % |
-| Sprint 5 | 13 al 26 de octubre | 26 | 13 (en curso) | — |
+| Sprint 5 | 13 al 26 de octubre | 26 | 18 (en curso) | — |
 
 ![Puntos entregados frente a comprometidos](../../Gráficas/imagenes/avance-1.png)
 
@@ -72,6 +72,10 @@ de octubre.
 La línea real coincide con la planeada en la Entrega 1 (122 → 104 → 83 → 59 →
 35). Si el Sprint 5 cierra completo, quedan 9 puntos para el Sprint 6.
 
+Aparte de estos 122 puntos planificados, las 39 historias del documento de
+historias de usuario que no estaban en el tablero quedaron como *issues* en el
+milestone **Backlog** (#125 a #163, 228 puntos), todavía sin sprint asignado.
+
 ---
 
 ## 4. Estado de las tareas
@@ -91,7 +95,7 @@ La línea real coincide con la planeada en la Entrega 1 (122 → 104 → 83 → 
 | 5 | #29 · Historial de versiones de tarifa | 5 | Sergio Alexander L. | ✅ Terminada |
 | 5 | #9 · Gestión de usuarios y permisos | 8 | Sergio Alexander L. | ✅ Terminada |
 | 5 | #8 · Consulta y supervisión remota | 8 | Cristian Quevedo | 🔄 En curso |
-| 5 | #7 · Pruebas unitarias de entradas y salidas | 5 | Santiago Arias | 🔄 En curso |
+| 5 | #7 · Pruebas unitarias de entradas y salidas | 5 | Santiago Arias | ✅ Terminada |
 | 6 | #12 · Pruebas de acceso remoto y disponibilidad | 3 | Jacob Riveros | ⏳ Pendiente |
 | 6 | #6 · Documentar despliegue en producción | 3 | Jacob Riveros | ⏳ Pendiente |
 | 6 | #13 · Manual de usuario para empleados | 3 | Santiago Arias | ⏳ Pendiente |
@@ -134,6 +138,9 @@ La línea real coincide con la planeada en la Entrega 1 (122 → 104 → 83 → 
 | 4 | Los diagramas de draw.io no coincidían con el esquema real | Medio: el diseño no describía el sistema construido | Se dibujaron sin contrastarlos con el código | Se corrigieron y se publicaron como imagen junto con su fuente |
 | 5 | Las actas se publicaron con atraso | Bajo | Se tomaban notas pero no se subían | El acta se escribe en los últimos diez minutos de la reunión |
 | 6 | Los sub-issues del Taller de Diseño quedaron en el Sprint 1 | Bajo: el Sprint 1 aparecía con trabajo abierto | Se asignó el *milestone* equivocado al crearlos | Se movieron al Sprint 5, que es cuando se trabajaron |
+| 7 | Los hallazgos de la retrospectiva Starfish se registraron como 52 *issues* sin etiquetas, con muchos repetidos | Medio: ensuciaron el backlog y el tablero | Se usó el tablero para la dinámica de la retrospectiva | Se documentaron en [`Docs/Retrospective/starfish-sprint-5/`](../Retrospective/starfish-sprint-5/) y se retiran del tablero |
+| 8 | Se subieron archivos directamente a `main` desde la web | Medio: `develop` quedó atrás de `main` | No se siguió la regla de ramas del README | Se reintegró todo por *pull request* y se reforzó la regla en el README |
+| 9 | Diagramas en cuatro carpetas distintas, con dos diagramas de clases que no coincidían | Medio: el diseño no tenía una versión única | Cada integrante subió sus diagramas por separado | Una sola carpeta, [`Docs/Diagramas/`](../Diagramas/), y el SDD como diseño vigente; la versión en draw.io queda como preliminar |
 
 ---
 
@@ -163,7 +170,7 @@ La línea real coincide con la planeada en la Entrega 1 (122 → 104 → 83 → 
 
 ## 9. Próximos pasos
 
-1. Cerrar el Sprint 5 el 26 de octubre con #8 y #7.
+1. Cerrar el Sprint 5 el 26 de octubre con #8.
 2. Sprint 6 (27 de octubre al 8 de noviembre): pruebas de acceso remoto,
    despliegue en producción y manual de usuario.
 3. Entrega Final (16 de noviembre): prototipo final, reporte de pruebas,

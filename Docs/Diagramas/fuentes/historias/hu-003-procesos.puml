@@ -1,0 +1,28 @@
+@startuml hu-003-procesos
+!include ../estilo.iuml
+title HU-003 · Bloqueo de edición y eliminación de movimientos cerrados — procesos
+start
+:Llega una modificación sobre un movimiento;
+if (¿Es una eliminación?) then (sí)
+  :Rechazar: un movimiento no se elimina;
+  stop
+else (no)
+endif
+if (¿El movimiento está cerrado?) then (no)
+  :Permitir el cambio;
+  stop
+else (sí)
+endif
+if (¿Sólo cambia el estado del comprobante?) then (sí)
+  :Permitir el cambio;
+  stop
+else (no)
+  :Rechazar: un movimiento cerrado no se modifica;
+endif
+if (¿Hay que corregir el cobro?) then (sí)
+  :Verificar el permiso «movimiento.corregir»;
+  :Registrar un asiento de corrección\nque apunta al movimiento original;
+else (no)
+endif
+stop
+@enduml

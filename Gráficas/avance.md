@@ -10,7 +10,7 @@
 ![Avance — figura 1](imagenes/avance-1.png)
 
 Los cuatro sprints cerrados entregaron todo lo comprometido: **87 de 87
-puntos**. El Sprint 5 está en curso, con 13 de sus 26 puntos cerrados a la mitad
+puntos**. El Sprint 5 está en curso, con 18 de sus 26 puntos cerrados a la mitad
 del periodo. El Sprint 6 todavía no empieza.
 
 ---
@@ -19,7 +19,7 @@ del periodo. El Sprint 6 todavía no empieza.
 
 ![Avance — figura 2](imagenes/avance-2.png)
 
-De 122 puntos quedan **22**. Si el Sprint 5 cierra completo, al Sprint 6 le
+De 122 puntos quedan **17**. Si el Sprint 5 cierra completo, al Sprint 6 le
 quedan 9 puntos de pruebas y documentación de despliegue.
 
 ---
