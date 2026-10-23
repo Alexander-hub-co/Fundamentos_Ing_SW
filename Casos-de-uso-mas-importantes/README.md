@@ -47,12 +47,12 @@ y se prueba es la de `src/`; si las dos difieren, manda `src/`.
 
 ## Diagramas
 
-La carpeta [`Diagramas/`](Diagramas/) tiene los diagramas en formato draw.io:
+La carpeta [`Diagramas/`](Diagramas/) tiene los diagramas como imagen:
 
 | Archivo | Qué contiene |
 |---|---|
-| `diagrama-de-clases.drawio` | Las clases del sistema, sus atributos, métodos y relaciones |
-| `modelo-de-base-de-datos.drawio` | Las tablas de PostgreSQL con sus llaves primarias y foráneas |
+| [`diagrama-de-clases.png`](Diagramas/diagrama-de-clases.png) | Las clases del sistema con atributos y métodos tipados, sus relaciones y multiplicidades |
+| [`modelo-de-base-de-datos.png`](Diagramas/modelo-de-base-de-datos.png) | Las tablas de PostgreSQL con sus llaves primarias y foráneas |
 
-Para abrirlos o editarlos: [app.diagrams.net](https://app.diagrams.net) →
-*Archivo → Abrir desde → Dispositivo*.
+El resto del diseño (secuencia, procesos, componentes, despliegue y patrones)
+está en el [SDD](../Docs/Entrega-2/SDD.md).

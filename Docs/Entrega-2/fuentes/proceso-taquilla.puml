@@ -1,0 +1,50 @@
+@startuml proceso-taquilla
+!include estilo.iuml
+title Diagrama de procesos (actividad) — Atención de un vehículo en la taquilla
+|Operario|
+start
+:Escribir la placa en el campo único;
+|Sistema|
+:Normalizar la placa\n(mayúsculas, sin espacios);
+if (¿Formato de placa válido?) then (no)
+  :Mostrar error explícito;
+  |Operario|
+  :Corregir la placa;
+  stop
+else (sí)
+endif
+|Sistema|
+:Deducir el tipo por el último carácter\n(dígito = carro, letra = moto);
+:Buscar movimiento abierto con esa placa;
+if (¿El vehículo está adentro?) then (no: ENTRADA)
+  if (¿El tipo tiene tarifa vigente?) then (no)
+    :Advertir que no se le\npodrá cobrar al salir;
+  else (sí)
+  endif
+  |Operario|
+  :Confirmar la entrada;
+  |Sistema|
+  :Registrar el movimiento abierto\ny atribuirlo al turno;
+else (sí: SALIDA)
+  :Tomar la tarifa vigente, el horario,\nlos convenios y la regla de redondeo;
+  :Calcular el cobro por tramos;
+  :Mostrar el desglose\n(base, convenios, redondeo);
+  |Operario|
+  if (¿Corresponde una cortesía?) then (sí)
+    :Registrar el motivo;
+  else (no)
+    :Confirmar la salida;
+  endif
+  |Sistema|
+  :Cerrar el movimiento guardando\nuna copia del cobro;
+endif
+:Generar el comprobante;
+if (¿La impresora respondió?) then (sí)
+  :Imprimir el comprobante;
+else (no)
+  :Dejar el comprobante en pendientes\nsin detener la fila;
+endif
+|Operario|
+:Atender el siguiente vehículo;
+stop
+@enduml

@@ -44,9 +44,9 @@ se puede explicar.**
 
 ## Diagramas
 
-Los diagramas están en [`../Diagramas/`](../Diagramas/), hechos en draw.io:
+Los diagramas están en [`../Diagramas/`](../Diagramas/) como imagen:
 
-1. [Diagrama de clases](../Diagramas/diagrama-de-clases.drawio)
-2. [Modelo de base de datos](../Diagramas/modelo-de-base-de-datos.drawio)
+1. [Diagrama de clases](../Diagramas/diagrama-de-clases.png)
+2. [Modelo de base de datos](../Diagramas/modelo-de-base-de-datos.png)
 
 El código que lo implementa está en [`codigo/`](codigo/).

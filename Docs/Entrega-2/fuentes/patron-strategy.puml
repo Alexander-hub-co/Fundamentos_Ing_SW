@@ -1,0 +1,52 @@
+@startuml patron-strategy
+!include estilo.iuml
+title Patrón Strategy — Cálculo del cobro según el modelo de tarifa
+left to right direction
+class CalculadoraDeImporte <<Contexto>> {
+  - estrategia: EstrategiaDeCobro
+  + CalculadoraDeImporte(tarifa: TarifaAplicable)
+  + calcularImporte(entrada: DateTime, salida: DateTime, horario: HorarioDelCobro): Cobro
+  - partirEnJornadas(entrada: DateTime, salida: DateTime): List<Jornada>
+}
+interface EstrategiaDeCobro <<Strategy>> {
+  + cobrarTramo(minutos: Integer): Integer
+  + tarifaPlena(): Integer
+}
+class CobroPorMinuto <<ConcreteStrategy>> {
+  - valorMinuto: Integer
+  - tarifaMinima: Integer
+  - tarifaPlena: Integer
+  + cobrarTramo(minutos: Integer): Integer
+  + tarifaPlena(): Integer
+}
+class CobroPorIntervalo <<ConcreteStrategy>> {
+  - intervaloMinutos: Integer
+  - valorIntervalo: Integer
+  - tarifaPlena: Integer
+  + cobrarTramo(minutos: Integer): Integer
+  + tarifaPlena(): Integer
+}
+class CobroPrimeraHoraYFraccion <<ConcreteStrategy>> {
+  - valorPrimeraHora: Integer
+  - intervaloMinutos: Integer
+  - valorIntervalo: Integer
+  - tarifaPlena: Integer
+  + cobrarTramo(minutos: Integer): Integer
+  + tarifaPlena(): Integer
+}
+class FabricaDeEstrategias {
+  + {static} para(tarifa: TarifaAplicable): EstrategiaDeCobro
+}
+CalculadoraDeImporte o--> "1" EstrategiaDeCobro : usa
+EstrategiaDeCobro <|.. CobroPorMinuto
+EstrategiaDeCobro <|.. CobroPorIntervalo
+EstrategiaDeCobro <|.. CobroPrimeraHoraYFraccion
+CalculadoraDeImporte ..> FabricaDeEstrategias : obtiene la estrategia
+FabricaDeEstrategias ..> CobroPorMinuto : crea
+FabricaDeEstrategias ..> CobroPorIntervalo : crea
+FabricaDeEstrategias ..> CobroPrimeraHoraYFraccion : crea
+note bottom of EstrategiaDeCobro
+  Un modelo de cobro nuevo = una clase nueva.
+  CalculadoraDeImporte no cambia (OCP).
+end note
+@enduml

@@ -21,42 +21,7 @@ un carro sería absurdo.
 
 ## Diagrama general
 
-```mermaid
-flowchart LR
-    AG(("Administrador<br/>general"))
-    AP(("Administrador<br/>de parqueadero"))
-    OP(("Operario"))
-
-    subgraph S["Parquivo"]
-        direction TB
-        CU01["CU-01 Autenticarse"]
-        CU02["CU-02 Administrar<br/>establecimientos"]
-        CU03["CU-03 Administrar<br/>cuentas"]
-        CU04["CU-04 Configurar<br/>el cobro"]
-        CU05["CU-05 Administrar<br/>convenios"]
-        CU06["CU-06 Organizar<br/>turnos"]
-        CU07["CU-07 Registrar<br/>entrada"]
-        CU08["CU-08 Cobrar<br/>salida"]
-        CU09["CU-09 Recibir<br/>bicicleta"]
-        CU10["CU-10 Devolver<br/>bicicleta"]
-        CU11["CU-11 Gestionar<br/>turno propio"]
-        CU12["CU-12 Consultar<br/>reportes"]
-    end
-
-    AG --> CU01
-    AG --> CU02
-    AG --> CU03
-    AP --> CU04
-    AP --> CU05
-    AP --> CU06
-    AP --> CU12
-    OP --> CU07
-    OP --> CU08
-    OP --> CU09
-    OP --> CU10
-    OP --> CU11
-    AP -.hereda.-> OP
-```
+![Casos de uso — figura 1](imagenes/casos-de-uso-1.png)
 
 ---
 

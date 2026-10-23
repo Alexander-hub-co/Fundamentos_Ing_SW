@@ -32,16 +32,7 @@ El riesgo mayor ya no es de calendario sino de sobrecompromiso: el Sprint 3 pide
 | Requisitos funcionales | 194 |
 | Requisitos no funcionales | 14 |
 
-```mermaid
-flowchart LR
-    S1["Sprint 1<br/>18 pts<br/>CERRADO"]
-    S2["Sprint 2<br/>21 pts<br/>CERRADO"]
-    S3["Sprint 3<br/>24 pts<br/>EN CURSO"]
-    S4["Sprint 4<br/>24 pts"]
-    S5["Sprint 5<br/>21 pts"]
-    EF["Entrega Final<br/>14 pts"]
-    S1 --> S2 --> S3 --> S4 --> S5 --> EF
-```
+![Reporte gerencial — figura 1](imagenes/reporte-gerencial-1.png)
 
 La velocidad medida son 18 puntos en el Sprint 1 y 21 en el Sprint 2: media de
 19,5 y tendencia al alza. La apuesta de comprometerse por encima del primer dato
