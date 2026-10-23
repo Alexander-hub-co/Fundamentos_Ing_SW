@@ -2,7 +2,7 @@
 
 > Historia principal: **HU-008 (#31)** · Relacionadas: HU-004 (#27), HU-007 (#30)
 
-![Diagrama de Clases](img/diagrama-clases.png)
+![Diagrama de Clases](img/1-Diagrama-de-clases.drawio.png)
 
 ## ¿Qué muestra?
 
