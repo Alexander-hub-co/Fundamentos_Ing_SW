@@ -41,11 +41,11 @@ Complementa al SRS, que dice **qué** debe hacer el sistema; el SDD dice
 El diseño se centra en las tres historias de usuario más críticas, que forman
 el ciclo completo de un vehículo y son la ruta crítica del producto:
 
-| Issue | Historia | Prioridad | Puntos |
-|---|---|---|---|
-| [#31](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/31) | **HU-008 · Determinar entrada o salida según placa** — la más difícil | Alta | 8 |
-| [#27](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/27) | HU-004 · Snapshot de tarifa y convenio al momento del cobro | Alta | 8 |
-| [#30](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/30) | HU-007 · Detalle del cálculo del cobro | Alta | 5 |
+| Issue | Historia | HU del documento | Prioridad | Puntos |
+|---|---|---|---|---|
+| [#31](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/31) | **HU-008 · Determinar entrada o salida según placa** — la más difícil | HU-4.1.1, HU-4.1.3 | Alta | 8 |
+| [#27](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/27) | HU-004 · Snapshot de tarifa y convenio al momento del cobro | HU-2.1.3, HU-3.1.3 (en parte) | Alta | 8 |
+| [#30](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/30) | HU-007 · Detalle del cálculo del cobro | HU-4.1.4 | Alta | 5 |
 
 **HU-008 es la historia más difícil del backlog**: concentra la clasificación
 del vehículo por la placa, la decisión entre entrada y salida con una sola
