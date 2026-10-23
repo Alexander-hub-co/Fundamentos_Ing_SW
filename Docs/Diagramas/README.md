@@ -38,6 +38,13 @@ de procesos. Las fuentes están en [`fuentes/historias/`](fuentes/historias/).
 | [#32](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/32) | HU-009 · Rechazo de entrada duplicada | [secuencia](historias/hu-009-secuencia.png) | [procesos](historias/hu-009-procesos.png) |
 | [#33](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/33) | HU-010 · Tarifa obligatoria antes del primer cobro | [secuencia](historias/hu-010-secuencia.png) | [procesos](historias/hu-010-procesos.png) |
 
+## Diagramas por flujo
+
+[`flujos/`](flujos/) tiene los diagramas de procesos y de secuencia de otros siete
+flujos del sistema, cada uno con las historias del documento que cubre: recibir y
+devolver una bicicleta, abrir y cerrar el turno, declarar y aplicar un convenio,
+declarar una tarifa, administrar la plataforma e iniciar sesión.
+
 El modelo entidad-relación está en [`Database/`](../../Database/modelo-entidad-relacion.md).
 
 ## Versión preliminar

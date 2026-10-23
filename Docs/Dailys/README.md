@@ -28,3 +28,15 @@ frenando— y el resto del bloque se trabaja en conjunto.
 La cadencia es de dos veces por semana y no diaria porque el equipo cursa otras
 asignaturas, y una reunión diaria que nadie puede sostener se abandona en la
 segunda semana. Se prefiere una que se cumpla.
+
+## Fotos de las sesiones
+
+Registro fotográfico de las sesiones de trabajo, numerado como lo subió el equipo:
+
+| Foto |
+|---|
+| [daily-21.jpeg](fotos/daily-21.jpeg) |
+| [daily-22.jpeg](fotos/daily-22.jpeg) |
+| [daily-23.jpeg](fotos/daily-23.jpeg) |
+| [daily-24.jpeg](fotos/daily-24.jpeg) |
+
