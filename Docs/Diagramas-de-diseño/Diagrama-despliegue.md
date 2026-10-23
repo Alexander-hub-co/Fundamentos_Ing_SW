@@ -2,7 +2,7 @@
 
 > Historia principal: **HU-008 (#31)**
 
-![Diagrama de Despliegue](img/diagrama-despliegue.png)
+![Diagrama de Despliegue](img/4-Diagrama-de-despliegue.drawio.png)
 
 ## ¿Qué muestra?
 
