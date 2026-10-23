@@ -1,0 +1,62 @@
+@startuml diagrama-despliegue
+left to right direction
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam ArrowColor #1F3B57
+skinparam ArrowFontSize 12
+skinparam ArrowFontColor #1F3B57
+skinparam ArrowThickness 1.4
+skinparam node {
+  BackgroundColor #7CCBF2
+  BorderColor #1F3B57
+  FontStyle bold
+}
+skinparam artifact {
+  BackgroundColor #FFFFFF
+  BorderColor #1F3B57
+  FontStyle normal
+}
+skinparam database {
+  BackgroundColor #FFFFFF
+  BorderColor #1F3B57
+}
+
+title Diagrama de Despliegue — Parquivo
+
+node "«device»\nPC de taquilla" as PCTaquilla {
+  node "«executionEnvironment»\nNavegador Chromium\n(modo kiosk-printing)" as NavTaq {
+    artifact "«artifact»\nbundle-frontend.js\n(React 19 · CSS)" as BundleTaq
+  }
+}
+
+node "«device»\nImpresora térmica 80 mm" as Impresora {
+  artifact "«artifact»\ncomprobante.html" as Ticket
+}
+
+node "«device»\nPC del administrador" as PCAdmin {
+  node "«executionEnvironment»\nNavegador web" as NavAdm {
+    artifact "«artifact»\nbundle-frontend.js" as BundleAdm
+  }
+}
+
+node "«device»\nServidor de aplicación\n(plataforma gestionada)" as ServidorApp {
+  node "«executionEnvironment»\nNode.js ≥ 20.9" as Node {
+    artifact "«artifact»\nparquivo-next\n(.next — Next.js 16)" as AppNext
+    artifact "«artifact»\nmigrar.js\n(Drizzle)" as Migrador
+  }
+}
+
+node "«device»\nServidor de base de datos" as ServidorBD {
+  node "«executionEnvironment»\nPostgreSQL 16" as PG {
+    database "«artifact»\nesquema parqueadero\n(tablas + RLS)" as Esquema
+    artifact "«artifact»\nroles.sql\n(migrator · platform · tenant)" as Roles
+  }
+}
+
+PCTaquilla --> ServidorApp : HTTPS :443\n(Server Actions / RSC)
+PCAdmin --> ServidorApp : HTTPS :443
+PCTaquilla --> Impresora : USB · TCP :9100 · Bluetooth\n(spooler del SO)
+ServidorApp --> ServidorBD : TCP :5432\n(protocolo PostgreSQL + TLS)
+@enduml

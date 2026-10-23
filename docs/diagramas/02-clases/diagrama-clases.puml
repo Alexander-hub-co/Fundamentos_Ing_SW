@@ -1,0 +1,209 @@
+@startuml diagrama-clases
+!pragma layout smetana
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam ArrowColor #1F3B57
+skinparam ArrowFontSize 11
+skinparam ArrowFontColor #1F3B57
+skinparam class {
+  BackgroundColor #7CCBF2
+  BorderColor #1F3B57
+  HeaderBackgroundColor #4FA9DB
+  FontStyle bold
+}
+skinparam stereotypeCBackgroundColor #FFFFFF
+skinparam stereotypeIBackgroundColor #FFFFFF
+skinparam stereotypeABackgroundColor #FFFFFF
+skinparam stereotypeEBackgroundColor #FFFFFF
+
+title Diagrama de Clases — Parquivo (HU-008 · HU-007 · HU-004)
+
+' ===================== Servicios (lógica de negocio) =====================
+class ServicioTaquilla {
+  - movimientos: IRepositorioMovimientos
+  - calculadora: ICalculadoraCobro
+  - autorizador: IAutorizador
+  + resolverPlaca(placa: String, ahora: DateTime): Resolucion
+  + registrarEntrada(placa: String, ahora: DateTime): Movimiento
+  + registrarSalida(movimientoId: UUID, ahora: DateTime): Movimiento
+}
+
+interface ICalculadoraCobro <<interface>> {
+  + calcular(mov: Movimiento, salida: DateTime): Cobro
+}
+
+class CalculadoraCobro {
+  - tarifas: IRepositorioTarifas
+  - convenios: IRepositorioConvenios
+  - politica: PoliticaCobro
+  + calcular(mov: Movimiento, salida: DateTime): Cobro
+  - aplicarConvenios(base: Cobro, lista: List<Convenio>): Cobro
+}
+
+interface IRepositorioMovimientos <<interface>> {
+  + buscarAbierto(placa: Placa): Movimiento
+  + guardar(mov: Movimiento): void
+}
+
+interface IRepositorioTarifas <<interface>> {
+  + vigenteEn(tipo: TipoVehiculo, fecha: DateTime): Tarifa
+}
+
+interface IRepositorioConvenios <<interface>> {
+  + aplicables(placa: Placa, fecha: DateTime): List<Convenio>
+}
+
+interface IAutorizador <<interface>> {
+  + exigir(contexto: Contexto, operacion: String): void
+}
+
+' ===================== Dominio =====================
+class Parqueadero {
+  - id: UUID
+  - codigo: String
+  - nombre: String
+  - direccion: String
+  - estado: EstadoParqueadero
+  + estaOperativo(): Boolean
+}
+
+class Placa {
+  - valor: String
+  + {static} normalizar(bruta: String): Placa
+  + clasificar(): ClaseVehiculo
+}
+
+class Movimiento {
+  - id: UUID
+  - codigo: String
+  - entradaEn: DateTime
+  - salidaEn: DateTime [0..1]
+  - importe: Integer [0..1]
+  + estaAdentro(): Boolean
+  + minutosDentro(ahora: DateTime): Integer
+  + cerrar(salida: DateTime, cobro: Cobro, operario: Usuario): void
+}
+
+class TipoVehiculo {
+  - id: UUID
+  - codigo: String
+  - nombre: String
+}
+
+class Usuario {
+  - id: String
+  - nombre: String
+  - email: String
+  - rol: Rol
+  + puede(operacion: String): Boolean
+}
+
+class SesionTurno {
+  - id: UUID
+  - abiertaEn: DateTime
+  - cerradaEn: DateTime [0..1]
+  + estaAbierta(): Boolean
+}
+
+abstract class Tarifa {
+  # tarifaPlena: Integer
+  # alcancePlena: AlcancePlena
+  - vigenteDesde: DateTime
+  - vigenteHasta: DateTime [0..1]
+  + {abstract} calcular(minutos: Integer): Integer
+  + estaVigenteEn(fecha: DateTime): Boolean
+}
+
+class TarifaPorMinuto {
+  - tarifaMinima: Integer
+  - valorMinuto: Integer
+  + calcular(minutos: Integer): Integer
+}
+
+class TarifaPorIntervalo {
+  - intervaloMinutos: Integer
+  - valorIntervalo: Integer
+  + calcular(minutos: Integer): Integer
+}
+
+class TarifaPrimeraHoraYFraccion {
+  - valorPrimeraHora: Integer
+  - intervaloMinutos: Integer
+  - valorIntervalo: Integer
+  + calcular(minutos: Integer): Integer
+}
+
+class Convenio {
+  - nombre: String
+  - beneficio: BeneficioConvenio
+  - valor: Integer
+  - limiteDiario: Integer [0..1]
+  + aplicaA(placa: Placa, fecha: DateTime): Boolean
+}
+
+class PoliticaCobro {
+  - redondeo: ReglaRedondeo
+  + redondear(importe: Integer): Integer
+}
+
+class Cobro {
+  - importeBase: Integer
+  - importe: Integer
+  - minutosTotales: Integer
+  - tope: TopeAplicado
+  + total(): Integer
+}
+
+class TramoCobrado {
+  - desde: DateTime
+  - hasta: DateTime
+  - minutos: Integer
+  - importe: Integer
+}
+
+class BeneficioAplicado {
+  - nombre: String
+  - descontado: Integer
+  - minutosRegalados: Integer
+}
+
+' ===================== Relaciones =====================
+' Herencia
+Tarifa <|-- TarifaPorMinuto
+Tarifa <|-- TarifaPorIntervalo
+Tarifa <|-- TarifaPrimeraHoraYFraccion
+
+' Realización de interfaces
+ICalculadoraCobro <|.. CalculadoraCobro
+
+' Composición: el cobro es una copia que vive y muere con el movimiento
+Movimiento "1" *-- "0..1" Cobro : snapshot
+Cobro "1" *-- "1..*" TramoCobrado : tramos
+Cobro "1" *-- "0..*" BeneficioAplicado : beneficios
+Movimiento "1" *-- "1" Placa
+
+' Agregación: el parqueadero agrupa lo que declara
+Parqueadero "1" o-- "0..*" Tarifa : declara
+Parqueadero "1" o-- "0..*" Convenio : ofrece
+Parqueadero "1" o-- "0..*" Movimiento : registra
+Parqueadero "1" o-- "1" PoliticaCobro
+
+' Asociaciones
+Movimiento "0..*" --> "1" TipoVehiculo : es de
+Tarifa "0..*" --> "1" TipoVehiculo : cobra a
+Movimiento "0..*" --> "1" Usuario : operario
+Movimiento "0..*" --> "0..1" SesionTurno : turno
+
+' Dependencias de los servicios (DIP: dependen de interfaces)
+ServicioTaquilla --> ICalculadoraCobro
+ServicioTaquilla --> IRepositorioMovimientos
+ServicioTaquilla --> IAutorizador
+CalculadoraCobro --> IRepositorioTarifas
+CalculadoraCobro --> IRepositorioConvenios
+CalculadoraCobro ..> PoliticaCobro : usa
+ServicioTaquilla ..> Movimiento : crea / cierra
+CalculadoraCobro ..> Cobro : produce
+@enduml
