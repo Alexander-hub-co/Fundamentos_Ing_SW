@@ -13,7 +13,7 @@ tienen además una explicación ampliada en su `.md`. El diseño vigente es el d
 | [Arquitectura en capas](arquitectura-capas.png) | Capas de presentación (MVC), dominio y acceso a datos | Todas | [SDD §2](../Entrega-2/SDD.md#2-arquitectura-del-sistema) | [arquitectura-capas.puml](fuentes/arquitectura-capas.puml) |
 | [Clases](clases.png) | Servicios, interfaces y dominio con sus relaciones y SOLID | HU-008, HU-007, HU-004 | [clases.md](clases.md) | [clases.puml](fuentes/clases.puml) |
 | [Componentes](componentes.png) | Módulos, interfaces provistas y requeridas, servicios externos | HU-008, HU-007, HU-004 | [componentes.md](componentes.md) | [componentes.py](fuentes/componentes.py) |
-| [Despliegue](despliegue.png) | Nodos, artefactos, protocolos y puertos | Todas | [despliegue.md](despliegue.md) | [despliegue.puml](fuentes/despliegue.puml) |
+| [Despliegue](despliegue.png) | Nodos, artefactos y protocolos | Todas | [despliegue.md](despliegue.md) | draw.io |
 | [Secuencia de la entrada](secuencia-entrada.png) | Cómo se decide entre entrada y salida y se registra la entrada | HU-008 | [SDD §6.1](../Entrega-2/SDD.md#6-diseño-dinámico-secuencia-y-procesos) | [secuencia-entrada.puml](fuentes/secuencia-entrada.puml) |
 | [Secuencia de la salida](secuencia-salida.png) | Cálculo del cobro con desglose y cierre con copia del cobro | HU-007, HU-004 | [SDD §6.2](../Entrega-2/SDD.md#6-diseño-dinámico-secuencia-y-procesos) | [secuencia-salida.puml](fuentes/secuencia-salida.puml) |
 | [Procesos de la taquilla](proceso-taquilla.png) | Actividades y decisiones al atender un vehículo | HU-008, HU-007, HU-004 | [SDD §6.3](../Entrega-2/SDD.md#6-diseño-dinámico-secuencia-y-procesos) | [proceso-taquilla.puml](fuentes/proceso-taquilla.puml) |
@@ -47,8 +47,11 @@ declarar una tarifa, administrar la plataforma e iniciar sesión.
 
 El modelo entidad-relación está en [`Database/`](../../Database/modelo-entidad-relacion.md).
 
-## Versión preliminar
+## Versiones preliminares
 
-[`preliminares-drawio/`](preliminares-drawio/) guarda la primera versión de los
-diagramas, hecha en draw.io. Es una versión anterior: donde difiera del SDD,
-manda el SDD.
+- [`preliminares-drawio/`](preliminares-drawio/): primera versión en draw.io de
+  los diagramas de clases, componentes y base de datos.
+- [`preliminares/`](preliminares/): versión anterior del diagrama de despliegue,
+  con el puerto de cada conexión.
+
+Donde una versión preliminar difiera del SDD, manda el SDD.
