@@ -2,7 +2,7 @@
 
 > Historia principal: **HU-008 (#31)** · Relacionadas: HU-004 (#27), HU-007 (#30)
 
-![Diagrama de Análisis ECB](img/Diagrama de analisis.png)
+![Diagrama de Análisis ECB](img/Diagrama-de-analisis.png)
 
 ## ¿Qué muestra?
 
