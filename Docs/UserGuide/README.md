@@ -9,6 +9,7 @@ por la guía del rol que le corresponde.
 |---|---|---|
 | [Guía del operario](guia-del-operario.md) | Quien atiende la taquilla | Entrada, salida, cobro, bicicletas y turnos |
 | [Guía del administrador](guia-del-administrador.md) | Quien gestiona un establecimiento | Tarifas, horarios, convenios, operarios y turnos |
+| [Manual de despliegue](despliegue.md) | Quien instala y administra el servidor | Requisitos, variables de entorno, migraciones, copias de seguridad y comprobaciones |
 
 Un administrador puede hacer **además** todo lo que hace un operario: hay
 parqueaderos donde el dueño atiende la caseta, y obligarlo a tener dos cuentas
