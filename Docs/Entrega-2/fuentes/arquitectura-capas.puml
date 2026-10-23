@@ -1,0 +1,52 @@
+@startuml arquitectura-capas
+!include estilo.iuml
+title Arquitectura de Parquivo — Estilo en capas con MVC en la presentación
+skinparam rectangle {
+  BackgroundColor #7CCBF2
+  BorderColor #1F3B57
+}
+skinparam package {
+  BackgroundColor #F4FAFE
+  BorderColor #1F3B57
+  FontStyle bold
+}
+package "Capa de presentación  (MVC · Next.js 16 / React 19)" as P {
+  rectangle "Vista\nComponentes React\n(page.tsx, campo-placa.tsx,\nformulario.tsx)" as V
+  rectangle "Controlador\nServer Actions\n(acciones.ts)" as C
+}
+package "Capa de dominio  (Modelo · reglas de negocio)" as D {
+  rectangle "taquilla\nresolver · registrar\ncomprobante" as T
+  rectangle "tarifas\ndeclarar · consultar\ncalcular" as TA
+  rectangle "convenios y cobro\naplicar · redondeo" as CO
+  rectangle "turnos · fichas ·\nreportes · cuentas" as OT
+}
+package "Servicios transversales  (lib/)" as L {
+  rectangle "sesion.ts\nContexto" as SE
+  rectangle "autorizacion.ts\nexigir(operación)" as AU
+}
+package "Capa de acceso a datos  (db/)" as A {
+  rectangle "ambito.ts\nconAmbito() · comoPlataforma()" as AM
+  rectangle "esquema/ (Drizzle)\npools.ts (Singleton)" as ES
+}
+database "PostgreSQL 16\nRow-Level Security\n3 roles" as DB
+V -down-> C : acción del usuario
+C -up-> V : datos a mostrar
+C -down-> T
+C -down-> TA
+T -right-> CO
+CO -right-> TA
+T -down-> AM
+TA -down-> AM
+CO -down-> AM
+OT -down-> AM
+C -right-> SE
+T ..> AU
+TA ..> AU
+AM -down-> ES
+ES -down-> DB : SQL · TCP 5432
+note right of DB
+  Cada capa sólo llama a la de abajo.
+  La base garantiza el aislamiento
+  entre establecimientos (RLS).
+end note
+@enduml
