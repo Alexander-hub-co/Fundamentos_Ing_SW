@@ -2,7 +2,7 @@
 
 > Historia principal: **HU-008 (#31)**
 
-![Diagrama de Componentes](img/diagrama-componentes.png)
+![Diagrama de Componentes](img/3-Diagrama-de-componentes.drawio.png)
 
 ## ¿Qué muestra?
 
