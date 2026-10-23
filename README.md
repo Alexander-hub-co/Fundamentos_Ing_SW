@@ -337,7 +337,8 @@ Fundamentos_Ing_SW/
 | **Entrega 2: diseño de la solución (SDD)** | [`Docs/Entrega-2/SDD.md`](Docs/Entrega-2/SDD.md) |
 | **Reporte gerencial — Entrega 2** | [`Docs/Entrega-2/reporte-gerencial.md`](Docs/Entrega-2/reporte-gerencial.md) |
 | Estándares de programación | [`Docs/Entrega-2/estandares-de-programacion.md`](Docs/Entrega-2/estandares-de-programacion.md) |
-| Diagramas del Taller de Diseño (ECB, clases, componentes, despliegue) | [`docs/diagramas/`](docs/diagramas/) |
+| Diagramas del diseño (todos) | [`Docs/Diagramas/`](Docs/Diagramas/) |
+| Taller de Diseño | [`Docs/Talleres/taller-de-diseno/`](Docs/Talleres/taller-de-diseno/) |
 | Manual de despliegue | [`Docs/UserGuide/despliegue.md`](Docs/UserGuide/despliegue.md) |
 | Actas de reunión | [`Docs/Actas/`](Docs/Actas/) |
 | Planeación de cada sprint | [`Docs/Planning/`](Docs/Planning/) |

@@ -134,4 +134,4 @@ text{{font-family:Arial,'Liberation Sans',sans-serif;text-anchor:middle;fill:#0E
 <text x="50" y="103" class="ley">Servicio, librería o dispositivo externo</text>
 </g>
 </svg>'''
-Path(__file__).with_name("diagrama-componentes.svg").write_text(svg, encoding="utf-8")
+Path(__file__).with_name("componentes.svg").write_text(svg, encoding="utf-8")

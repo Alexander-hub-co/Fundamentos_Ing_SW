@@ -1,8 +1,8 @@
 # Diagrama de Análisis (ECB)
 
-![Diagrama de Análisis ECB de Parquivo](imagenes/diagrama-ecb.png)
+![Diagrama de Análisis ECB de Parquivo](analisis-ecb.png)
 
-Fuente: [`01-ecb/diagrama-ecb.puml`](01-ecb/diagrama-ecb.puml)
+Fuente: [`fuentes/analisis-ecb.puml`](fuentes/analisis-ecb.puml)
 
 ## Qué modela
 

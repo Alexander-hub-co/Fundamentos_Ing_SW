@@ -1,8 +1,8 @@
 # Diagrama de Despliegue
 
-![Diagrama de despliegue de Parquivo](imagenes/diagrama-despliegue.png)
+![Diagrama de despliegue de Parquivo](despliegue.png)
 
-Fuente: [`04-despliegue/diagrama-despliegue.puml`](04-despliegue/diagrama-despliegue.puml)
+Fuente: [`fuentes/despliegue.puml`](fuentes/despliegue.puml)
 
 ## Qué modela
 
