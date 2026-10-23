@@ -4,7 +4,7 @@
 
 Reglas que sigue todo el código del repositorio. Las que se pueden comprobar
 automáticamente las verifica la integración continua en cada *pull request*
-([`.github/workflows/ci.yml`](../../.github/workflows/ci.yml)).
+([`.github/workflows/ci.yml`](../../../.github/workflows/ci.yml)).
 
 ---
 

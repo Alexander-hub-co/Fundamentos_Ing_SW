@@ -111,7 +111,7 @@ apoyar la gestión, planificación, calidad y desarrollo del proyecto.
 Los cuatro integran además el equipo de desarrollo: en un equipo de este tamaño,
 dejar a dos personas fuera de la construcción no tendría sentido. El detalle de
 qué responde cada rol está en el
-[organigrama](Docs/Entrega-1/organigrama.md).
+[organigrama](Docs/Entregas/Entrega-1/organigrama.md).
 
 **Docente:** Ing. Kerwin de Jesús Barros Somerson — [@kbarrosDev](https://github.com/kbarrosDev)
 
@@ -191,13 +191,19 @@ Fundamentos_Ing_SW/
 │   ├── SRS/
 │   │   └── Especificación de requisitos de software del sistema.
 │   │
-│   ├── Entrega-1/
-│   │   └── Canvas, modelo de características, casos de uso, historias
-│   │       de usuario, organigrama, calendario y reporte gerencial.
+│   ├── Entregas/
+│   │   ├── Entrega-1/          Canvas, casos de uso, historias de usuario,
+│   │   │                       organigrama, calendario y reporte gerencial.
+│   │   ├── Entrega-2/          Diseño de la solución (SDD), reporte gerencial
+│   │   │                       y estándares de programación.
+│   │   └── Taller-de-Diseno/   Explicación de los diagramas del taller e informe.
 │   │
-│   ├── Entrega-2/
-│   │   └── Diseño de la solución (SDD), reporte gerencial y
-│   │       estándares de programación, con sus diagramas en PNG.
+│   ├── Diagramas/
+│   │   └── TODOS los diagramas del proyecto en PNG, con sus fuentes
+│   │       en fuentes/.
+│   │
+│   ├── Informes/
+│   │   └── Informe técnico y acuerdo de uso académico.
 │   │
 │   ├── Actas/
 │   │   └── Actas de las reuniones del equipo, martes y viernes.
@@ -258,19 +264,12 @@ Fundamentos_Ing_SW/
 ├── design_handoff_parquivo/
 │   └── Maquetas de las pantallas, entregadas por diseño.
 │
-├── docs/diagramas/
-│   └── Taller de Diseño: diagramas ECB, de clases, de componentes
-│       y de despliegue en PNG, con su explicación y el informe.
-│
 ├── Casos-de-uso-mas-importantes/
 │   ├── CU-07-registrar-entrada/
 │   │   └── Descripción del caso de uso y el código que lo implementa.
 │   │
-│   ├── CU-08-cobrar-salida/
-│   │   └── Descripción del caso de uso y el código que lo implementa.
-│   │
-│   └── Diagramas/
-│       └── Diagrama de clases y modelo de base de datos en PNG.
+│   └── CU-08-cobrar-salida/
+│       └── Descripción del caso de uso y el código que lo implementa.
 │
 ├── Database/
 │   └── Modelo entidad-relación y decisiones del esquema.
@@ -316,8 +315,8 @@ Fundamentos_Ing_SW/
 - **Issues:** etiquetados por módulo, prioridad y estimación en puntos de historia
 - **Sprints:** de dos semanas, registrados como *milestones*
 - **Comprobación:** `bash Script/verificar.sh` revisa que los enlaces resuelvan, que los conteos de requisitos cuadren y que ningún documento quede a medio llenar
-- **Ceremonias:** revisión, retrospectiva y planeación el martes posterior al cierre del sprint; sesiones de trabajo los martes y viernes después de clase, de 7 a 9 de la noche, descritas en [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
-- **Roles Scrum y responsabilidades:** [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md)
+- **Ceremonias:** revisión, retrospectiva y planeación el martes posterior al cierre del sprint; sesiones de trabajo los martes y viernes después de clase, de 7 a 9 de la noche, descritas en [`Docs/Entregas/Entrega-1/organigrama.md`](Docs/Entregas/Entrega-1/organigrama.md)
+- **Roles Scrum y responsabilidades:** [`Docs/Entregas/Entrega-1/organigrama.md`](Docs/Entregas/Entrega-1/organigrama.md)
 
 ---
 
@@ -326,26 +325,27 @@ Fundamentos_Ing_SW/
 | Documento | Dónde |
 |---|---|
 | Especificación de requisitos (SRS) | [`Docs/SRS/`](Docs/SRS/) |
-| Historias de usuario | [`Docs/Entrega-1/historias-de-usuario.md`](Docs/Entrega-1/historias-de-usuario.md) |
-| Casos de uso | [`Docs/Entrega-1/casos-de-uso.md`](Docs/Entrega-1/casos-de-uso.md) |
+| Historias de usuario | [`Docs/Entregas/Entrega-1/historias-de-usuario.md`](Docs/Entregas/Entrega-1/historias-de-usuario.md) |
+| Casos de uso | [`Docs/Entregas/Entrega-1/casos-de-uso.md`](Docs/Entregas/Entrega-1/casos-de-uso.md) |
 | Los dos casos de uso más importantes, con sus diagramas y su código | [`Casos-de-uso-mas-importantes/`](Casos-de-uso-mas-importantes/) |
-| Propuesta del producto (Canvas) | [`Docs/Entrega-1/canvas.md`](Docs/Entrega-1/canvas.md) |
-| Modelo de características | [`Docs/Entrega-1/feature-model.md`](Docs/Entrega-1/feature-model.md) |
-| Organigrama y roles | [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md) |
-| Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
-| Reporte gerencial — Entrega 1 | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
-| **Entrega 2: diseño de la solución (SDD)** | [`Docs/Entrega-2/SDD.md`](Docs/Entrega-2/SDD.md) |
-| **Reporte gerencial — Entrega 2** | [`Docs/Entrega-2/reporte-gerencial.md`](Docs/Entrega-2/reporte-gerencial.md) |
-| Estándares de programación | [`Docs/Entrega-2/estandares-de-programacion.md`](Docs/Entrega-2/estandares-de-programacion.md) |
-| Diagramas del Taller de Diseño (ECB, clases, componentes, despliegue) | [`docs/diagramas/`](docs/diagramas/) |
+| Propuesta del producto (Canvas) | [`Docs/Entregas/Entrega-1/canvas.md`](Docs/Entregas/Entrega-1/canvas.md) |
+| Modelo de características | [`Docs/Entregas/Entrega-1/feature-model.md`](Docs/Entregas/Entrega-1/feature-model.md) |
+| Organigrama y roles | [`Docs/Entregas/Entrega-1/organigrama.md`](Docs/Entregas/Entrega-1/organigrama.md) |
+| Calendario de actividades | [`Docs/Entregas/Entrega-1/calendario.md`](Docs/Entregas/Entrega-1/calendario.md) |
+| Reporte gerencial — Entrega 1 | [`Docs/Entregas/Entrega-1/reporte-gerencial.md`](Docs/Entregas/Entrega-1/reporte-gerencial.md) |
+| **Entrega 2: diseño de la solución (SDD)** | [`Docs/Entregas/Entrega-2/SDD.md`](Docs/Entregas/Entrega-2/SDD.md) |
+| **Reporte gerencial — Entrega 2** | [`Docs/Entregas/Entrega-2/reporte-gerencial.md`](Docs/Entregas/Entrega-2/reporte-gerencial.md) |
+| Estándares de programación | [`Docs/Entregas/Entrega-2/estandares-de-programacion.md`](Docs/Entregas/Entrega-2/estandares-de-programacion.md) |
+| **Todos los diagramas (PNG)** | [`Docs/Diagramas/`](Docs/Diagramas/) |
+| Taller de Diseño: explicación de los diagramas e informe | [`Docs/Entregas/Taller-de-Diseno/`](Docs/Entregas/Taller-de-Diseno/) |
 | Manual de despliegue | [`Docs/UserGuide/despliegue.md`](Docs/UserGuide/despliegue.md) |
 | Actas de reunión | [`Docs/Actas/`](Docs/Actas/) |
 | Planeación de cada sprint | [`Docs/Planning/`](Docs/Planning/) |
 | Revisión de cada sprint | [`Docs/Review/`](Docs/Review/) |
 | Retrospectiva de cada sprint | [`Docs/Retrospective/`](Docs/Retrospective/) |
 | Capturas de las pantallas | [`Docs/Mockups/`](Docs/Mockups/) |
-| Informe técnico del sistema | [`Docs/informe-tecnico.pdf`](Docs/informe-tecnico.pdf) · [`.docx`](Docs/informe-tecnico.docx) |
-| Acuerdo de uso académico | [`Docs/contrato-uso-academico.pdf`](Docs/contrato-uso-academico.pdf) |
+| Informe técnico del sistema | [`Docs/Informes/informe-tecnico.pdf`](Docs/Informes/informe-tecnico.pdf) · [`.docx`](Docs/Informes/informe-tecnico.docx) |
+| Acuerdo de uso académico | [`Docs/Informes/contrato-uso-academico.pdf`](Docs/Informes/contrato-uso-academico.pdf) |
 | Diseño de la taquilla | [`Docs/Arquitectura/interfaz-taquilla.md`](Docs/Arquitectura/interfaz-taquilla.md) |
 | Modelo entidad-relación | [`Database/modelo-entidad-relacion.md`](Database/modelo-entidad-relacion.md) |
 | Gráficas de avance | [`Gráficas/avance.md`](Gráficas/avance.md) |

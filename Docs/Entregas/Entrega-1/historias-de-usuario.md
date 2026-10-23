@@ -14,7 +14,7 @@ Se sigue la jerarquía vista en clase. Cada nivel agrupa al siguiente:
 | **Theme** | Meses | 5 | Los cinco módulos del sistema |
 | **Epic** | Semanas | 20 | Este documento |
 | **User Story** | Días | 51 | Este documento |
-| **Task** | Horas | Se desglosan al planear cada sprint | [`Docs/Planning/`](../Planning/) |
+| **Task** | Horas | Se desglosan al planear cada sprint | [`Docs/Planning/`](../../Planning/) |
 
 Los puntos de historia son la estimación inicial del equipo, revisable en cada
 sesión de planeación. Cada historia cumple **INVEST**: es autocontenida, negociable, entrega valor al

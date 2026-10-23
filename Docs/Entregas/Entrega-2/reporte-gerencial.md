@@ -52,7 +52,7 @@ La sección 6 explica la causa y lo que se cambió.
 | Sprint 4 | 29 de septiembre al 12 de octubre | 24 | 24 | 0 % |
 | Sprint 5 | 13 al 26 de octubre | 26 | 13 (en curso) | — |
 
-![Puntos entregados frente a comprometidos](../../Gráficas/imagenes/avance-1.png)
+![Puntos entregados frente a comprometidos](../../../Gráficas/imagenes/avance-1.png)
 
 ### 3.2 Fechas: plan frente a tablero
 
@@ -67,7 +67,7 @@ de octubre.
 
 ### 3.3 Trabajo restante
 
-![Trabajo restante](../../Gráficas/imagenes/avance-2.png)
+![Trabajo restante](../../../Gráficas/imagenes/avance-2.png)
 
 La línea real coincide con la planeada en la Entrega 1 (122 → 104 → 83 → 59 →
 35). Si el Sprint 5 cierra completo, quedan 9 puntos para el Sprint 6.
@@ -117,9 +117,9 @@ La línea real coincide con la planeada en la Entrega 1 (122 → 104 → 83 → 
 | Diagramas de despliegue | [SDD §9](SDD.md#9-diseño-de-despliegue) |
 | Diagramas de procesos y secuencia | [SDD §6](SDD.md#6-diseño-dinámico-secuencia-y-procesos) |
 | Uso de patrones | [SDD §7](SDD.md#7-patrones-de-diseño): Strategy y Singleton |
-| Primer prototipo con la historia más difícil | HU-008, en [`src/`](../../src/) · cómo ejecutarlo: [README](../../README.md#instalación-y-ejecución) |
+| Primer prototipo con la historia más difícil | HU-008, en [`src/`](../../../src/) · cómo ejecutarlo: [README](../../../README.md#instalación-y-ejecución) |
 | Estándares de programación | [estandares-de-programacion.md](estandares-de-programacion.md) |
-| Manuales de instalación, administración y ejecución | [README](../../README.md#instalación-y-ejecución) · [despliegue](../UserGuide/despliegue.md) · [guías por rol](../UserGuide/) |
+| Manuales de instalación, administración y ejecución | [README](../../../README.md#instalación-y-ejecución) · [despliegue](../../UserGuide/despliegue.md) · [guías por rol](../../UserGuide/) |
 | Reporte gerencial | Este documento |
 
 ---
@@ -143,7 +143,7 @@ La línea real coincide con la planeada en la Entrega 1 (122 → 104 → 83 → 
 |---|---|---|---|
 | El Sprint 5 no alcance sus 26 puntos | Medio | Media | Plan de recorte: #8 pasa al Sprint 6, que tiene sólo 9 puntos |
 | Las pruebas del Sprint 6 encuentren defectos tarde | Alto | Media | Las reglas de cobro ya tienen prueba automatizada desde los sprints 3 y 4 |
-| El despliegue en producción falle por permisos de la base | Alto | Media | El [manual de despliegue](../UserGuide/despliegue.md) lista lo que el proveedor debe permitir antes de elegirlo |
+| El despliegue en producción falle por permisos de la base | Alto | Media | El [manual de despliegue](../../UserGuide/despliegue.md) lista lo que el proveedor debe permitir antes de elegirlo |
 | El tablero vuelva a desactualizarse | Medio | Baja | Cierre automático con `Closes #N` |
 
 ---
@@ -157,7 +157,7 @@ La línea real coincide con la planeada en la Entrega 1 (122 → 104 → 83 → 
 | Jacob Riveros | Desarrollo | 32 | 26 % |
 | Santiago Arias | Desarrollo | 24 | 20 % |
 
-![Reparto de la carga](../../Gráficas/imagenes/avance-4.png)
+![Reparto de la carga](../../../Gráficas/imagenes/avance-4.png)
 
 ---
 

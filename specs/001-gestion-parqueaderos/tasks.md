@@ -6,7 +6,7 @@ description: "Task list for 001-gestion-parqueaderos"
 
 **Input**: Design documents from `/specs/001-gestion-parqueaderos/`
 
-**Prerequisites**: [plan.md](./plan.md), [spec.md](./spec.md), [research.md](./research.md), [data-model.md](./data-model.md), [contracts/](./contracts/)
+**Prerequisites**: [plan.md](plan.md), [spec.md](spec.md), [research.md](research.md), [data-model.md](data-model.md), [contracts/](contracts/)
 
 **Tests**: Incluidas y **obligatorias**. No es una preferencia de estilo: la constitución exige
 verificar los Principios I y IV con pruebas automatizadas, y el criterio de aceptación de la

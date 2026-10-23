@@ -1,8 +1,8 @@
 # Diagrama de Componentes
 
-![Diagrama de componentes de Parquivo](imagenes/diagrama-componentes.png)
+![Diagrama de componentes de Parquivo](../../Diagramas/componentes.png)
 
-Fuente: [`03-componentes/generar.py`](03-componentes/generar.py) → [`diagrama-componentes.svg`](03-componentes/diagrama-componentes.svg)
+Fuente: [`03-componentes/generar.py`](../../Diagramas/fuentes/componentes.py) → [`diagrama-componentes.svg`](../../Diagramas/fuentes/componentes.svg)
 
 ## Qué modela
 

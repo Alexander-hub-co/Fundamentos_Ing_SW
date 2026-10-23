@@ -3,7 +3,7 @@
 El equipo se reúne **los martes y los viernes después de clase, de 7:00 a 9:00
 de la noche**, en la sede de la Pontificia Universidad Javeriana en Bogotá.
 La cadencia está vigente desde el 25 de agosto de 2026 y se describe en el
-[organigrama](../Entrega-1/organigrama.md).
+[organigrama](../Entregas/Entrega-1/organigrama.md).
 
 | Acta | Fecha | Día | Asunto |
 |---|---|---|---|

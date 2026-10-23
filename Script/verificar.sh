@@ -38,7 +38,7 @@ done < <(find . -name '*.md' -not -path './.git/*')
 echo
 echo "Conteos del SRS"
 fr=$(grep -c '^- \*\*FR-' Docs/SRS/SRS-simplificado.md)
-citado=$(grep -oE '\| Requisitos funcionales \| [0-9]+ \|' Docs/Entrega-1/reporte-gerencial.md | tr -dc '0-9')
+citado=$(grep -oE '\| Requisitos funcionales \| [0-9]+ \|' Docs/Entregas/Entrega-1/reporte-gerencial.md | tr -dc '0-9')
 if [ "$fr" = "$citado" ]; then
   bien "$fr requisitos funcionales, y es lo que dice el reporte gerencial"
 else

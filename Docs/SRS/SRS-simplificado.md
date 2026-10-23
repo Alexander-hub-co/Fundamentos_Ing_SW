@@ -516,9 +516,9 @@ el sistema cumple.
 
 | Documento | Dónde está |
 |---|---|
-| Historias de usuario con criterios de aceptación | [`Docs/Entrega-1/historias-de-usuario.md`](../Entrega-1/historias-de-usuario.md) |
-| Casos de uso con flujos alternativos | [`Docs/Entrega-1/casos-de-uso.md`](../Entrega-1/casos-de-uso.md) |
-| Modelo de características y reglas de composición | [`Docs/Entrega-1/feature-model.md`](../Entrega-1/feature-model.md) |
+| Historias de usuario con criterios de aceptación | [`Docs/Entregas/Entrega-1/historias-de-usuario.md`](../Entregas/Entrega-1/historias-de-usuario.md) |
+| Casos de uso con flujos alternativos | [`Docs/Entregas/Entrega-1/casos-de-uso.md`](../Entregas/Entrega-1/casos-de-uso.md) |
+| Modelo de características y reglas de composición | [`Docs/Entregas/Entrega-1/feature-model.md`](../Entregas/Entrega-1/feature-model.md) |
 | Hoja de ruta y decisiones de arquitectura | [`Docs/Arquitectura/roadmap.md`](../Arquitectura/roadmap.md) |
 | Guía de uso por rol | [`Docs/UserGuide/`](../UserGuide/) |
-| Reparto en sprints y responsables | [`Docs/Entrega-1/calendario.md`](../Entrega-1/calendario.md) |
+| Reparto en sprints y responsables | [`Docs/Entregas/Entrega-1/calendario.md`](../Entregas/Entrega-1/calendario.md) |

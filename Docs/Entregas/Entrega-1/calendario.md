@@ -10,7 +10,7 @@ puntos.
 
 ## Vista general
 
-![Calendario — figura 1](imagenes/calendario-1.png)
+![Calendario — figura 1](../../Diagramas/calendario.png)
 
 ---
 
@@ -33,7 +33,7 @@ código, en este sprint se levantó la especificación:
 |---|---|
 | Definir el alcance y los módulos | Cinco módulos: plataforma, configuración, convenios, taquilla de vehículos y taquilla de bicicletas |
 | Escribir la especificación de requisitos | `Docs/SRS/SRS-simplificado.md` |
-| Redactar las historias de usuario | 51 historias con criterios de aceptación en `Docs/Entrega-1/historias-de-usuario.md` |
+| Redactar las historias de usuario | 51 historias con criterios de aceptación en `Docs/Entregas/Entrega-1/historias-de-usuario.md` |
 | Modelar el producto | Canvas y modelo de características |
 | Levantar los casos de uso | Seis flujos principales con sus alternativas |
 | Montar el repositorio | Estructura de carpetas, hitos, etiquetas y flujo de ramas |

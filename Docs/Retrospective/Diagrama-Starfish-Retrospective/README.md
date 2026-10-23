@@ -17,7 +17,7 @@ equipo. El Starfish divide la retrospectiva en cinco partes:
 
 ## Sprint 5 · 22 de octubre de 2026
 
-![Retrospectiva Starfish del Sprint 5](starfish-sprint-5.png)
+![Retrospectiva Starfish del Sprint 5](../../Diagramas/starfish-sprint-5.png)
 
 Cada integrante registró sus aportes como *issues* del tablero. Hubo 52 aportes,
 muchos repetidos porque varias personas coincidieron en la misma idea; se

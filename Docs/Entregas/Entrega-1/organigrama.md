@@ -6,7 +6,7 @@
 
 ## Estructura del equipo
 
-![Organigrama — figura 1](imagenes/organigrama-1.png)
+![Organigrama — figura 1](../../Diagramas/organigrama.png)
 
 El equipo son cuatro personas y los roles son seis, así que **dos integrantes
 sostienen dos roles cada uno y los cuatro desarrollan**. Scrum no lo prohíbe, y
@@ -123,20 +123,20 @@ dentro del bloque del martes posterior.
 
 | Ceremonia | Horario | Quiénes | Dónde queda el registro |
 |---|---|---|---|
-| Revisión del sprint | 19:00 – 19:40 | Los cuatro, con demostración | [`Docs/Review/`](../Review/) |
-| Retrospectiva | 19:40 – 20:10 | Los cuatro | [`Docs/Retrospective/`](../Retrospective/) |
-| Planeación del sprint | 20:10 – 21:00 | Los cuatro | [`Docs/Planning/`](../Planning/) |
+| Revisión del sprint | 19:00 – 19:40 | Los cuatro, con demostración | [`Docs/Review/`](../../Review/) |
+| Retrospectiva | 19:40 – 20:10 | Los cuatro | [`Docs/Retrospective/`](../../Retrospective/) |
+| Planeación del sprint | 20:10 – 21:00 | Los cuatro | [`Docs/Planning/`](../../Planning/) |
 
 **Los demás martes y todos los viernes**
 
 | Ceremonia | Horario | Quiénes | Dónde queda el registro |
 |---|---|---|---|
-| Sesión de trabajo | 19:00 – 21:00 | Los cuatro | [`Docs/Dailys/`](../Dailys/) |
+| Sesión de trabajo | 19:00 – 21:00 | Los cuatro | [`Docs/Dailys/`](../../Dailys/) |
 
 La sesión de trabajo abre con una vuelta corta —en qué va cada uno y qué lo está
 frenando— y el resto del bloque se trabaja en conjunto. Las decisiones que no
 pertenecen a una ceremonia concreta se consignan como actas en
-[`Docs/Actas/`](../Actas/).
+[`Docs/Actas/`](../../Actas/).
 
 La cadencia es de dos veces por semana y no diaria porque el equipo cursa otras
 asignaturas, y una reunión diaria que nadie puede sostener se abandona en la

@@ -17,7 +17,7 @@
 
 ## El árbol
 
-![Feature model — figura 1](imagenes/feature-model-1.png)
+![Feature model — figura 1](../../Diagramas/feature-model.png)
 
 ---
 

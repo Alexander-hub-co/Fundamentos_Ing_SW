@@ -7,7 +7,7 @@
 |---|---|
 | **Equipo** | Cristian Quevedo · Sergio Alexander Lara Bonilla · Jacob Riveros · Santiago Arias |
 | **Docente** | Ing. Kerwin de Jesús Barros Somerson |
-| **Requisitos de referencia** | [SRS](../SRS/SRS-simplificado.md) · [Historias de usuario](../Entrega-1/historias-de-usuario.md) |
+| **Requisitos de referencia** | [SRS](../../SRS/SRS-simplificado.md) · [Historias de usuario](../Entrega-1/historias-de-usuario.md) |
 | **Versión** | 1.0 |
 
 ---
@@ -80,7 +80,7 @@ Parquivo combina dos estilos:
   qué mostrar; el **modelo**, los módulos de `src/dominio/` con las reglas de
   negocio y `src/db/` con la persistencia.
 
-![Arquitectura en capas con MVC](imagenes/arquitectura-capas.png)
+![Arquitectura en capas con MVC](../../Diagramas/arquitectura-capas.png)
 
 **Por qué este estilo.** El cobro tiene reglas que cambian por establecimiento
 (tarifas, convenios, redondeo) y no pueden quedar enredadas con la pantalla.
@@ -113,17 +113,17 @@ vive en la vista, que es el error del *Fat View* que se quiere evitar.
 
 ### 3.1 Diagrama de clases
 
-![Diagrama de clases](../../docs/diagramas/imagenes/diagrama-clases.png)
+![Diagrama de clases](../../Diagramas/clases.png)
 
 Tres grupos: **servicios** con la lógica de negocio (`ServicioTaquilla`,
 `CalculadoraCobro`), **interfaces** de las que dependen (`ICalculadoraCobro`,
 repositorios, `IAutorizador`) y el **dominio** (`Movimiento`, `Tarifa`,
 `Convenio`, `Cobro`…). La explicación completa de relaciones y SOLID está en
-[`docs/diagramas/diagrama-clases.md`](../../docs/diagramas/diagrama-clases.md).
+[`Docs/Entregas/Taller-de-Diseno/diagrama-clases.md`](../Taller-de-Diseno/diagrama-clases.md).
 
 ### 3.2 Modelo de la base de datos
 
-![Modelo entidad-relación](../../Database/imagenes/modelo-entidad-relacion-1.png)
+![Modelo entidad-relación](../../Diagramas/modelo-entidad-relacion.png)
 
 Cada tabla de un establecimiento lleva `parqueadero_id` y una política RLS que
 la filtra por el establecimiento de la sesión. Las restricciones que protegen el
@@ -137,13 +137,13 @@ dinero viven en la base y no sólo en el código:
 | `tarifa_parametros_del_modelo` | Cada modelo de tarifa tiene exactamente sus parámetros |
 | `movimiento_importe_no_negativo` | Nunca se cobra un valor negativo |
 
-Detalle de tablas y columnas: [`Database/modelo-entidad-relacion.md`](../../Database/modelo-entidad-relacion.md).
+Detalle de tablas y columnas: [`Database/modelo-entidad-relacion.md`](../../../Database/modelo-entidad-relacion.md).
 
 ---
 
 ## 4. Diseño de componentes
 
-![Diagrama de componentes](../../docs/diagramas/imagenes/diagrama-componentes.png)
+![Diagrama de componentes](../../Diagramas/componentes.png)
 
 | Interfaz | La provee | La requiere |
 |---|---|---|
@@ -156,7 +156,7 @@ Detalle de tablas y columnas: [`Database/modelo-entidad-relacion.md`](../../Data
 
 Ningún componente toca la base directamente: todo pasa por `IAmbito`, que fija
 el establecimiento antes de cualquier consulta. Explicación completa en
-[`docs/diagramas/diagrama-componentes.md`](../../docs/diagramas/diagrama-componentes.md).
+[`Docs/Entregas/Taller-de-Diseno/diagrama-componentes.md`](../Taller-de-Diseno/diagrama-componentes.md).
 
 ---
 
@@ -164,10 +164,10 @@ el establecimiento antes de cualquier consulta. Explicación completa en
 
 ### 5.1 Interfaz de usuario
 
-Las 23 pantallas del sistema están en [`Docs/Mockups/`](../Mockups/). La
+Las 23 pantallas del sistema están en [`Docs/Mockups/`](../../Mockups/). La
 pantalla central es la taquilla:
 
-![Pantalla de taquilla](../Mockups/01-taquilla.png)
+![Pantalla de taquilla](../../Mockups/01-taquilla.png)
 
 El diseño sigue los principios de usabilidad de Nielsen vistos en clase:
 
@@ -195,7 +195,7 @@ El diseño sigue los principios de usabilidad de Nielsen vistos en clase:
 
 ### 6.1 Secuencia — HU-008: entrada por placa
 
-![Diagrama de secuencia de la entrada](imagenes/secuencia-entrada.png)
+![Diagrama de secuencia de la entrada](../../Diagramas/secuencia-entrada.png)
 
 La vista nunca habla con el modelo: todo pasa por la *Server Action*. La
 decisión entre entrada y salida es **una sola consulta** en el servidor. Si dos
@@ -204,7 +204,7 @@ la segunda inserción y el sistema responde «ya está adentro».
 
 ### 6.2 Secuencia — HU-007 y HU-004: cobro y copia del cobro
 
-![Diagrama de secuencia de la salida](imagenes/secuencia-salida.png)
+![Diagrama de secuencia de la salida](../../Diagramas/secuencia-salida.png)
 
 Las consultas de tarifa, horario, redondeo y convenios se hacen **en
 paralelo**. El cálculo produce un `CobroConConvenios` con el desglose completo
@@ -214,7 +214,7 @@ impide cobrar dos veces el mismo movimiento.
 
 ### 6.3 Diagrama de procesos — atención de un vehículo
 
-![Diagrama de actividad de la taquilla](imagenes/proceso-taquilla.png)
+![Diagrama de actividad de la taquilla](../../Diagramas/proceso-taquilla.png)
 
 El proceso muestra el flujo completo con sus decisiones: placa inválida, entrada
 o salida, vehículo sin tarifa, cortesía y falla de la impresora. Una impresora
@@ -229,7 +229,7 @@ arquitectónicos y GRASP que estructuran el sistema.
 
 ### 7.1 Strategy — cálculo del cobro según el modelo de tarifa
 
-![Patrón Strategy](imagenes/patron-strategy.png)
+![Patrón Strategy](../../Diagramas/patron-strategy.png)
 
 | | |
 |---|---|
@@ -237,18 +237,18 @@ arquitectónicos y GRASP que estructuran el sistema.
 | **Solución** | Cada modelo es una estrategia concreta que implementa `EstrategiaDeCobro`. `CalculadoraDeImporte` (contexto) parte el tiempo en jornadas y le pide a la estrategia el valor de cada tramo, sin saber qué modelo es |
 | **Participantes** | Contexto: `CalculadoraDeImporte` · Estrategia: `EstrategiaDeCobro` · Estrategias concretas: `CobroPorMinuto`, `CobroPorIntervalo`, `CobroPrimeraHoraYFraccion` · Creación: `FabricaDeEstrategias` |
 | **Beneficio** | Un modelo de cobro nuevo es una clase nueva; el cálculo de jornadas, topes y convenios no se toca (principio abierto/cerrado) |
-| **En el código** | Los tres modelos son la unión `TarifaAplicable` en [`src/dominio/tarifas/modelos.ts`](../../src/dominio/tarifas/modelos.ts) y el cálculo en [`src/dominio/tarifas/calcular.ts`](../../src/dominio/tarifas/calcular.ts) |
+| **En el código** | Los tres modelos son la unión `TarifaAplicable` en [`src/dominio/tarifas/modelos.ts`](../../../src/dominio/tarifas/modelos.ts) y el cálculo en [`src/dominio/tarifas/calcular.ts`](../../../src/dominio/tarifas/calcular.ts) |
 
 ### 7.2 Singleton — pool de conexiones a la base de datos
 
-![Patrón Singleton](imagenes/patron-singleton.png)
+![Patrón Singleton](../../Diagramas/patron-singleton.png)
 
 | | |
 |---|---|
 | **Problema** | Abrir un pool de conexiones a PostgreSQL por cada petición agota las conexiones del servidor |
 | **Solución** | Existe una única instancia del pool por rol de base de datos. Se crea en la primera llamada (inicialización perezosa con `??=`) y todas las peticiones la reutilizan |
 | **Participantes** | `PoolDeConexiones` con sus instancias `instanciaTenant` e `instanciaPlatform`, y los accesos `dbTenant()` y `dbPlatform()` |
-| **En el código** | [`src/db/pools.ts`](../../src/db/pools.ts) |
+| **En el código** | [`src/db/pools.ts`](../../../src/db/pools.ts) |
 
 ### 7.3 Patrones arquitectónicos y GRASP
 
@@ -280,7 +280,7 @@ arquitectónicos y GRASP que estructuran el sistema.
 
 ## 9. Diseño de despliegue
 
-![Diagrama de despliegue](../../docs/diagramas/imagenes/diagrama-despliegue.png)
+![Diagrama de despliegue](../../Diagramas/despliegue.png)
 
 | Nodo | Requisitos mínimos |
 |---|---|
@@ -289,7 +289,7 @@ arquitectónicos y GRASP que estructuran el sistema.
 | Servidor de base de datos | PostgreSQL 16 o superior con permiso para crear roles con `BYPASSRLS` |
 
 El procedimiento de instalación en producción está en el
-[manual de despliegue](../UserGuide/despliegue.md).
+[manual de despliegue](../../UserGuide/despliegue.md).
 
 ---
 

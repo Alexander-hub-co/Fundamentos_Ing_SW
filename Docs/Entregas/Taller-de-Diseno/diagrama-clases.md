@@ -1,8 +1,8 @@
 # Diagrama de Clases
 
-![Diagrama de clases de Parquivo](imagenes/diagrama-clases.png)
+![Diagrama de clases de Parquivo](../../Diagramas/clases.png)
 
-Fuente: [`02-clases/diagrama-clases.puml`](02-clases/diagrama-clases.puml)
+Fuente: [`02-clases/diagrama-clases.puml`](../../Diagramas/fuentes/clases.puml)
 
 ## Qué modela
 

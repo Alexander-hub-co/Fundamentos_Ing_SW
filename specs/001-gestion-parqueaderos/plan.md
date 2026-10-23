@@ -1,6 +1,6 @@
 # Implementation Plan: Parquivo
 
-**Branch**: `001-gestion-parqueaderos` | **Date**: 2026-08-15 | **Spec**: [spec.md](./spec.md)
+**Branch**: `001-gestion-parqueaderos` | **Date**: 2026-08-15 | **Spec**: [spec.md](spec.md)
 
 **Input**: Feature specification from `/specs/001-gestion-parqueaderos/spec.md`
 

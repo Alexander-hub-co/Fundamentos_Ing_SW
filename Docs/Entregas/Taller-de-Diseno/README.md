@@ -19,10 +19,10 @@ hizo.
 
 | # | Diagrama | Documento | Imagen |
 |---|---|---|---|
-| 1 | Análisis (ECB) | [diagrama-ecb.md](diagrama-ecb.md) | [PNG](imagenes/diagrama-ecb.png) |
-| 2 | Clases | [diagrama-clases.md](diagrama-clases.md) | [PNG](imagenes/diagrama-clases.png) |
-| 3 | Componentes | [diagrama-componentes.md](diagrama-componentes.md) | [PNG](imagenes/diagrama-componentes.png) |
-| 4 | Despliegue | [diagrama-despliegue.md](diagrama-despliegue.md) | [PNG](imagenes/diagrama-despliegue.png) |
+| 1 | Análisis (ECB) | [diagrama-ecb.md](diagrama-ecb.md) | [PNG](../../Diagramas/analisis-ecb.png) |
+| 2 | Clases | [diagrama-clases.md](diagrama-clases.md) | [PNG](../../Diagramas/clases.png) |
+| 3 | Componentes | [diagrama-componentes.md](diagrama-componentes.md) | [PNG](../../Diagramas/componentes.png) |
+| 4 | Despliegue | [diagrama-despliegue.md](diagrama-despliegue.md) | [PNG](../../Diagramas/despliegue.png) |
 
 ## Informe
 
@@ -31,15 +31,10 @@ SOLID y las conclusiones, está en
 [`informe-taller-diseno.pdf`](informe-taller-diseno.pdf) y en Word en
 [`informe-taller-diseno.docx`](informe-taller-diseno.docx).
 
-## Cómo se generaron
+## Dónde están los diagramas
 
-Los diagramas de análisis, clases y despliegue están escritos en
-[PlantUML](https://plantuml.com) (`.puml`), y el de componentes en SVG
-generado con `generar.py`. Las cuatro imágenes están juntas en
-[`imagenes/`](imagenes/) y cada fuente en su carpeta numerada; un cambio en el
-diseño se hace en la fuente y se vuelve a exportar:
-
-```bash
-java -jar plantuml.jar -tpng 01-ecb/diagrama-ecb.puml
-python3 03-componentes/generar.py
-```
+Las cuatro imágenes están con todos los diagramas del proyecto en
+[`Docs/Diagramas/`](../../Diagramas/), y su fuente en
+[`Docs/Diagramas/fuentes/`](../../Diagramas/fuentes/). Los de análisis, clases y
+despliegue están escritos en [PlantUML](https://plantuml.com) y el de
+componentes se genera con `componentes.py`.

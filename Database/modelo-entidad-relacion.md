@@ -10,7 +10,7 @@ cerrado en el Sprint 1.
 
 ## Diagrama
 
-![Modelo entidad relacion — figura 1](imagenes/modelo-entidad-relacion-1.png)
+![Modelo entidad relacion — figura 1](../Docs/Diagramas/modelo-entidad-relacion.png)
 
 ---
 

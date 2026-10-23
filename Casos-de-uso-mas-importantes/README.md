@@ -47,12 +47,12 @@ y se prueba es la de `src/`; si las dos difieren, manda `src/`.
 
 ## Diagramas
 
-La carpeta [`Diagramas/`](Diagramas/) tiene los diagramas como imagen:
+La carpeta [`Diagramas/`](../Docs/Diagramas/) tiene los diagramas como imagen:
 
 | Archivo | Qué contiene |
 |---|---|
-| [`diagrama-de-clases.png`](Diagramas/diagrama-de-clases.png) | Las clases del sistema con atributos y métodos tipados, sus relaciones y multiplicidades |
-| [`modelo-de-base-de-datos.png`](Diagramas/modelo-de-base-de-datos.png) | Las tablas de PostgreSQL con sus llaves primarias y foráneas |
+| [`diagrama-de-clases.png`](../Docs/Diagramas/clases.png) | Las clases del sistema con atributos y métodos tipados, sus relaciones y multiplicidades |
+| [`modelo-de-base-de-datos.png`](../Docs/Diagramas/modelo-entidad-relacion.png) | Las tablas de PostgreSQL con sus llaves primarias y foráneas |
 
 El resto del diseño (secuencia, procesos, componentes, despliegue y patrones)
-está en el [SDD](../Docs/Entrega-2/SDD.md).
+está en el [SDD](../Docs/Entregas/Entrega-2/SDD.md).

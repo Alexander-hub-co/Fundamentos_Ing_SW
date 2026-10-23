@@ -32,7 +32,7 @@ El riesgo mayor ya no es de calendario sino de sobrecompromiso: el Sprint 3 pide
 | Requisitos funcionales | 194 |
 | Requisitos no funcionales | 14 |
 
-![Reporte gerencial — figura 1](imagenes/reporte-gerencial-1.png)
+![Reporte gerencial — figura 1](../../Diagramas/plan-de-sprints-entrega-1.png)
 
 La velocidad medida son 18 puntos en el Sprint 1 y 21 en el Sprint 2: media de
 19,5 y tendencia al alza. La apuesta de comprometerse por encima del primer dato

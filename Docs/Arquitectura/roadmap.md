@@ -25,7 +25,7 @@ sin esperar al siguiente.
 
 ## Orden de construcción y por qué
 
-![Roadmap — figura 1](imagenes/roadmap-1.png)
+![Roadmap — figura 1](../Diagramas/roadmap.png)
 
 **M1 va primero y no es negociable.** El aislamiento entre establecimientos se
 construye en los cimientos o no se construye. Montar la frontera de tenencia

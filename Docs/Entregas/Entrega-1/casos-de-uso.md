@@ -21,7 +21,7 @@ un carro sería absurdo.
 
 ## Diagrama general
 
-![Casos de uso — figura 1](imagenes/casos-de-uso-1.png)
+![Casos de uso — figura 1](../../Diagramas/casos-de-uso.png)
 
 ---
 

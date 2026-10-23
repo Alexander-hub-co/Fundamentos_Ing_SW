@@ -44,9 +44,9 @@ se puede explicar.**
 
 ## Diagramas
 
-Los diagramas están en [`../Diagramas/`](../Diagramas/) como imagen:
+Los diagramas están en [`../Diagramas/`](../../Docs/Diagramas/) como imagen:
 
-1. [Diagrama de clases](../Diagramas/diagrama-de-clases.png)
-2. [Modelo de base de datos](../Diagramas/modelo-de-base-de-datos.png)
+1. [Diagrama de clases](../../Docs/Diagramas/clases.png)
+2. [Modelo de base de datos](../../Docs/Diagramas/modelo-entidad-relacion.png)
 
 El código que lo implementa está en [`codigo/`](codigo/).
