@@ -20,6 +20,24 @@ tienen además una explicación ampliada en su `.md`. El diseño vigente es el d
 | [Patrón Strategy](patron-strategy.png) | Un modelo de tarifa por estrategia de cobro | HU-007 | [SDD §7.1](../Entrega-2/SDD.md#7-patrones-de-diseño) | [patron-strategy.puml](fuentes/patron-strategy.puml) |
 | [Patrón Singleton](patron-singleton.png) | Pool único de conexiones a PostgreSQL | Todas | [SDD §7.2](../Entrega-2/SDD.md#7-patrones-de-diseño) | [patron-singleton.puml](fuentes/patron-singleton.puml) |
 
+## Diagramas por historia de usuario
+
+Cada historia del tablero (HU-001 a HU-010) tiene un diagrama de secuencia y uno
+de procesos. Las fuentes están en [`fuentes/historias/`](fuentes/historias/).
+
+| Issue | Historia | Secuencia | Procesos |
+|---|---|---|---|
+| [#24](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/24) | HU-001 · Aislamiento en consulta de movimientos | [secuencia](historias/hu-001-secuencia.png) | [procesos](historias/hu-001-procesos.png) |
+| [#25](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/25) | HU-002 · Autorización de rol para operaciones de creación | [secuencia](historias/hu-002-secuencia.png) | [procesos](historias/hu-002-procesos.png) |
+| [#26](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/26) | HU-003 · Bloqueo de edición y eliminación de movimientos cerrados | [secuencia](historias/hu-003-secuencia.png) | [procesos](historias/hu-003-procesos.png) |
+| [#27](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/27) | HU-004 · Snapshot de tarifa y convenio al momento del cobro | [secuencia](historias/hu-004-secuencia.png) | [procesos](historias/hu-004-procesos.png) |
+| [#28](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/28) | HU-005 · Registro de montos en pesos colombianos sin decimales | [secuencia](historias/hu-005-secuencia.png) | [procesos](historias/hu-005-procesos.png) |
+| [#29](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/29) | HU-006 · Historial de versiones de tarifa por tipo de vehículo | [secuencia](historias/hu-006-secuencia.png) | [procesos](historias/hu-006-procesos.png) |
+| [#30](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/30) | HU-007 · Detalle del cálculo del cobro | [secuencia](historias/hu-007-secuencia.png) | [procesos](historias/hu-007-procesos.png) |
+| [#31](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/31) | HU-008 · Determinar entrada o salida según placa | [secuencia](secuencia-entrada.png) | [procesos](proceso-taquilla.png) |
+| [#32](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/32) | HU-009 · Rechazo de entrada duplicada | [secuencia](historias/hu-009-secuencia.png) | [procesos](historias/hu-009-procesos.png) |
+| [#33](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/33) | HU-010 · Tarifa obligatoria antes del primer cobro | [secuencia](historias/hu-010-secuencia.png) | [procesos](historias/hu-010-procesos.png) |
+
 El modelo entidad-relación está en [`Database/`](../../Database/modelo-entidad-relacion.md).
 
 ## Versión preliminar

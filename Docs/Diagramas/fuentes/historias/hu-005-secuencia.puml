@@ -1,0 +1,27 @@
+@startuml hu-005-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-005 · Registro de montos en pesos colombianos sin decimales — secuencia
+actor "Administrador" as Ad
+actor "Operario" as Op
+participant "FormularioTarifa" as F
+participant "guardarTarifa\n(acciones.ts)" as SA
+participant "declararTarifa" as Dec
+participant "aplicarConvenios /\ncalcularImporte" as Cal
+participant "redondear\n(cobro/redondeo.ts)" as Red
+database "PostgreSQL" as DB
+Ad -> F : escribe los valores en pesos
+F -> SA : guardarTarifa(datos)
+SA -> SA : entero(campo): Number.parseInt(valor, 10)
+SA -> Dec : declararTarifa(datos enteros)
+Dec -> Dec : validar: ningún importe negativo
+Dec -> DB : INSERT tarifa (columnas integer)
+DB -> DB : CHECK tarifa_importes_no_negativos
+DB --> Dec : tarifa guardada
+Op -> Cal : calcular el cobro de una salida
+Cal -> Red : redondear(importe, regla)
+Red -> Red : Math.floor(importe / paso) * paso\n(peso, cincuentena o centena)
+Red --> Cal : importe entero
+Cal -> DB : UPDATE movimiento SET importe (integer)
+DB -> DB : CHECK movimiento_importe_no_negativo
+@enduml

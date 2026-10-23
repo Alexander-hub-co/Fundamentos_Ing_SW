@@ -1,0 +1,26 @@
+@startuml hu-009-procesos
+!include ../estilo.iuml
+title HU-009 · Rechazo de entrada duplicada — procesos
+|Operario|
+start
+:Escribir una placa y confirmar la entrada;
+|Sistema|
+:Normalizar la placa;
+if (¿La placa ya tiene un movimiento abierto?) then (sí)
+  :Ofrecer la salida en vez de otra entrada;
+  stop
+else (no)
+endif
+:Intentar registrar la entrada;
+|Base de datos|
+if (¿El índice único detecta otra entrada abierta\nregistrada al mismo tiempo?) then (sí)
+  |Sistema|
+  :Rechazar: «la placa ya está adentro»;
+  stop
+else (no)
+  :Guardar el movimiento abierto;
+endif
+|Operario|
+:Entregar el comprobante de entrada;
+stop
+@enduml

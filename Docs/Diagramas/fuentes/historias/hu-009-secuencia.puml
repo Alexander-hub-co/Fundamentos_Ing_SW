@@ -1,0 +1,23 @@
+@startuml hu-009-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-009 · Rechazo de entrada duplicada — secuencia
+actor "Operario A" as A
+actor "Operario B" as B
+participant "confirmarEntrada" as SA
+participant "registrarEntrada\n(taquilla/registrar.ts)" as Reg
+database "PostgreSQL" as DB
+A -> SA : confirmarEntrada(ABC123)
+B -> SA : confirmarEntrada(ABC123)
+SA -> Reg : registrarEntrada (A)
+SA -> Reg : registrarEntrada (B)
+Reg -> DB : INSERT movimiento ABC123 (A)
+DB --> Reg : creado
+Reg -> DB : INSERT movimiento ABC123 (B)
+DB -> DB : índice único movimiento_una_placa_adentro\n(parqueadero, placa) WHERE salida_en IS NULL
+DB --> Reg : violación de unicidad
+Reg --> SA : TaquillaInvalida «La placa ABC123 ya está adentro»
+SA --> B : mensaje de error
+SA --> A : «ABC123 adentro» + comprobante
+note over Reg, DB : Queda un único movimiento abierto aunque\nlas dos peticiones lleguen al mismo tiempo
+@enduml
