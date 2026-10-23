@@ -1,0 +1,22 @@
+@startuml hu-005-procesos
+!include ../estilo.iuml
+title HU-005 · Registro de montos en pesos colombianos sin decimales — procesos
+start
+:Recibir un valor en pesos;
+:Convertirlo a número entero;
+if (¿Es un número válido?) then (no)
+  :Rechazar el valor;
+  stop
+else (sí)
+endif
+if (¿Es negativo?) then (sí)
+  :Rechazar: los importes no pueden ser negativos;
+  stop
+else (no)
+endif
+:Guardarlo en una columna entera;
+:Al cobrar, calcular el importe;
+:Redondear según la regla del establecimiento\n(peso, cincuentena o centena);
+:Guardar el importe como entero;
+stop
+@enduml

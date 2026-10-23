@@ -1,0 +1,37 @@
+@startuml hu-002-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-002 · Autorización de rol para operaciones de creación — secuencia
+actor "Usuario" as U
+participant "Formulario\n(vista)" as V
+participant "Server Action\n(acciones.ts)" as SA
+participant "contextoActual" as Ses
+participant "Operación del dominio\n(ej. declararTarifa)" as Dom
+participant "exigir / puede\n(lib/autorizacion.ts)" as Aut
+participant "conAmbito" as Amb
+database "PostgreSQL" as DB
+U -> V : envía el formulario
+V -> SA : acción del servidor
+SA -> Ses : contextoActual(cabeceras)
+Ses --> SA : Contexto (rol, estado, delegaciones)
+SA -> Dom : operación(contexto, datos)
+Dom -> Aut : exigir(contexto, "operación")
+Aut -> Aut : puede(): ¿el rol tiene el permiso\no una delegación que lo otorgue?
+alt sin permiso
+  Aut --> Dom : NoAutorizado
+  Dom --> SA : error
+  SA --> V : «No tiene permiso para esta operación»
+else establecimiento suspendido y operación no permitida
+  Aut --> Dom : EstablecimientoRestringido
+  Dom --> SA : error
+  SA --> V : aviso de modo restringido
+else autorizado
+  Aut --> Dom : continúa
+  Dom -> Amb : INSERT dentro del ámbito
+  Amb -> DB : INSERT …
+  DB --> Amb : registro creado
+  Dom --> SA : resultado
+  SA --> V : confirmación
+end
+note over Aut : La verificación ocurre en el servidor:\nesconder un botón no protege nada
+@enduml

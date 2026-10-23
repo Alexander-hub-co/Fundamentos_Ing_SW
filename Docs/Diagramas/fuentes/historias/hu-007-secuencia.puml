@@ -1,0 +1,33 @@
+@startuml hu-007-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-007 · Detalle del cálculo del cobro — secuencia
+actor "Operario" as Op
+participant "CampoPlaca /\nPanelSalida" as V
+participant "consultarPlaca" as SA
+participant "resolverPlaca" as Res
+participant "calcularCobroDe" as Cob
+database "PostgreSQL" as DB
+participant "aplicarConvenios" as Apl
+participant "calcularImporte" as Imp
+Op -> V : escribe la placa de un vehículo adentro
+V -> SA : consultarPlaca(placa)
+SA -> Res : resolverPlaca(contexto, placa, ahora)
+Res -> DB : movimiento abierto con esa placa
+DB --> Res : movimiento
+Res -> Cob : calcularCobroDe(movimiento, ahora)
+par
+  Cob -> DB : tarifa vigente, horario,\nregla de redondeo, convenios aplicables
+  DB --> Cob : valores
+end
+Cob -> DB : aplicaciones previas hoy de cada convenio
+Cob -> Apl : aplicarConvenios(entrada, salida, tarifa, horario, convenios, redondeo)
+Apl -> Imp : calcularImporte(tiempo cobrable, tarifa)
+Imp --> Apl : tramos con su importe y tope
+Apl -> Apl : aplica beneficios, marca los no aplicados\ncon su motivo y redondea
+Apl --> Cob : CobroConConvenios
+Cob --> Res : desglose
+Res --> SA : Resolución «salida» (minutos, desglose, sellos)
+SA --> V : panel de salida
+V --> Op : importe base, convenios aplicados y no aplicados,\nredondeo y total
+@enduml

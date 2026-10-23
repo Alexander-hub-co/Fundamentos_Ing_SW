@@ -102,10 +102,8 @@ apoyar la gestión, planificación, calidad y desarrollo del proyecto.
 | Integrante | Rol | GitHub |
 |---|---|---|
 | **Cristian Quevedo** | Product Owner | [@CristianQ8907E](https://github.com/CristianQ8907E) |
-| **Sergio Alexander L.** | Scrum Master | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
-| **Sergio Alexander L.** | Configuration Manager | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
-| **Santiago Arias** | Sprint Planner | [@IngSantiArias](https://github.com/IngSantiArias) |
-| **Santiago Arias** | QA Lead | [@IngSantiArias](https://github.com/IngSantiArias) |
+| **Sergio Alexander Lara Bonilla** | Scrum Master · Configuration Manager | [@Alexander-hub-co](https://github.com/Alexander-hub-co) |
+| **Santiago Arias** | Sprint Planner · QA Lead | [@IngSantiArias](https://github.com/IngSantiArias) |
 | **Jacob Riveros** | DevOps Engineer | [@JacobRiveros67](https://github.com/JacobRiveros67) |
 
 Los cuatro integran además el equipo de desarrollo: en un equipo de este tamaño,
@@ -188,111 +186,48 @@ npm run build              # compilación para producción
 Fundamentos_Ing_SW/
 │
 ├── Docs/
-│   ├── SRS/
-│   │   └── Especificación de requisitos de software del sistema.
-│   │
-│   ├── Entrega-1/
-│   │   └── Canvas, modelo de características, casos de uso, historias
-│   │       de usuario, organigrama, calendario y reporte gerencial.
-│   │
-│   ├── Entrega-2/
-│   │   └── Diseño de la solución (SDD), reporte gerencial y
-│   │       estándares de programación, con sus diagramas en PNG.
-│   │
-│   ├── Actas/
-│   │   └── Actas de las reuniones del equipo, martes y viernes.
-│   │
-│   ├── Arquitectura/
-│   │   └── Hoja de ruta por módulos y decisiones de arquitectura.
-│   │
-│   ├── UserGuide/
-│   │   └── Guía de uso por rol y manual de despliegue.
-│   │
-│   ├── Planning/
-│   │   └── Planeación de cada sprint.
-│   │
-│   ├── Review/
-│   │   └── Revisión al cerrar cada sprint.
-│   │
-│   ├── Retrospective/
-│   │   └── Retrospectiva de cada sprint.
-│   │
-│   ├── Dailys/
-│   │   └── Sesiones de trabajo de martes y viernes.
-│   │
-│   └── Mockups/
-│       └── Capturas de las pantallas del sistema.
+│   ├── SRS/                      Especificación de requisitos (versión vigente)
+│   ├── Entrega-1/                Canvas, modelo de características, casos de uso,
+│   │                             historias de usuario, organigrama, calendario,
+│   │                             reporte gerencial y presentaciones
+│   ├── Entrega-2/                Índice, diseño de la solución (SDD), reporte
+│   │                             gerencial y estándares de programación
+│   ├── Diagramas/                ÚNICO lugar de los diagramas del diseño (PNG),
+│   │   ├── fuentes/              con las fuentes con que se generan
+│   │   └── preliminares-drawio/  y la primera versión hecha en draw.io
+│   ├── Casos-de-uso-principales/ CU-07 y CU-08, con enlaces al código en src/
+│   ├── Talleres/
+│   │   └── taller-de-diseno/     Informe del Taller de Diseño en Software
+│   ├── Arquitectura/             Hoja de ruta y diseño de la taquilla
+│   ├── Mockups/                  Capturas de las pantallas del sistema
+│   ├── Actas/                    Actas de las reuniones del equipo
+│   ├── Dailys/                   Sesiones de trabajo de martes y viernes
+│   ├── Planning/                 Planeación de cada sprint
+│   ├── Review/                   Revisión al cerrar cada sprint
+│   ├── Retrospective/            Retrospectiva de cada sprint y Starfish
+│   ├── UserGuide/                Guías de uso por rol y manual de despliegue
+│   └── Anexos/                   Informe técnico y acuerdo de uso académico
 │
 ├── src/
-│   ├── app/
-│   │   └── Las pantallas y sus acciones de servidor, por rol:
-│   │       acceso, establecimiento y plataforma.
-│   │
-│   ├── dominio/
-│   │   └── Las reglas de negocio puras: cálculo del cobro,
-│   │       clasificación por placa, jornadas y convenios.
-│   │
-│   ├── db/
-│   │   └── Esquema, migraciones y el blindaje de seguridad
-│   │       a nivel de fila.
-│   │
-│   └── lib/
-│       └── Autenticación, autorización y utilidades comunes.
+│   ├── app/                      Pantallas y acciones de servidor, por rol
+│   ├── dominio/                  Reglas de negocio: cobro, placa, convenios…
+│   ├── db/                       Esquema, migraciones y seguridad por filas
+│   └── lib/                      Autenticación, autorización y utilidades
 │
-├── tests/
-│   ├── aislamiento/
-│   │   └── Que un establecimiento no alcance nada de otro.
-│   │
-│   ├── integracion/
-│   │   └── Reglas de negocio contra PostgreSQL real.
-│   │
-│   └── unit/
-│       └── Cálculos puros y forma de las pantallas.
-│
-├── specs/
-│   └── Especificación, plan técnico y tareas de cada módulo.
-│
-├── scripts/
-│   └── Preparación de la base de datos y datos de ejemplo.
-│
-├── design_handoff_parquivo/
-│   └── Maquetas de las pantallas, entregadas por diseño.
-│
-├── docs/diagramas/
-│   └── Taller de Diseño: diagramas ECB, de clases, de componentes
-│       y de despliegue en PNG, con su explicación y el informe.
-│
-├── Casos-de-uso-mas-importantes/
-│   ├── CU-07-registrar-entrada/
-│   │   └── Descripción del caso de uso y el código que lo implementa.
-│   │
-│   ├── CU-08-cobrar-salida/
-│   │   └── Descripción del caso de uso y el código que lo implementa.
-│   │
-│   └── Diagramas/
-│       └── Diagrama de clases y modelo de base de datos en PNG.
-│
-├── Database/
-│   └── Modelo entidad-relación y decisiones del esquema.
-│
-├── Script/
-│   └── Comprobación de coherencia de la documentación del repositorio.
-│
-├── Gráficas/
-│   └── Avance por sprint, trabajo restante y reparto de la carga.
-│
-├── .github/workflows/
-│   └── Integración continua: tipos, análisis estático y pruebas.
-│
-├── package.json
-│   └── Seis dependencias de producción y las órdenes del proyecto.
-│
-├── .env.example
-│   └── Las variables de entorno que hay que definir. El .env real
-│       nunca se versiona.
-│
-└── README.md
-    └── Este documento.
+├── tests/                        Pruebas unitarias, de integración y de aislamiento
+├── specs/                        Especificación, plan técnico y tareas de cada módulo
+├── .specify/                     Constitución del proyecto: los principios que
+│                                 citan las especificaciones y el código
+├── Database/                     Modelo entidad-relación y decisiones del esquema
+├── Script/                       Scripts: verificación de la documentación,
+│                                 servidor para el celular y prueba de impresión
+├── Gráficas/                     Avance por sprint, trabajo restante y carga
+├── .github/workflows/            Integración continua: tipos, análisis estático,
+│                                 pruebas y compilación
+├── package.json                  Dependencias y órdenes del proyecto
+├── .env.example                  Variables de entorno que hay que definir
+│                                 (el .env real nunca se versiona)
+└── README.md                     Este documento
 ```
 
 ---
@@ -328,29 +263,30 @@ Fundamentos_Ing_SW/
 | Especificación de requisitos (SRS) | [`Docs/SRS/`](Docs/SRS/) |
 | Historias de usuario | [`Docs/Entrega-1/historias-de-usuario.md`](Docs/Entrega-1/historias-de-usuario.md) |
 | Casos de uso | [`Docs/Entrega-1/casos-de-uso.md`](Docs/Entrega-1/casos-de-uso.md) |
-| Los dos casos de uso más importantes, con sus diagramas y su código | [`Casos-de-uso-mas-importantes/`](Casos-de-uso-mas-importantes/) |
+| Los dos casos de uso principales | [`Docs/Casos-de-uso-principales/`](Docs/Casos-de-uso-principales/) |
 | Propuesta del producto (Canvas) | [`Docs/Entrega-1/canvas.md`](Docs/Entrega-1/canvas.md) |
 | Modelo de características | [`Docs/Entrega-1/feature-model.md`](Docs/Entrega-1/feature-model.md) |
 | Organigrama y roles | [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md) |
 | Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
 | Reporte gerencial — Entrega 1 | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
-| **Entrega 2: diseño de la solución (SDD)** | [`Docs/Entrega-2/SDD.md`](Docs/Entrega-2/SDD.md) |
+| **Entrega 2 (índice)** | [`Docs/Entrega-2/`](Docs/Entrega-2/) |
+| **Diseño de la solución (SDD)** | [`Docs/Entrega-2/SDD.md`](Docs/Entrega-2/SDD.md) |
 | **Reporte gerencial — Entrega 2** | [`Docs/Entrega-2/reporte-gerencial.md`](Docs/Entrega-2/reporte-gerencial.md) |
 | Estándares de programación | [`Docs/Entrega-2/estandares-de-programacion.md`](Docs/Entrega-2/estandares-de-programacion.md) |
-| Diagramas del Taller de Diseño (ECB, clases, componentes, despliegue) | [`docs/diagramas/`](docs/diagramas/) |
-| Manual de despliegue | [`Docs/UserGuide/despliegue.md`](Docs/UserGuide/despliegue.md) |
+| **Diagramas del diseño** | [`Docs/Diagramas/`](Docs/Diagramas/) |
+| Taller de Diseño en Software | [`Docs/Talleres/taller-de-diseno/`](Docs/Talleres/taller-de-diseno/) |
+| Hoja de ruta y diseño de la taquilla | [`Docs/Arquitectura/`](Docs/Arquitectura/) |
+| Modelo entidad-relación | [`Database/modelo-entidad-relacion.md`](Database/modelo-entidad-relacion.md) |
+| Capturas de las pantallas | [`Docs/Mockups/`](Docs/Mockups/) |
 | Actas de reunión | [`Docs/Actas/`](Docs/Actas/) |
+| Sesiones de trabajo | [`Docs/Dailys/`](Docs/Dailys/) |
 | Planeación de cada sprint | [`Docs/Planning/`](Docs/Planning/) |
 | Revisión de cada sprint | [`Docs/Review/`](Docs/Review/) |
 | Retrospectiva de cada sprint | [`Docs/Retrospective/`](Docs/Retrospective/) |
-| Capturas de las pantallas | [`Docs/Mockups/`](Docs/Mockups/) |
-| Informe técnico del sistema | [`Docs/informe-tecnico.pdf`](Docs/informe-tecnico.pdf) · [`.docx`](Docs/informe-tecnico.docx) |
-| Acuerdo de uso académico | [`Docs/contrato-uso-academico.pdf`](Docs/contrato-uso-academico.pdf) |
-| Diseño de la taquilla | [`Docs/Arquitectura/interfaz-taquilla.md`](Docs/Arquitectura/interfaz-taquilla.md) |
-| Modelo entidad-relación | [`Database/modelo-entidad-relacion.md`](Database/modelo-entidad-relacion.md) |
 | Gráficas de avance | [`Gráficas/avance.md`](Gráficas/avance.md) |
-| Hoja de ruta y decisiones de arquitectura | [`Docs/Arquitectura/roadmap.md`](Docs/Arquitectura/roadmap.md) |
-| Guía de uso por rol | [`Docs/UserGuide/`](Docs/UserGuide/) |
+| Guías de uso por rol y manual de despliegue | [`Docs/UserGuide/`](Docs/UserGuide/) |
+| Scripts del proyecto | [`Script/`](Script/) |
+| Informe técnico y acuerdo de uso académico | [`Docs/Anexos/`](Docs/Anexos/) |
 | Wiki del proyecto | [Wiki](../../wiki) |
 
 ---

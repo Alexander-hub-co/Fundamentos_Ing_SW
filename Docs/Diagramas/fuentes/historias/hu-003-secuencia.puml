@@ -1,0 +1,31 @@
+@startuml hu-003-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-003 · Bloqueo de edición y eliminación de movimientos cerrados — secuencia
+actor "Usuario" as U
+participant "Aplicación" as App
+participant "emitirCorreccion\n(dominio/correcciones)" as Cor
+database "PostgreSQL" as DB
+participant "Disparador\nmovimiento_inmutable" as Tr
+group Intento de modificar o borrar un movimiento cerrado
+  App -> DB : UPDATE / DELETE movimiento
+  DB -> Tr : BEFORE UPDATE OR DELETE
+  alt DELETE
+    Tr --> DB : RAISE «Un movimiento no se elimina»
+  else movimiento cerrado y cambia un dato protegido\n(placa, horas, importe, cobro…)
+    Tr --> DB : RAISE «Un movimiento cerrado no se modifica»
+  else movimiento abierto o sólo cambia el estado del comprobante
+    Tr --> DB : RETURN NEW
+  end
+  DB --> App : error restrict_violation o éxito
+end
+group Corrección permitida
+  U -> App : pide corregir un cobro
+  App -> Cor : emitirCorreccion(contexto, movimiento, datos)
+  Cor -> Cor : exigir(contexto, "movimiento.corregir")
+  Cor -> DB : INSERT INTO correccion (apunta al movimiento original)
+  DB --> Cor : asiento creado
+  Cor --> App : corrección registrada
+  App --> U : el original no cambia; la corrección queda aparte
+end
+@enduml

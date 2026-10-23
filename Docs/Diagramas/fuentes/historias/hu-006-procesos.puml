@@ -1,0 +1,23 @@
+@startuml hu-006-procesos
+!include ../estilo.iuml
+title HU-006 · Historial de versiones de tarifa por tipo de vehículo — procesos
+|Administrador|
+start
+:Declarar una tarifa nueva para un tipo de vehículo;
+|Sistema|
+if (¿Los valores son coherentes?) then (no)
+  :Rechazar con el motivo;
+  stop
+else (sí)
+endif
+if (¿Ya hay una tarifa vigente para ese tipo?) then (sí)
+  :Cerrar su vigencia con la fecha actual;
+else (no)
+endif
+:Crear la versión nueva, vigente desde ahora;
+|Administrador|
+:Consultar el historial de la tarifa;
+|Sistema|
+:Mostrar cada versión con su periodo de vigencia;
+stop
+@enduml

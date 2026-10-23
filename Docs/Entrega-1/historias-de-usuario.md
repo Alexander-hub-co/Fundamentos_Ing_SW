@@ -5,6 +5,86 @@
 
 ---
 
+## Equivalencia con los issues de GitHub
+
+Las historias de este documento usan la numeración por módulo (HU-1.1.1 …
+HU-5.5.1). Las primeras historias del tablero se crearon con otra numeración
+(HU-001 … HU-010, issues #24 a #33). Esta tabla las relaciona.
+
+### Historias HU-001 a HU-010 del tablero
+
+| Issue | HU (issue) | HU de este documento | Título |
+|---|---|---|---|
+| [#24](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/24) | HU-001 | HU-1.2.1 | Aislamiento en consulta de movimientos |
+| [#25](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/25) | HU-002 | HU-1.2.3 | Autorización de rol para operaciones de creación |
+| [#26](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/26) | HU-003 | Sin equivalente directo | Bloqueo de edición y eliminación de movimientos cerrados |
+| [#27](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/27) | HU-004 | HU-2.1.3 y HU-3.1.3 (en parte) | Snapshot de tarifa y convenio al momento del cobro |
+| [#28](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/28) | HU-005 | Sin equivalente directo | Registro de montos en pesos colombianos sin decimales |
+| [#29](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/29) | HU-006 | HU-2.1.3 | Historial de versiones de tarifa por tipo de vehículo |
+| [#30](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/30) | HU-007 | HU-4.1.4 | Detalle del cálculo del cobro |
+| [#31](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/31) | HU-008 | HU-4.1.1, HU-4.1.3 y HU-4.1.2 (clasificación) | Determinar entrada o salida según placa |
+| [#32](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/32) | HU-009 | HU-4.1.3 (criterio 2) | Rechazo de entrada duplicada |
+| [#33](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/33) | HU-010 | HU-4.1.5 | Tarifa obligatoria antes del primer cobro |
+
+### Otros issues del backlog que cubren historias de este documento
+
+| Issue | HU de este documento | Título del issue |
+|---|---|---|
+| [#2](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/2) | HU-1.1.3 | Login |
+| [#5](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/5) | HU-4.1.1 | Registro de entrada de vehículos |
+| [#10](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/10) | HU-4.1.3 | Registro de salida de vehículos |
+| [#9](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/9) | HU-2.3.1 y HU-2.3.2 | Gestión de usuarios y permisos |
+| [#8](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/8) | HU-4.3.1 | Consulta y supervisión remota |
+
+### Historias de este documento con su propio issue
+
+Las 39 historias que no estaban en el tablero tienen un issue en el milestone
+**Backlog**, con la misma prioridad y estimación de este documento.
+
+| HU | Issue | Título |
+|---|---|---|
+| HU-1.1.1 | [#143](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/143) | Registrar un establecimiento nuevo |
+| HU-1.1.2 | [#144](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/144) | Asignar un administrador a un establecimiento |
+| HU-1.2.2 | [#145](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/145) | Responder igual a lo ajeno que a lo inexistente |
+| HU-1.3.1 | [#146](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/146) | Suspender un establecimiento por falta de pago |
+| HU-1.3.2 | [#147](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/147) | Seguir sacando vehículos con el servicio suspendido |
+| HU-1.4.1 | [#148](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/148) | Bloquear y desbloquear una cuenta |
+| HU-1.4.2 | [#149](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/149) | Restablecer la contraseña de una cuenta |
+| HU-1.4.3 | [#150](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/150) | Anonimizar una cuenta conservando el historial |
+| HU-1.4.4 | [#151](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/151) | Frenar los intentos de acceso por fuerza bruta |
+| HU-1.5.1 | [#152](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/152) | Ver el estado de todos los establecimientos |
+| HU-2.1.1 | [#153](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/153) | Declarar una tarifa por tipo de vehículo |
+| HU-2.1.2 | [#154](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/154) | Rechazar tarifas incoherentes |
+| HU-2.1.4 | [#155](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/155) | Calcular el cobro por jornadas tarifarias |
+| HU-2.1.5 | [#156](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/156) | Ver el total parcial de un vehículo que sigue adentro |
+| HU-2.2.1 | [#157](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/157) | Declarar el horario de atención |
+| HU-2.2.2 | [#158](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/158) | Declarar cuántos cupos hay por tipo |
+| HU-2.2.3 | [#159](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/159) | Decidir si se cobran las horas cerradas |
+| HU-2.3.3 | [#160](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/160) | Autorizar a un operario a corregir cobros |
+| HU-2.4.1 | [#161](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/161) | Declarar los turnos del establecimiento |
+| HU-2.4.2 | [#162](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/162) | Asignar operarios a cada turno |
+| HU-2.4.3 | [#163](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/163) | Avisar de las horas de atención sin cubrir |
+| HU-3.1.1 | [#137](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/137) | Declarar un convenio con su beneficio |
+| HU-3.1.2 | [#138](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/138) | Asociar placas a un convenio |
+| HU-3.1.3 | [#139](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/139) | Vencer un convenio sin alterar lo ya cobrado |
+| HU-3.1.4 | [#140](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/140) | Garantizar que el total nunca sea negativo |
+| HU-3.2.1 | [#141](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/141) | Consultar si una placa tiene convenio |
+| HU-3.2.2 | [#142](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/142) | Simular un cobro antes de prometerlo |
+| HU-4.1.6 | [#125](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/125) | Dejar salir un vehículo sin cobrarle |
+| HU-4.1.7 | [#126](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/126) | Reimprimir un comprobante |
+| HU-4.2.1 | [#127](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/127) | Abrir y cerrar el turno desde la taquilla |
+| HU-4.2.2 | [#128](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/128) | Atribuir cada movimiento a su turno y a su operario |
+| HU-5.1.1 | [#129](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/129) | Recibir una bicicleta con los datos de quien la deja |
+| HU-5.1.2 | [#130](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/130) | Garantizar que una ficha no se entregue dos veces |
+| HU-5.1.3 | [#131](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/131) | Emitir el comprobante con el número de ficha |
+| HU-5.2.1 | [#132](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/132) | Devolver escribiendo el número de ficha |
+| HU-5.2.2 | [#133](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/133) | Cobrar la bicicleta con su propia tarifa |
+| HU-5.2.3 | [#134](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/134) | Liberar el espacio al devolver |
+| HU-5.4.1 | [#135](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/135) | Encontrar la bicicleta por la cédula |
+| HU-5.5.1 | [#136](https://github.com/Alexander-hub-co/Fundamentos_Ing_SW/issues/136) | Rechazar la recepción cuando no queda espacio |
+
+---
+
 ## Cómo está organizado
 
 Se sigue la jerarquía vista en clase. Cada nivel agrupa al siguiente:

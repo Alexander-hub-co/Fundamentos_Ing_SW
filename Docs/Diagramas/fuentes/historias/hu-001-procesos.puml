@@ -1,0 +1,29 @@
+@startuml hu-001-procesos
+!include ../estilo.iuml
+title HU-001 · Aislamiento en consulta de movimientos — procesos
+|Usuario|
+start
+:Iniciar sesión y abrir una consulta;
+|Sistema|
+:Construir el contexto desde la sesión;
+if (¿La cuenta pertenece a un establecimiento?) then (no: plataforma)
+  :Usar la conexión de plataforma\ncon el motivo registrado;
+  stop
+else (sí)
+endif
+:Abrir una transacción y fijar\nel establecimiento de la sesión;
+|Base de datos|
+:Aplicar la política RLS a cada fila;
+if (¿La fila es de otro establecimiento?) then (sí)
+  :Descartarla;
+else (no)
+  :Devolverla;
+endif
+|Sistema|
+if (¿Se pidió un registro ajeno por su identificador?) then (sí)
+  :Responder igual que si no existiera;
+else (no)
+  :Mostrar sólo los movimientos propios;
+endif
+stop
+@enduml

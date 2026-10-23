@@ -1,0 +1,29 @@
+@startuml hu-010-procesos
+!include ../estilo.iuml
+title HU-010 · Tarifa obligatoria antes del primer cobro — procesos
+|Operario|
+start
+:Escribir la placa de un vehículo nuevo;
+|Sistema|
+:Deducir el tipo de vehículo;
+if (¿El tipo tiene tarifa vigente?) then (no)
+  :Advertir que no se le podrá cobrar al salir;
+else (sí)
+  :Mostrar la tarifa que se aplicará;
+endif
+|Operario|
+:Confirmar la entrada;
+|Sistema|
+:Registrar el movimiento;
+|Operario|
+:Al salir, escribir la misma placa;
+|Sistema|
+if (¿Ahora hay tarifa vigente?) then (sí)
+  :Calcular el cobro;
+else (no)
+  :Rechazar el cobro: no hay sobre qué cobrar;
+  |Administrador|
+  :Declarar la tarifa del tipo de vehículo;
+endif
+stop
+@enduml

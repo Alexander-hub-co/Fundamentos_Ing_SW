@@ -6,7 +6,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "dev:movil": "bash scripts/dev-movil.sh",
+    "dev:movil": "bash Script/dev-movil.sh",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

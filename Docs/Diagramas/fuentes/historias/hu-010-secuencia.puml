@@ -1,0 +1,30 @@
+@startuml hu-010-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-010 · Tarifa obligatoria antes del primer cobro — secuencia
+actor "Operario" as Op
+participant "CampoPlaca" as V
+participant "Server Actions" as SA
+participant "resolverPlaca" as Res
+participant "tarifaVigenteEn" as Vig
+participant "calcularCobroDe" as Cob
+database "PostgreSQL" as DB
+Op -> V : escribe la placa de un vehículo nuevo
+V -> SA : consultarPlaca(placa)
+SA -> Res : resolverPlaca → resolverEntrada
+Res -> Vig : tarifaVigenteEn(tipo, ahora)
+Vig -> DB : SELECT tarifa vigente
+DB --> Vig : ninguna
+Vig --> Res : null
+Res --> SA : Resolución «entrada» con sinTarifa = true
+SA --> V : advertencia: no se le podrá cobrar al salir
+... al salir ...
+Op -> V : escribe la misma placa
+SA -> Res : resolverPlaca → resolverSalida
+Res -> Cob : calcularCobroDe(movimiento, ahora)
+Cob -> Vig : tarifaVigenteEn(tipo, ahora)
+Vig --> Cob : null
+Cob --> Res : SinTarifa «no hay sobre qué cobrar»
+Res --> SA : error
+SA --> V : el sistema no inventa un valor de cobro
+@enduml

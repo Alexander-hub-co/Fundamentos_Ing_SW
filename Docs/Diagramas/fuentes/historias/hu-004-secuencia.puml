@@ -1,0 +1,28 @@
+@startuml hu-004-secuencia
+!include ../estilo.iuml
+autonumber
+title HU-004 · Snapshot de tarifa y convenio al momento del cobro — secuencia
+actor "Operario" as Op
+actor "Administrador" as Ad
+participant "Server Actions" as SA
+participant "registrarSalida" as Reg
+participant "calcularCobroDe" as Cob
+participant "declararTarifa" as Dec
+database "PostgreSQL" as DB
+Op -> SA : confirmarSalida(movimientoId)
+SA -> Reg : registrarSalida(contexto, id, ahora)
+Reg -> Cob : calcularCobroDe(movimiento, ahora)
+Cob -> DB : tarifa vigente, convenios, horario, redondeo
+DB --> Cob : valores de este instante
+Cob --> Reg : CobroConConvenios (tarifa, tramos, convenios, redondeo)
+Reg -> DB : UPDATE movimiento SET salida_en, importe,\ncobro = copia JSON del cálculo\nWHERE id = ? AND salida_en IS NULL
+DB --> Reg : movimiento cerrado con su copia
+Reg --> SA : movimiento
+SA --> Op : comprobante
+... días después ...
+Ad -> SA : guardarTarifa(nuevos valores)
+SA -> Dec : declararTarifa
+Dec -> DB : UPDATE tarifa SET vigente_hasta = ahora\nINSERT tarifa nueva
+DB --> Dec : nueva versión vigente
+note over DB : El movimiento cerrado conserva su copia:\nel reporte de ese mes reproduce lo cobrado
+@enduml

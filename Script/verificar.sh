@@ -31,7 +31,7 @@ while IFS= read -r archivo; do
     [ -z "$ruta" ] && continue
     [ -e "$base/$ruta" ] || { aviso "$archivo apunta a $ruta, que no existe"; rotos=1; }
   done < <(grep -oE '\]\([^)]+\)' "$archivo" | sed 's/^](//; s/)$//')
-done < <(find . -name '*.md' -not -path './.git/*')
+done < <(find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*' -not -path './.next/*')
 [ "$rotos" -eq 0 ] && bien "todos los enlaces resuelven"
 
 # ------------------------------------------------------- cuentas del SRS
@@ -80,7 +80,7 @@ encontrados=0
 while IFS= read -r l; do
   aviso "$l"
   encontrados=1
-done < <(grep -rniE "$patron" --include='*.md' . 2>/dev/null)
+done < <(grep -rniE "$patron" --include='*.md' --exclude-dir=node_modules --exclude-dir=.next --exclude-dir=.git . 2>/dev/null)
 [ "$encontrados" -eq 0 ] && bien "ningún documento tiene marcadores sin completar"
 
 echo
