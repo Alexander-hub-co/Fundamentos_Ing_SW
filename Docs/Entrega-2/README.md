@@ -2,6 +2,7 @@
 
 **Parquivo** · Fundamentos de Ingeniería de Software (12946) · 2026-2
 **Fecha de entrega:** 23 de octubre de 2026
+**Última actualización:** 23 de octubre de 2026
 
 | Lo que pide la entrega | Documento |
 |---|---|
