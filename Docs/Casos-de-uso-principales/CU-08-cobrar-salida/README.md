@@ -44,9 +44,24 @@ se puede explicar.**
 
 ## Diagramas
 
-Los diagramas están en [`../Diagramas/`](../Diagramas/) como imagen:
+Los diagramas están en [`Docs/Diagramas/`](../../Diagramas/) como imagen:
 
-1. [Diagrama de clases](../Diagramas/diagrama-de-clases.png)
-2. [Modelo de base de datos](../Diagramas/modelo-de-base-de-datos.png)
+1. [Diagrama de clases](../../Diagramas/clases.png)
+2. [Modelo de base de datos](../../../Database/imagenes/modelo-entidad-relacion-1.png)
 
-El código que lo implementa está en [`codigo/`](codigo/).
+El código que lo implementa está en `src/`:
+
+- [`src/app/(establecimiento)/taquilla/acciones.ts`](../../../src/app/%28establecimiento%29/taquilla/acciones.ts)
+- [`src/app/(establecimiento)/taquilla/comprobante-html.ts`](../../../src/app/%28establecimiento%29/taquilla/comprobante-html.ts)
+- [`src/app/(establecimiento)/taquilla/page.tsx`](../../../src/app/%28establecimiento%29/taquilla/page.tsx)
+- [`src/db/esquema/convenio.ts`](../../../src/db/esquema/convenio.ts)
+- [`src/db/esquema/movimiento.ts`](../../../src/db/esquema/movimiento.ts)
+- [`src/db/esquema/tarifa.ts`](../../../src/db/esquema/tarifa.ts)
+- [`src/dominio/cobro/politica.ts`](../../../src/dominio/cobro/politica.ts)
+- [`src/dominio/cobro/redondeo.ts`](../../../src/dominio/cobro/redondeo.ts)
+- [`src/dominio/convenios/aplicar.ts`](../../../src/dominio/convenios/aplicar.ts)
+- [`src/dominio/taquilla/comprobante.ts`](../../../src/dominio/taquilla/comprobante.ts)
+- [`src/dominio/taquilla/registrar.ts`](../../../src/dominio/taquilla/registrar.ts)
+- [`src/dominio/taquilla/resolver.ts`](../../../src/dominio/taquilla/resolver.ts)
+- [`src/dominio/tarifas/calcular.ts`](../../../src/dominio/tarifas/calcular.ts)
+- [`src/dominio/tarifas/jornadas.ts`](../../../src/dominio/tarifas/jornadas.ts)

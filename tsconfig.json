@@ -37,7 +37,6 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "Casos-de-uso-mas-importantes"
+    "node_modules"
   ]
 }

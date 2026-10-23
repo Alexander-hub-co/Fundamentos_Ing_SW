@@ -39,9 +39,20 @@
 
 ## Diagramas
 
-Los diagramas están en [`../Diagramas/`](../Diagramas/) como imagen:
+Los diagramas están en [`Docs/Diagramas/`](../../Diagramas/) como imagen:
 
-1. [Diagrama de clases](../Diagramas/diagrama-de-clases.png)
-2. [Modelo de base de datos](../Diagramas/modelo-de-base-de-datos.png)
+1. [Diagrama de clases](../../Diagramas/clases.png)
+2. [Modelo de base de datos](../../../Database/imagenes/modelo-entidad-relacion-1.png)
 
-El código que lo implementa está en [`codigo/`](codigo/).
+El código que lo implementa está en `src/`:
+
+- [`src/app/(establecimiento)/taquilla/acciones.ts`](../../../src/app/%28establecimiento%29/taquilla/acciones.ts)
+- [`src/app/(establecimiento)/taquilla/campo-placa.tsx`](../../../src/app/%28establecimiento%29/taquilla/campo-placa.tsx)
+- [`src/app/(establecimiento)/taquilla/page.tsx`](../../../src/app/%28establecimiento%29/taquilla/page.tsx)
+- [`src/db/esquema/movimiento.ts`](../../../src/db/esquema/movimiento.ts)
+- [`src/db/esquema/tipo-vehiculo.ts`](../../../src/db/esquema/tipo-vehiculo.ts)
+- [`src/dominio/taquilla/codigo.ts`](../../../src/dominio/taquilla/codigo.ts)
+- [`src/dominio/taquilla/registrar.ts`](../../../src/dominio/taquilla/registrar.ts)
+- [`src/dominio/taquilla/resolver.ts`](../../../src/dominio/taquilla/resolver.ts)
+- [`src/dominio/vehiculos/clasificar.ts`](../../../src/dominio/vehiculos/clasificar.ts)
+- [`src/dominio/vehiculos/placa.ts`](../../../src/dominio/vehiculos/placa.ts)

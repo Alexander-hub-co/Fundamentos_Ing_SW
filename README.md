@@ -328,7 +328,7 @@ Fundamentos_Ing_SW/
 | Especificación de requisitos (SRS) | [`Docs/SRS/`](Docs/SRS/) |
 | Historias de usuario | [`Docs/Entrega-1/historias-de-usuario.md`](Docs/Entrega-1/historias-de-usuario.md) |
 | Casos de uso | [`Docs/Entrega-1/casos-de-uso.md`](Docs/Entrega-1/casos-de-uso.md) |
-| Los dos casos de uso más importantes, con sus diagramas y su código | [`Casos-de-uso-mas-importantes/`](Casos-de-uso-mas-importantes/) |
+| Los dos casos de uso más importantes, con sus diagramas y su código | [`Docs/Casos-de-uso-principales/`](Docs/Casos-de-uso-principales/) |
 | Propuesta del producto (Canvas) | [`Docs/Entrega-1/canvas.md`](Docs/Entrega-1/canvas.md) |
 | Modelo de características | [`Docs/Entrega-1/feature-model.md`](Docs/Entrega-1/feature-model.md) |
 | Organigrama y roles | [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md) |

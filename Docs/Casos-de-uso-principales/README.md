@@ -36,23 +36,17 @@ atribuir los movimientos, los convenios para modificar el importe.
 
 ## Qué hay en cada carpeta
 
-| Archivo | Qué contiene |
-|---|---|
-| `README.md` | El caso de uso: actor, precondición, flujo principal y alternativos |
-| `codigo/` | Los archivos fuente que lo implementan |
-
-Los archivos de `codigo/` son **copias** de `src/`, reunidas aquí para poder
-revisar un caso de uso completo sin recorrer el árbol. La versión que se compila
-y se prueba es la de `src/`; si las dos difieren, manda `src/`.
+Cada carpeta tiene un `README.md` con el caso de uso —actor, precondición,
+flujo principal y alternativos— y la lista de los archivos de
+[`src/`](../../src/) que lo implementan, enlazados directamente al código que se
+compila y se prueba.
 
 ## Diagramas
 
-La carpeta [`Diagramas/`](Diagramas/) tiene los diagramas como imagen:
+Los diagramas de estos casos de uso están con el resto del diseño:
 
-| Archivo | Qué contiene |
+| Diagrama | Dónde |
 |---|---|
-| [`diagrama-de-clases.png`](Diagramas/diagrama-de-clases.png) | Las clases del sistema con atributos y métodos tipados, sus relaciones y multiplicidades |
-| [`modelo-de-base-de-datos.png`](Diagramas/modelo-de-base-de-datos.png) | Las tablas de PostgreSQL con sus llaves primarias y foráneas |
-
-El resto del diseño (secuencia, procesos, componentes, despliegue y patrones)
-está en el [SDD](../Docs/Entrega-2/SDD.md).
+| Clases | [`Docs/Diagramas/clases.png`](../Diagramas/clases.png) |
+| Modelo de la base de datos | [`Database/`](../../Database/modelo-entidad-relacion.md) |
+| Secuencia, procesos, componentes, despliegue y patrones | [SDD](../Entrega-2/SDD.md) · [`Docs/Diagramas/`](../Diagramas/) |
