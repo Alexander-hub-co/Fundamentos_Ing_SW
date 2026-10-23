@@ -159,8 +159,12 @@ cp .env.example .env
 #    Generar el secreto de sesión con:  openssl rand -base64 32
 
 # 3. Preparar la base de datos
-bash Script/crear-roles.sh     # crea los tres roles de PostgreSQL
-npm run migrar                 # aplica las migraciones
+#    El usuario de DATABASE_URL_MIGRATOR debe existir y ser dueño de la base.
+#    El migrador crea los roles app_tenant y app_platform con las contraseñas
+#    de .env, y luego aplica las migraciones y el blindaje.
+npm run db:migrate
+npm run db:semilla -- admin@ejemplo.com "Nombre Apellido" "contraseña"
+#                              # crea la cuenta inicial de administrador general
 
 # 4. Levantar en desarrollo
 npm run dev                    # http://localhost:3000
@@ -169,10 +173,11 @@ npm run dev                    # http://localhost:3000
 ### Comprobar que todo funciona
 
 ```bash
-npx tsc --noEmit     # verificación de tipos
-npx eslint src       # análisis estático
-npx vitest run       # suite de pruebas automatizadas
-npm run build        # compilación para producción
+npm run typecheck          # verificación de tipos
+npm run lint               # análisis estático
+npm run db:migrate:test    # prepara la base de pruebas (lee .env.test)
+npm test                   # suite de pruebas automatizadas
+npm run build              # compilación para producción
 ```
 
 ---
@@ -190,6 +195,10 @@ Fundamentos_Ing_SW/
 │   │   └── Canvas, modelo de características, casos de uso, historias
 │   │       de usuario, organigrama, calendario y reporte gerencial.
 │   │
+│   ├── Entrega-2/
+│   │   └── Diseño de la solución (SDD), reporte gerencial y
+│   │       estándares de programación, con sus diagramas en PNG.
+│   │
 │   ├── Actas/
 │   │   └── Actas de las reuniones del equipo, martes y viernes.
 │   │
@@ -197,7 +206,7 @@ Fundamentos_Ing_SW/
 │   │   └── Hoja de ruta por módulos y decisiones de arquitectura.
 │   │
 │   ├── UserGuide/
-│   │   └── Guía de uso del sistema, separada por rol.
+│   │   └── Guía de uso por rol y manual de despliegue.
 │   │
 │   ├── Planning/
 │   │   └── Planeación de cada sprint.
@@ -249,13 +258,19 @@ Fundamentos_Ing_SW/
 ├── design_handoff_parquivo/
 │   └── Maquetas de las pantallas, entregadas por diseño.
 │
+├── docs/diagramas/
+│   └── Taller de Diseño: diagramas ECB, de clases, de componentes
+│       y de despliegue en PNG, con su explicación y el informe.
+│
 ├── Casos-de-uso-mas-importantes/
 │   ├── CU-07-registrar-entrada/
-│   │   └── Diagramas de clases, datos, componentes, despliegue
-│   │       e interfaz, más el código que lo implementa.
+│   │   └── Descripción del caso de uso y el código que lo implementa.
 │   │
-│   └── CU-08-cobrar-salida/
-│       └── Los mismos cinco diagramas y su código.
+│   ├── CU-08-cobrar-salida/
+│   │   └── Descripción del caso de uso y el código que lo implementa.
+│   │
+│   └── Diagramas/
+│       └── Diagrama de clases y modelo de base de datos en PNG.
 │
 ├── Database/
 │   └── Modelo entidad-relación y decisiones del esquema.
@@ -318,7 +333,12 @@ Fundamentos_Ing_SW/
 | Modelo de características | [`Docs/Entrega-1/feature-model.md`](Docs/Entrega-1/feature-model.md) |
 | Organigrama y roles | [`Docs/Entrega-1/organigrama.md`](Docs/Entrega-1/organigrama.md) |
 | Calendario de actividades | [`Docs/Entrega-1/calendario.md`](Docs/Entrega-1/calendario.md) |
-| Reporte gerencial | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
+| Reporte gerencial — Entrega 1 | [`Docs/Entrega-1/reporte-gerencial.md`](Docs/Entrega-1/reporte-gerencial.md) |
+| **Entrega 2: diseño de la solución (SDD)** | [`Docs/Entrega-2/SDD.md`](Docs/Entrega-2/SDD.md) |
+| **Reporte gerencial — Entrega 2** | [`Docs/Entrega-2/reporte-gerencial.md`](Docs/Entrega-2/reporte-gerencial.md) |
+| Estándares de programación | [`Docs/Entrega-2/estandares-de-programacion.md`](Docs/Entrega-2/estandares-de-programacion.md) |
+| Diagramas del Taller de Diseño (ECB, clases, componentes, despliegue) | [`docs/diagramas/`](docs/diagramas/) |
+| Manual de despliegue | [`Docs/UserGuide/despliegue.md`](Docs/UserGuide/despliegue.md) |
 | Actas de reunión | [`Docs/Actas/`](Docs/Actas/) |
 | Planeación de cada sprint | [`Docs/Planning/`](Docs/Planning/) |
 | Revisión de cada sprint | [`Docs/Review/`](Docs/Review/) |

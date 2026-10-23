@@ -25,24 +25,7 @@ sin esperar al siguiente.
 
 ## Orden de construcción y por qué
 
-```mermaid
-flowchart LR
-    M1["M1 · Plataforma<br/>Sprint 2"]
-    M2["M2 · Configuración<br/>Sprint 4"]
-    M4["M4 · Taquilla<br/>Sprint 3 y 4"]
-    M1b["M1 · Administración<br/>Sprint 5"]
-    M3["M3 · Convenios<br/>posterior"]
-    M5["M5 · Bicicletas<br/>posterior"]
-
-    M1 --> M4
-    M1 --> M2
-    M2 --> M4
-    M4 --> M1b
-    M2 --> M3
-    M4 --> M3
-    M4 --> M5
-    M2 --> M5
-```
+![Roadmap — figura 1](imagenes/roadmap-1.png)
 
 **M1 va primero y no es negociable.** El aislamiento entre establecimientos se
 construye en los cimientos o no se construye. Montar la frontera de tenencia

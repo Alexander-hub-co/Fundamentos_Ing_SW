@@ -1,0 +1,60 @@
+@startuml secuencia-entrada
+!include estilo.iuml
+title Diagrama de secuencia — HU-008 · Determinar entrada o salida según placa (camino de entrada)
+autonumber
+actor "Operario" as Op
+box "Vista" #F4FAFE
+  participant "CampoPlaca\n(campo-placa.tsx)" as UI
+end box
+box "Controlador" #F4FAFE
+  participant "Server Actions\n(acciones.ts)" as SA
+  participant "contextoActual\n(lib/sesion.ts)" as Ses
+end box
+box "Modelo" #F4FAFE
+  participant "resolverPlaca\n(taquilla/resolver.ts)" as Res
+  participant "clasificarPorPlaca\n(vehiculos/clasificar.ts)" as Cla
+  participant "registrarEntrada\n(taquilla/registrar.ts)" as Reg
+  participant "conAmbito\n(db/ambito.ts)" as Amb
+end box
+database "PostgreSQL 16\n(RLS)" as DB
+
+Op -> UI : escribe la placa y pulsa Enter
+UI -> SA : consultarPlaca(placa)
+SA -> Ses : contextoActual(cabeceras)
+Ses --> SA : Contexto (usuario, rol, parqueadero)
+SA -> Res : resolverPlaca(contexto, placa, ahora)
+Res -> Res : exigir(contexto, "taquilla.consultar")
+Res -> Cla : clasificarPorPlaca(placa)
+alt placa con formato inválido
+  Cla --> Res : rechazada(motivo)
+  Res --> SA : Resolución «rechazada»
+  SA --> UI : mensaje de error
+  UI --> Op : «Revise la placa»
+else placa válida
+  Cla --> Res : {placa normalizada, clase: carro | moto}
+  Res -> Amb : buscar movimiento abierto
+  Amb -> DB : set_config(app.parqueadero_id)\nSELECT … WHERE placa = ? AND salida_en IS NULL
+  DB --> Amb : sin filas
+  Amb --> Res : no está adentro
+  Res -> Amb : tipo de vehículo, tarifa vigente y convenios
+  Amb -> DB : SELECT tipo_vehiculo, tarifa, convenio
+  DB --> Amb : filas
+  Res --> SA : Resolución «entrada» (tarifa, convenio, sinTarifa)
+  SA --> UI : pide confirmar la entrada
+  Op -> UI : confirma
+  UI -> SA : confirmarEntrada(placa)
+  SA -> Reg : registrarEntrada(contexto, placa, ahora)
+  Reg -> Reg : exigir(contexto, "taquilla.entrada")
+  Reg -> Amb : siguiente código + INSERT
+  Amb -> DB : INSERT INTO movimiento (…)
+  alt la placa ya estaba adentro (índice único)
+    DB --> Amb : violación de unicidad
+    Reg --> SA : TaquillaInvalida «ya está adentro»
+  else
+    DB --> Amb : movimiento creado
+    Reg --> SA : Movimiento
+    SA --> UI : «ABC123 adentro · código» + comprobante
+    UI --> Op : imprime el comprobante de entrada
+  end
+end
+@enduml

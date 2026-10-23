@@ -1,0 +1,30 @@
+@startuml patron-singleton
+!include estilo.iuml
+title Patrón Singleton — Pool de conexiones a PostgreSQL
+class PoolDeConexiones <<Singleton>> {
+  - {static} instanciaTenant: Pool [0..1]
+  - {static} instanciaPlatform: Pool [0..1]
+  - PoolDeConexiones()
+  + {static} dbTenant(): BaseDeDatos
+  + {static} dbPlatform(): BaseDeDatos
+  + {static} cerrarPools(): void
+}
+class Ambito {
+  + conAmbito(parqueaderoId: UUID, fn: Transaccion): T
+  + comoPlataforma(motivo: String, fn: Transaccion): T
+}
+class "Pool (pg)" as Pool {
+  + query(sql: String): Resultado
+  + end(): void
+}
+PoolDeConexiones "1" o-- "0..2" Pool : crea una sola vez
+Ambito ..> PoolDeConexiones : dbTenant() / dbPlatform()
+note right of PoolDeConexiones
+  dbTenant():
+    instanciaTenant ??= new Pool(DATABASE_URL_TENANT)
+    return drizzle(instanciaTenant)
+  Se crea en la primera llamada (inicialización perezosa)
+  y todas las peticiones reutilizan la misma instancia.
+  Implementación: src/db/pools.ts
+end note
+@enduml

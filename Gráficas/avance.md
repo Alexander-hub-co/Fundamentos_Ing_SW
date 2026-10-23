@@ -1,104 +1,60 @@
 # Gráficas de avance
 
 **Parquivo** · Fundamentos de Ingeniería de Software (12946) · 2026-2
-**Corte:** 22 de septiembre de 2026
+**Corte:** 23 de octubre de 2026 · Sprint 5 en curso
 
 ---
 
-## Puntos comprometidos por hito
+## Puntos comprometidos y entregados por sprint
 
-```mermaid
-xychart-beta
-    title "Puntos por hito"
-    x-axis ["Sprint 1", "Sprint 2", "Sprint 3", "Sprint 4", "Sprint 5", "Entrega Final"]
-    y-axis "Puntos de historia" 0 --> 30
-    bar [18, 21, 24, 24, 21, 14]
-```
+![Avance — figura 1](imagenes/avance-1.png)
 
-Cerrados van dos: el Sprint 1 con 18 de 18 puntos y el Sprint 2 con 21 de 21.
-El Sprint 3 está en curso y cierra el 28 de septiembre. Los demás son
-compromisos.
-
-El tope de 24 puntos no es arbitrario: la única velocidad medida del equipo son
-los 18 del Sprint 1, y comprometerse muy por encima de lo que uno ha demostrado
-que rinde es la forma más común de acumular atraso.
+Los cuatro sprints cerrados entregaron todo lo comprometido: **87 de 87
+puntos**. El Sprint 5 está en curso, con 13 de sus 26 puntos cerrados a la mitad
+del periodo. El Sprint 6 todavía no empieza.
 
 ---
 
 ## Trabajo restante
 
-```mermaid
-xychart-beta
-    title "Puntos que quedan por delante al cerrar cada hito"
-    x-axis ["Inicio", "Sprint 1", "Sprint 2", "Sprint 3", "Sprint 4", "Sprint 5", "Final"]
-    y-axis "Puntos restantes" 0 --> 130
-    line [122, 104, 83, 59, 35, 14, 0]
-```
+![Avance — figura 2](imagenes/avance-2.png)
 
-Los dos primeros tramos ya se recorrieron completos: de 122 puntos restantes se
-pasó a 83. La pendiente es deliberadamente pareja. Un plan con un sprint de 45 puntos y
-otro de 9 no se cumple: el sobrecargado arrastra al siguiente y el liviano no
-compensa.
+De 122 puntos quedan **22**. Si el Sprint 5 cierra completo, al Sprint 6 le
+quedan 9 puntos de pruebas y documentación de despliegue.
+
+---
+
+## Velocidad
+
+![Avance — figura 3](imagenes/avance-3.png)
+
+Media de **21,75 puntos por sprint**. Se estabilizó en 24 desde que se estima
+entre los cuatro integrantes.
 
 ---
 
 ## Reparto de la carga por persona
 
-```mermaid
-xychart-beta
-    title "Puntos asignados a cada integrante"
-    x-axis ["Sergio Alexander L.", "Cristian Quevedo", "Jacob Riveros", "Santiago Arias"]
-    y-axis "Puntos de historia" 0 --> 35
-    bar [29, 27, 24, 24]
-```
-
-Cinco puntos de diferencia entre quien más carga y quien menos, sobre 104. Las
-cuatro personas participan en los cuatro sprints de construcción.
-
----
-
-## Reparto por sprint
+![Avance — figura 4](imagenes/avance-4.png)
 
 | Sprint | Cristian | Sergio | Jacob | Santiago | Total |
 |---|:---:|:---:|:---:|:---:|:---:|
+| Sprint 1 | 5 | 5 | 8 | — | **18** |
 | Sprint 2 | 8 | 5 | 5 | 3 | **21** |
 | Sprint 3 | 8 | 3 | 5 | 8 | **24** |
 | Sprint 4 | 3 | 8 | 8 | 5 | **24** |
-| Sprint 5 | 8 | 5 | 3 | 5 | **21** |
-| Entrega Final | — | 8 | 3 | 3 | **14** |
-| **Total** | **27** | **29** | **24** | **24** | **104** |
+| Sprint 5 | 8 | 13 | — | 5 | **26** |
+| Sprint 6 | — | — | 6 | 3 | **9** |
+| **Total** | **32** | **34** | **32** | **24** | **122** |
 
----
-
-## Velocidad medida
-
-```mermaid
-xychart-beta
-    title "Puntos entregados frente a puntos comprometidos"
-    x-axis ["Sprint 1", "Sprint 2", "Sprint 3"]
-    y-axis "Puntos de historia" 0 --> 30
-    bar [18, 21, 0]
-    line [18, 21, 24]
-```
-
-La barra es lo entregado y la línea lo comprometido. Los dos sprints cerrados
-entregaron todo lo que pidieron. El Sprint 3 está en curso, así que su barra
-está en cero todavía.
-
-Media de 19,5 puntos por sprint. El Sprint 3 se comprometió con 24, que es un
-23 % por encima de esa media y más que el mejor sprint del equipo hasta ahora.
+Además de los puntos de historia, en el Sprint 5 cada integrante tiene a cargo
+un diagrama del diseño de la solución.
 
 ---
 
 ## Distribución de los requisitos
 
-```mermaid
-xychart-beta
-    title "Requisitos funcionales por módulo"
-    x-axis ["M1 plataforma", "M2 configuración", "M3 convenios", "M4 vehículos", "M5 bicicletas"]
-    y-axis "Requisitos" 0 --> 80
-    bar [53, 68, 20, 30, 23]
-```
+![Avance — figura 5](imagenes/avance-5.png)
 
 194 requisitos funcionales y 14 no funcionales. El módulo de configuración es el
 más grande porque concentra tarifas, horarios, turnos y cuentas: todo lo que un
@@ -106,6 +62,6 @@ establecimiento declara antes de poder cobrar.
 
 ---
 
-Las cifras salen del tablero del proyecto y de
+Las cifras salen del tablero del proyecto, de los *milestones* de GitHub y de
 [`Docs/SRS/SRS-simplificado.md`](../Docs/SRS/SRS-simplificado.md). Se rehacen en
 cada cierre de sprint.

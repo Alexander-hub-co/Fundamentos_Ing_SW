@@ -1,0 +1,58 @@
+@startuml secuencia-salida
+!include estilo.iuml
+title Diagrama de secuencia — HU-007 y HU-004 · Cobro con desglose y copia del cobro al salir
+autonumber
+actor "Operario" as Op
+box "Vista" #F4FAFE
+  participant "PanelSalida\n(campo-placa.tsx)" as UI
+end box
+box "Controlador" #F4FAFE
+  participant "Server Actions\n(acciones.ts)" as SA
+end box
+box "Modelo" #F4FAFE
+  participant "registrarSalida\n(taquilla/registrar.ts)" as Reg
+  participant "calcularCobroDe\n(taquilla/resolver.ts)" as Cob
+  participant "tarifaVigenteEn\n(tarifas/consultar.ts)" as Tar
+  participant "aplicarConvenios\n(convenios/aplicar.ts)" as Apl
+  participant "calcularImporte\n(tarifas/calcular.ts)" as Imp
+  participant "conAmbito\n(db/ambito.ts)" as Amb
+end box
+database "PostgreSQL 16\n(RLS)" as DB
+
+note over Op, UI : La placa ya está adentro: resolverPlaca devolvió\nla resolución «salida» con el tiempo y el desglose (HU-007)
+Op -> UI : revisa el desglose y confirma la salida
+UI -> SA : confirmarSalida(movimientoId, sellos)
+SA -> Reg : registrarSalida(contexto, id, ahora, sellos)
+Reg -> Reg : exigir(contexto, "taquilla.salida")
+Reg -> Cob : calcularCobroDe(contexto, movimiento, ahora, sellos)
+par consultas en paralelo
+  Cob -> Tar : tarifaVigenteEn(tipo, ahora)
+  Tar -> Amb : SELECT tarifa vigente
+  Amb -> DB : consulta
+  DB --> Tar : tarifa
+  Tar --> Cob : TarifaAplicable
+else
+  Cob -> Amb : horario, política de redondeo y convenios aplicables
+  Amb -> DB : consultas
+  DB --> Cob : filas
+end
+alt el tipo de vehículo no tiene tarifa
+  Cob --> Reg : SinTarifa
+  Reg --> SA : error «no hay sobre qué cobrar»
+else
+  Cob -> Apl : aplicarConvenios(entrada, salida, tarifa, horario, convenios, redondeo)
+  Apl -> Imp : calcularImporte(tiempo cobrable, tarifa)
+  note right of Imp : Strategy: el modelo de la tarifa\ndecide cómo se calcula
+  Imp --> Apl : Cobro (tramos, tope)
+  Apl -> Apl : descuentos y redondeo
+  Apl --> Cob : CobroConConvenios (desglose)
+  Cob --> Reg : CobroConConvenios
+  Reg -> Amb : cerrar movimiento
+  Amb -> DB : UPDATE movimiento SET salida_en, importe,\ncobro = copia JSON del cálculo (HU-004)\nWHERE id = ? AND salida_en IS NULL
+  DB --> Amb : movimiento cerrado
+  Reg --> SA : Movimiento
+  SA --> UI : «salió · se cobró $X» + comprobante
+  UI --> Op : imprime el comprobante con el desglose
+end
+note over Amb, DB : La copia guarda la tarifa y los convenios tal como se aplicaron:\nsi mañana cambia la tarifa, este cobro no cambia (HU-004)
+@enduml

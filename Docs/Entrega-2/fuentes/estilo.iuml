@@ -1,0 +1,37 @@
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam ArrowColor #1F3B57
+skinparam ArrowFontColor #1F3B57
+skinparam ArrowFontSize 12
+skinparam sequence {
+  LifeLineBorderColor #1F3B57
+  LifeLineBackgroundColor #BFE6FA
+  ParticipantBackgroundColor #7CCBF2
+  ParticipantBorderColor #1F3B57
+  ActorBackgroundColor #7CCBF2
+  ActorBorderColor #1F3B57
+  BoxBackgroundColor #F4FAFE
+  BoxBorderColor #9BB8CC
+  GroupBorderColor #1F3B57
+  GroupBackgroundColor #EEF6FB
+}
+skinparam DatabaseBackgroundColor #F6C177
+skinparam DatabaseBorderColor #8A5A12
+skinparam NoteBackgroundColor #FFF8E1
+skinparam NoteBorderColor #C9A227
+skinparam class {
+  BackgroundColor #7CCBF2
+  BorderColor #1F3B57
+  HeaderBackgroundColor #4FA9DB
+}
+skinparam classAttributeIconSize 0
+skinparam activity {
+  BackgroundColor #7CCBF2
+  BorderColor #1F3B57
+  DiamondBackgroundColor #BFE6FA
+  DiamondBorderColor #1F3B57
+}
+skinparam swimlaneBorderColor #1F3B57
+skinparam swimlaneTitleFontStyle bold

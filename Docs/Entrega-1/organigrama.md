@@ -6,28 +6,7 @@
 
 ## Estructura del equipo
 
-```mermaid
-flowchart TD
-    D["Docente<br/>Ing. Kerwin de Jesús Barros Somerson"]
-    PO["Product Owner<br/>Cristian Quevedo"]
-    SM["Scrum Master<br/>Sergio Alexander L."]
-    CM["Configuration Manager<br/>Sergio Alexander L."]
-    SP["Sprint Planner<br/>Santiago Arias"]
-    QA["QA Lead<br/>Santiago Arias"]
-    DO["DevOps Engineer<br/>Jacob Riveros"]
-    ED["Equipo de desarrollo<br/>los cuatro integrantes"]
-
-    D -.acompañamiento.-> SM
-    PO --- SM
-    SM --> CM
-    SM --> SP
-    SM --> QA
-    SM --> DO
-    CM --> ED
-    SP --> ED
-    QA --> ED
-    DO --> ED
-```
+![Organigrama — figura 1](imagenes/organigrama-1.png)
 
 El equipo son cuatro personas y los roles son seis, así que **dos integrantes
 sostienen dos roles cada uno y los cuatro desarrollan**. Scrum no lo prohíbe, y

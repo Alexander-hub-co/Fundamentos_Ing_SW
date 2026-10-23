@@ -8,6 +8,8 @@ acta de esa reunión.
 |---|---|---|---|
 | Sprint 1 | Martes 1 de septiembre de 2026 | 18 de 18 puntos | [Revisión](sprint-1-revision.md) · [Acta 003](../Actas/ACTA-003-2026-09-01.md) |
 | Sprint 2 | Martes 15 de septiembre de 2026 | 21 de 21 puntos | [Revisión](sprint-2-revision.md) · [Acta 007](../Actas/ACTA-007-2026-09-15.md) |
+| Sprint 3 | Martes 29 de septiembre de 2026 | 24 de 24 puntos | [Revisión](sprint-3-revision.md) · [Acta 011](../Actas/ACTA-011-2026-09-29.md) |
+| Sprint 4 | Martes 13 de octubre de 2026 | 24 de 24 puntos | [Revisión](sprint-4-revision.md) · [Acta 015](../Actas/ACTA-015-2026-10-13.md) |
 
 Lo que no se terminó se decide historia por historia en la revisión. El equipo
 acordó el 8 de septiembre no arrastrar sprints completos: eso es lo que

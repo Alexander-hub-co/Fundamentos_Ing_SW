@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1200" viewBox="0 0 1400 1200">
+<style>text{font-family:Arial,"Liberation Sans",sans-serif;fill:#0E2235}.t{font-size:22px;font-weight:bold;text-anchor:middle}.i{font-size:15.5px;text-anchor:middle}.h{font-size:30px;font-weight:bold;text-anchor:middle}.s{font-size:16px;text-anchor:middle;fill:#334}</style>
+<rect width="100%" height="100%" fill="white"/>
+<text x="700" y="52" class="h">Retrospectiva Starfish — Sprint 5</text>
+<text x="700" y="80" class="s">Parquivo · 22 de octubre de 2026 · aportes del equipo agrupados por idea</text>
+<path d="M 700 640 L 700.0 110.0 A 530 530 0 0 1 1204.1 476.2 Z" fill="#7CCBF2" stroke="#1F3B57" stroke-width="2"/>
+<text x="980.4" y="262.1" class="t">EMPEZAR A HACER</text>
+<text x="871.3" y="344.2" class="i">• Respetar el horario de los dailys</text>
+<text x="871.3" y="368.2" class="i">• Planear cada sección del proyecto</text>
+<text x="871.3" y="392.2" class="i">• Revisar el repositorio y corregir incoherencias</text>
+<text x="871.3" y="416.2" class="i">• Exigirnos más entre compañeros</text>
+<text x="871.3" y="440.2" class="i">• Trabajar sin esperar a que llegue una entrega</text>
+<text x="871.3" y="464.2" class="i">• Pensar en marketing y venta del producto</text>
+<path d="M 700 640 L 1204.1 476.2 A 530 530 0 0 1 1011.5 1068.8 Z" fill="#A8DDB5" stroke="#1F3B57" stroke-width="2"/>
+<text x="1153.7" y="795.4" class="t">HACER MÁS</text>
+<text x="977.2" y="682.1" class="i">• Reuniones del equipo</text>
+<text x="977.2" y="706.1" class="i">• Documentación</text>
+<text x="977.2" y="730.1" class="i">• Diagramas</text>
+<text x="977.2" y="754.1" class="i">• Aprovechar mejor el tiempo</text>
+<text x="977.2" y="778.1" class="i">• Cuidar la presentación del GitHub</text>
+<path d="M 700 640 L 1011.5 1068.8 A 530 530 0 0 1 388.5 1068.8 Z" fill="#F6E58D" stroke="#1F3B57" stroke-width="2"/>
+<text x="700.0" y="1125.0" class="t">SEGUIR HACIENDO</text>
+<text x="700.0" y="931.5" class="i">• La buena actitud del grupo</text>
+<path d="M 700 640 L 388.5 1068.8 A 530 530 0 0 1 195.9 476.2 Z" fill="#F6C177" stroke="#1F3B57" stroke-width="2"/>
+<text x="246.3" y="795.4" class="t">HACER MENOS</text>
+<text x="422.8" y="718.1" class="i">• Desorden y confusión en el GitHub</text>
+<text x="422.8" y="742.1" class="i">• Falta de seriedad con el proyecto</text>
+<path d="M 700 640 L 195.9 476.2 A 530 530 0 0 1 700.0 110.0 Z" fill="#F4A6A6" stroke="#1F3B57" stroke-width="2"/>
+<text x="419.6" y="262.1" class="t">DEJAR DE HACER</text>
+<text x="528.7" y="356.2" class="i">• Procrastinar</text>
+<text x="528.7" y="380.2" class="i">• Perder tiempo en cosas innecesarias</text>
+<text x="528.7" y="404.2" class="i">• Buscar excusas en vez de soluciones</text>
+<text x="528.7" y="428.2" class="i">• Dejarle todo a un solo integrante</text>
+<text x="528.7" y="452.2" class="i">• Faltar a clase</text>
+<circle cx="700" cy="640" r="70" fill="white" stroke="#1F3B57" stroke-width="2"/><text x="700" y="636" class="t">Equipo</text><text x="700" y="660" class="s">Parquivo</text>
+</svg>
