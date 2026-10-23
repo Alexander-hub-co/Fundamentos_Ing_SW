@@ -2,7 +2,7 @@
 
 > Complementa el [Diagrama de Componentes](diagrama-componentes.md)
 
-![Modelo de la base de datos](img/modelo-bd.png)
+![Modelo de la base de datos](img/2-Modelo-base-de-datos.drawio.png)
 
 ## ¿Qué muestra?
 
