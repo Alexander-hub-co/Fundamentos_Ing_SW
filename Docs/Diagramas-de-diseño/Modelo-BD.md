@@ -1,6 +1,6 @@
 # Modelo de la Base de Datos
 
-> Complementa el [Diagrama de Clases](diagrama-clases.md)
+> Complementa el [Diagrama de Componentes](diagrama-componentes.md)
 
 ![Modelo de la base de datos](img/modelo-bd.png)
 
