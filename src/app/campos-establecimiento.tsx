@@ -85,7 +85,7 @@ export function CamposEstablecimiento({
         </span>
       </label>
 
-      <Campo nombre="nombre" etiqueta="Nombre" valor={valores.nombre} requerido autoFocus />
+      <Campo nombre="nombre" etiqueta="Nombre" valor={valores.nombre} requerido />
       <Campo nombre="ciudad" etiqueta="Ciudad" valor={valores.ciudad} />
       <Campo nombre="direccion" etiqueta="Dirección" valor={valores.direccion} />
       <Campo nombre="telefono" etiqueta="Teléfono" valor={valores.telefono} tipo="tel" />
@@ -108,14 +108,12 @@ function Campo({
   valor,
   tipo = "text",
   requerido = false,
-  autoFocus = false,
 }: {
   nombre: string;
   etiqueta: string;
   valor: string | null;
   tipo?: string;
   requerido?: boolean;
-  autoFocus?: boolean;
 }) {
   return (
     <label style={{ display: "grid", gap: "0.375rem" }}>
@@ -124,7 +122,6 @@ function Campo({
         name={nombre}
         type={tipo}
         required={requerido}
-        autoFocus={autoFocus}
         defaultValue={valor ?? ""}
         style={campoTexto}
       />

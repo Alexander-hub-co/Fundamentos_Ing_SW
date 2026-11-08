@@ -24,7 +24,7 @@ export default function NuevoParqueadero() {
       </p>
 
       <form action={accion} style={{ display: "grid", gap: "1rem", maxWidth: "26rem", marginTop: "1.5rem" }}>
-        <Campo nombre="nombre" etiqueta="Nombre" requerido autoFocus />
+        <Campo nombre="nombre" etiqueta="Nombre" requerido />
         <Campo nombre="ciudad" etiqueta="Ciudad" />
         <Campo nombre="direccion" etiqueta="Dirección" />
         <Campo nombre="telefono" etiqueta="Teléfono" tipo="tel" />
@@ -73,13 +73,11 @@ function Campo({
   etiqueta,
   tipo = "text",
   requerido = false,
-  autoFocus = false,
 }: {
   nombre: string;
   etiqueta: string;
   tipo?: string;
   requerido?: boolean;
-  autoFocus?: boolean;
 }) {
   return (
     <label style={{ display: "grid", gap: "0.375rem" }}>
@@ -93,7 +91,6 @@ function Campo({
         name={nombre}
         type={tipo}
         required={requerido}
-        autoFocus={autoFocus}
         style={{
           padding: "0.625rem 0.75rem",
           fontSize: "1rem",

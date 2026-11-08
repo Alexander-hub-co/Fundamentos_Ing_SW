@@ -99,9 +99,17 @@ export function aplicarConvenios(datos: {
     (c) => c.beneficio === "sin_cobro" || c.beneficio === "tarifa_fija",
   );
 
-  if (determinantes.length > 0) {
-    const importeDe = (c: ConvenioAplicable) => (c.beneficio === "sin_cobro" ? 0 : (c.valor ?? 0));
-    const gana = determinantes.reduce((a, b) => (importeDe(b) < importeDe(a) ? b : a));
+  const importeDe = (c: ConvenioAplicable) => (c.beneficio === "sin_cobro" ? 0 : (c.valor ?? 0));
+  // reduce() siempre con valor inicial: sin él, un arreglo vacío lanza
+  // TypeError. Partir de `null` deja el caso "no hay determinantes" escrito en
+  // el tipo, en vez de depender de que alguien revise antes la longitud.
+  // Ante un empate se queda el primero, igual que antes.
+  const gana = determinantes.reduce<ConvenioAplicable | null>(
+    (mejor, c) => (mejor === null || importeDe(c) < importeDe(mejor) ? c : mejor),
+    null,
+  );
+
+  if (gana !== null) {
     const total = importeDe(gana);
 
     for (const c of disponibles) {

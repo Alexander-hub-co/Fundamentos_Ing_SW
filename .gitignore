@@ -40,3 +40,6 @@ npm-debug.log*
 !.specify/memory/
 .specify/memory/*
 !.specify/memory/constitution.md
+
+# --- SonarQube -----------------------------------------------------------
+.scannerwork/
