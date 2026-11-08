@@ -331,7 +331,10 @@ export async function conveniosDelEstablecimiento(contexto: Contexto) {
       ...c,
       descripcion: describirConvenio(c),
       declaradoPorSoporte: c.creadoPor !== null && !propios.has(c.creadoPor),
-      placas: placas.filter((p) => p.convenioId === c.id).map((p) => p.placa).sort(),
+      placas: placas
+        .filter((p) => p.convenioId === c.id)
+        .map((p) => p.placa)
+        .sort((a, b) => a.localeCompare(b, "es")),
     }));
   });
 }

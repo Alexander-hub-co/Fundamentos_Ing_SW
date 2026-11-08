@@ -72,7 +72,11 @@ export async function turnosDelEstablecimiento(
       horaInicio: t.horaInicio,
       horaFin: t.horaFin,
       activo: t.activo,
-      dias: dias.filter((d) => d.turnoId === t.id).map((d) => d.diaSemana).sort(),
+      // Comparador numérico: sin él, sort() compara como texto y 10 < 2.
+      dias: dias
+        .filter((d) => d.turnoId === t.id)
+        .map((d) => d.diaSemana)
+        .sort((a, b) => a - b),
       personas: gente
         .filter((g) => g.turnoId === t.id)
         .map(({ id, nombre, codigo }) => ({ id, nombre, codigo })),

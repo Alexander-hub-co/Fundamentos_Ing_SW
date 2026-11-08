@@ -27,7 +27,7 @@ export default function CambiarPassword() {
           <label style={{ display: "grid", gap: "0.375rem" }}>
             <span style={{ fontSize: "0.875rem", fontWeight: 500 }}>Contraseña nueva</span>
             <input name="password" type="password" autoComplete="new-password" required
-              minLength={LARGO_MINIMO_PASSWORD} autoFocus style={campoTexto} />
+              minLength={LARGO_MINIMO_PASSWORD} style={campoTexto} />
             <span style={{ fontSize: "0.8125rem", color: "var(--texto-tenue)" }}>
               Mínimo {LARGO_MINIMO_PASSWORD} caracteres.
             </span>
