@@ -1,9 +1,10 @@
-import { and, desc, eq, gte, isNotNull, sql } from "drizzle-orm";
+import { and, desc, eq, gte, isNotNull, like, lt, sql } from "drizzle-orm";
 import { conAmbito } from "@/db/ambito";
 import { correccion, movimiento } from "@/db/esquema";
 import { exigir } from "@/lib/autorizacion";
 import type { Contexto } from "@/lib/sesion";
 import { rotuloDe } from "@/dominio/taquilla/rotulo";
+import { normalizarPlaca } from "@/dominio/vehiculos/placa";
 
 /**
  * Los cobros ya cerrados, por período.
@@ -39,8 +40,17 @@ export type CobroDelPeriodo = {
   corregidoA: number | null;
 };
 
+/**
+ * Búsqueda en el historial (#8): el propietario busca por placa o por fecha sin
+ * ir al parqueadero. La placa se normaliza igual que en la taquilla, así que
+ * "abc-123" encuentra ABC123.
+ */
+export type FiltroHistorial = { placa?: string; fecha?: string };
+
 export type ResumenCobros = {
   periodo: Periodo;
+  /** El filtro aplicado, ya normalizado. Vacío cuando sólo se mira el período. */
+  filtro: { placa: string | null; fecha: string | null };
   desde: Date;
   cobros: CobroDelPeriodo[];
   /** Suma de lo efectivamente cobrado, con las correcciones ya aplicadas. */
@@ -59,7 +69,9 @@ export type ResumenCobros = {
  * su caja a las diez no lo encontraría.
  */
 export function inicioDe(periodo: Periodo, ahora: Date): Date {
-  const bogota = new Date(ahora.toLocaleString("en-US", { timeZone: "America/Bogota" }));
+  const bogota = new Date(
+    ahora.toLocaleString("en-US", { timeZone: "America/Bogota" }),
+  );
   const desfase = ahora.getTime() - bogota.getTime();
 
   const inicio = new Date(bogota);
@@ -78,12 +90,27 @@ export async function cobrosDelPeriodo(
   contexto: Contexto,
   periodo: Periodo,
   ahora: Date = new Date(),
+  filtro: FiltroHistorial = {},
 ): Promise<ResumenCobros> {
   exigir(contexto, "taquilla.consultar");
 
-  const desde = inicioDe(periodo, ahora);
+  const placa = filtro.placa ? normalizarPlaca(filtro.placa) || null : null;
+  const fecha =
+    filtro.fecha && /^\d{4}-\d{2}-\d{2}$/.test(filtro.fecha) ? filtro.fecha : null;
+
+  // Una fecha manda sobre el período: se busca ese día, en la hora de Bogotá.
+  // Una placa sin fecha busca en todo el historial: quien la busca no sabe
+  // cuándo pasó el vehículo, y por eso está buscando.
+  const desde = fecha
+    ? new Date(`${fecha}T00:00:00-05:00`)
+    : placa
+      ? new Date(0)
+      : inicioDe(periodo, ahora);
+  const hasta = fecha ? new Date(desde.getTime() + 24 * 60 * 60 * 1000) : null;
+
   const vacio: ResumenCobros = {
     periodo,
+    filtro: { placa, fecha },
     desde,
     cobros: [],
     total: 0,
@@ -115,20 +142,26 @@ export async function cobrosDelPeriodo(
         and(
           isNotNull(movimiento.salidaEn),
           gte(movimiento.salidaEn, desde),
+          hasta ? lt(movimiento.salidaEn, hasta) : undefined,
+          placa ? like(movimiento.placa, `%${placa}%`) : undefined,
           soloMios ? eq(movimiento.operarioSalida, contexto.usuarioId) : undefined,
         ),
       )
       .orderBy(desc(movimiento.salidaEn));
 
     const corregidos = await tx
-      .select({ movimientoId: correccion.movimientoId, importe: correccion.importeCorregido })
+      .select({
+        movimientoId: correccion.movimientoId,
+        importe: correccion.importeCorregido,
+      })
       .from(correccion)
       .orderBy(desc(correccion.emitidaEn));
 
     // La más reciente manda: un movimiento puede corregirse más de una vez.
     const ultimaCorreccion = new Map<string, number>();
     for (const c of corregidos) {
-      if (!ultimaCorreccion.has(c.movimientoId)) ultimaCorreccion.set(c.movimientoId, c.importe);
+      if (!ultimaCorreccion.has(c.movimientoId))
+        ultimaCorreccion.set(c.movimientoId, c.importe);
     }
 
     const cobros: CobroDelPeriodo[] = filas.map((f) => ({
@@ -151,6 +184,7 @@ export async function cobrosDelPeriodo(
 
     return {
       periodo,
+      filtro: { placa, fecha },
       desde,
       cobros,
       total,
