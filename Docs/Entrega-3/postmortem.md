@@ -20,8 +20,8 @@ establecimientos con sus datos separados.
 
 | Dimensión | Lo planeado | Lo logrado |
 |---|---|---|
-| Alcance | 122 puntos en seis sprints | 108 puntos (89 %) |
-| Cumplimiento por sprint | 100 % en cada sprint | 100 % en los sprints 1 a 4; 69 % en el 5 y 33 % en el 6 |
+| Alcance | 122 puntos en seis sprints | 119 puntos (98 %) |
+| Cumplimiento por sprint | 100 % en cada sprint | 100 % en fecha en los sprints 1 a 4; dentro de su fecha, 69 % en el 5 y 33 % en el 6, completados después |
 | Entregas | Tres, en fecha | Entregas 1 y 2 en fecha; la final con el despliegue 12 días tarde respecto al Sprint 6 |
 | Calidad | Reglas de cobro probadas | 727 de 729 pruebas automatizadas aprobadas; 14 casos de prueba con 10 aprobados y 4 defectos registrados; SonarQube de 10 hallazgos a 0 |
 | Puesta en marcha | Aplicación disponible de forma remota | Desplegada en <https://parquivo.vercel.app> con el aislamiento verificado en la base real |
@@ -29,9 +29,10 @@ establecimientos con sus datos separados.
 
 El núcleo del producto —el ciclo de un vehículo con su cobro explicado, las
 tarifas versionadas, los convenios, los turnos y las bicicletas con fichas—
-quedó construido y probado. Lo que no se alcanzó está en la periferia: la
-búsqueda del historial para el propietario, parte del manual de usuario y las
-pruebas de acceso remoto.
+quedó construido y probado. Lo último en terminarse fue la periferia: la
+búsqueda del historial para el propietario y la comparación con el sistema
+anterior en el manual, ambas el 20 de noviembre; de las pruebas de acceso remoto
+solo falta la que se hace desde datos móviles.
 
 ---
 
@@ -51,13 +52,13 @@ pruebas de acceso remoto.
 | 8 de noviembre | Análisis con SonarQube: de 10 hallazgos a 0 (PR #174, sin fusionar) |
 | 10 de noviembre | Registro de deuda técnica: 5 elementos, 63 horas de principal |
 | 17 de noviembre | Plan de pruebas en Azure DevOps: 14 casos ejecutados, 4 bugs registrados |
-| 20 de noviembre | Despliegue en producción en Vercel con PostgreSQL en Neon |
+| 20 de noviembre | Despliegue en producción en Vercel con PostgreSQL en Neon. Se terminan #8 y #13 y se actualiza el tablero |
 
 ---
 
 ## 3. Métricas del proceso
 
-| Sprint | Comprometido | Entregado | Velocidad acumulada media |
+| Sprint | Comprometido | Entregado en su fecha | Velocidad acumulada media |
 |---|:---:|:---:|:---:|
 | 1 | 18 | 18 | 18 |
 | 2 | 21 | 21 | 19,5 |
@@ -103,8 +104,8 @@ mientras hubo cadencia, y cayó cuando el trabajo dejó de pasar por el tablero.
 ## 5. Qué salió mal
 
 1. **El tablero nunca reflejó bien el avance.** Pasó en el Sprint 3, se acordó
-   una solución (`Closes #N`) que no se cumplió en el Sprint 4, y desde el 23 de
-   octubre no se registra ningún cierre. Es el problema que más se repitió en el
+   una solución (`Closes #N`) que no se cumplió en el Sprint 4, y entre el 23 de
+   octubre y el 20 de noviembre no se registró ningún cierre. Es el problema que más se repitió en el
    proyecto.
 2. **El trabajo se concentró alrededor de las entregas.** La Starfish lo dijo con
    todas las letras: «trabajar sin esperar a que llegue una entrega» y «dejar de

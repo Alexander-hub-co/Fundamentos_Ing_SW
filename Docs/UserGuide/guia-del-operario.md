@@ -114,6 +114,26 @@ asociado. No se deja un carro afuera porque nadie fichó.
 
 ---
 
+## Si venía del sistema en Access
+
+Antes los registros se llevaban en una base de Access: por cada vehículo se
+llenaba un formulario con la placa, el tipo de vehículo, la hora y quién hacía
+el registro. Parquivo guarda esos mismos datos, pero casi todos los llena solo.
+
+| Lo que hacía en Access | Lo que hace ahora en Parquivo |
+|---|---|
+| Abrir el formulario y llenar placa, tipo, hora y su nombre | Escribir la placa y pulsar Enter. El tipo sale de la placa, la hora la pone el sistema y su nombre queda por haber iniciado sesión |
+| Buscar el registro de entrada para cobrar la salida | Escribir la misma placa. El sistema sabe que ya está adentro y muestra cuánto cobrar |
+| Calcular el cobro a mano o con calculadora | El cobro sale calculado, con el detalle de cómo se llegó al total |
+| Revisar que el carro no estuviera ya registrado | El sistema no deja registrar dos veces una placa que está adentro |
+| Corregir o borrar un registro equivocado | Un cobro cerrado no se borra. Si hay que corregirlo, se hace desde «Últimos cobros» y queda constancia de quién lo cambió |
+| Trabajar solo en el computador del parqueadero | Entrar desde cualquier navegador, con su correo y su contraseña |
+
+Lo que no cambia: usted sigue siendo quien recibe al cliente y entrega el
+comprobante. El sistema solo le quita las cuentas y el papeleo.
+
+---
+
 ## Cuando algo no funciona
 
 | Qué ve | Qué pasa | Qué hacer |

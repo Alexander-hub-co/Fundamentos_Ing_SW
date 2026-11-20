@@ -11,6 +11,7 @@
 | Informe de postmortem | [postmortem.md](postmortem.md) · [PDF](postmortem.pdf) |
 | Reporte gerencial | [reporte-gerencial.md](reporte-gerencial.md) · [PDF](reporte-gerencial.pdf) |
 | Registro de deuda técnica | [registro-deuda-tecnica.pdf](registro-deuda-tecnica.pdf) |
+| Pruebas de acceso remoto y disponibilidad | [pruebas-acceso-remoto.md](pruebas-acceso-remoto.md) |
 | Manuales de instalación, administración y ejecución | [README](../../README.md#instalación-y-ejecución) · [despliegue](../UserGuide/despliegue.md) · [guías por rol](../UserGuide/) |
 | Evidencias del trabajo | [Actas](../Actas/) · [Dailys](../Dailys/) · [Planning](../Planning/) · [Review](../Review/) · [Retrospective](../Retrospective/) |
 

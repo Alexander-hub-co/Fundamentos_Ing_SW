@@ -12,19 +12,21 @@ Parquivo llega a la Entrega Final **desplegado en producción** en
 <https://parquivo.vercel.app>, sobre Vercel y una base PostgreSQL gestionada
 (Neon), con el aislamiento entre establecimientos verificado en esa base real.
 
-Del alcance planificado de 122 puntos se entregaron **108 (89 %)**. Los cuatro
-primeros sprints cumplieron el 100 % de lo comprometido; el Sprint 5 entregó 18
-de 26 puntos y el Sprint 6, 3 de 9.
+Del alcance planificado de 122 puntos se entregaron **119 (98 %)**. Los cuatro
+primeros sprints cumplieron el 100 % dentro de su fecha. Los sprints 5 y 6 se
+completaron después de su fecha: #8 y #13 se terminaron el 20 de noviembre, y de
+#12 solo falta la prueba desde datos móviles.
 
 La calidad se midió con tres fuentes independientes: un plan de pruebas en
 Azure DevOps con **14 casos (10 aprobados, 4 fallidos con su bug)**, la suite
 automatizada del proyecto (**727 de 729 pruebas aprobadas**) y un análisis con
 SonarQube que bajó los hallazgos **de 10 a 0**.
 
-El problema principal del periodo es de gestión, no de construcción: **el
-tablero de GitHub no registra ningún cierre desde el 23 de octubre**, aunque en
-ese tiempo se hizo el plan de pruebas, el análisis de calidad, el registro de
-deuda técnica y el despliegue. La sección 6 lo detalla.
+El problema principal del periodo fue de gestión, no de construcción: **el
+tablero de GitHub no registró ningún cierre entre el 23 de octubre y el 20 de
+noviembre**, aunque en ese tiempo se hizo el plan de pruebas, el análisis de
+calidad, el registro de deuda técnica y el despliegue. Se corrigió el 20 de
+noviembre; la sección 6 lo detalla.
 
 ---
 
@@ -32,11 +34,11 @@ deuda técnica y el despliegue. La sección 6 lo detalla.
 
 | Indicador | Entrega 1 (22 sep) | Entrega 2 (23 oct) | Entrega Final (20 nov) |
 |---|:---:|:---:|:---:|
-| Sprints cerrados en el tablero | 2 | 4 | 4 |
-| Puntos entregados (con evidencia) | 39 | 105 | **108** |
-| Puntos que quedan del plan | 83 | 17 | **14** |
-| Avance del plan (puntos) | 32 % | 86 % | **89 %** |
-| *Issues* cerrados en el tablero | 18 | 42 | **72** |
+| Sprints cerrados en el tablero | 2 | 4 | **5** |
+| Puntos entregados (con evidencia) | 39 | 105 | **119** |
+| Puntos que quedan del plan | 83 | 17 | **3** |
+| Avance del plan (puntos) | 32 % | 86 % | **98 %** |
+| *Issues* cerrados en el tablero | 18 | 42 | **133** |
 | *Pull requests* fusionados | 18 | 25 | **35** |
 | Casos de prueba ejecutados (Azure) | — | — | **14** (10 aprobados · 4 fallidos) |
 | Pruebas automatizadas aprobadas | — | — | **727 / 729** |
@@ -59,13 +61,15 @@ octubre, después del corte de la Entrega 2.
 | Sprint 2 | 1 al 14 de septiembre | 21 | 21 | 0 % |
 | Sprint 3 | 15 al 28 de septiembre | 24 | 24 | 0 % |
 | Sprint 4 | 29 de septiembre al 12 de octubre | 24 | 24 | 0 % |
-| Sprint 5 | 13 al 26 de octubre | 26 | 18 | −31 % |
-| Sprint 6 | 27 de octubre al 8 de noviembre | 9 | 3 | −67 % |
-| **Total** | | **122** | **108** | **−11 %** |
+| Sprint 5 | 13 al 26 de octubre | 26 | 26 | 0 % (8 puntos fuera de fecha) |
+| Sprint 6 | 27 de octubre al 8 de noviembre | 9 | 6 | −33 % (todo fuera de fecha) |
+| **Total** | | **122** | **119** | **−2 %** |
 
-La desviación se concentra al final. En el Sprint 5 quedó abierta #8 (consulta y
-supervisión remota, 8 puntos), que era justamente la historia prevista para
-recortar. En el Sprint 6 solo se completó #6 (documentar y hacer el despliegue).
+La desviación se concentra al final y es sobre todo de fechas. En el Sprint 5,
+#8 (consulta y supervisión remota, 8 puntos), que era la historia prevista para
+recortar, se terminó el 20 de noviembre con la búsqueda del historial por placa y
+por fecha. Del Sprint 6, #6 y #13 se terminaron el mismo día, y #12 quedó
+ejecutada desde wifi, con la prueba en datos móviles pendiente.
 
 ### 3.2 Fechas: plan frente a lo real
 
@@ -73,8 +77,8 @@ recortar. En el Sprint 6 solo se completó #6 (documentar y hacer el despliegue)
 |---|---|---|---|
 | Entrega 1 | 22 de septiembre | 22 de septiembre | 0 días |
 | Entrega 2 | 23 de octubre | 23 de octubre | 0 días |
-| Cierre del Sprint 5 | 26 de octubre | Sin cerrar en el tablero | Abierto |
-| Cierre del Sprint 6 | 8 de noviembre | Sin cerrar en el tablero | Abierto |
+| Cierre del Sprint 5 | 26 de octubre | 20 de noviembre | 25 días de atraso |
+| Cierre del Sprint 6 | 8 de noviembre | Abierto: falta la prueba de #12 en datos móviles | — |
 | Análisis de calidad (SonarQube) | — | 8 de noviembre (PR #174) | — |
 | Registro de deuda técnica | — | 10 de noviembre | — |
 | Plan y ejecución de pruebas | — | 17 de noviembre | — |
@@ -96,10 +100,10 @@ el problema de gestión que describe la sección 6.
 
 | Sprint | Historia | Puntos | Responsable | En el tablero | Estado real |
 |---|---|:---:|---|---|---|
-| 5 | #8 · Consulta y supervisión remota | 8 | Cristian Quevedo | Abierta | 🟡 Parcial: la ocupación en tiempo real existe; falta la búsqueda del historial por fecha o placa |
-| 6 | #6 · Documentar despliegue en producción | 3 | Jacob Riveros | Abierta | ✅ Terminada: manual de despliegue y aplicación desplegada el 20 de noviembre |
-| 6 | #13 · Manual de usuario para empleados | 3 | Santiago Arias | Abierta | 🟡 Parcial: existe la guía del operario; falta la comparación con el sistema anterior en Access que pide la historia |
-| 6 | #12 · Pruebas de acceso remoto y disponibilidad | 3 | Jacob Riveros | Abierta | ⏳ Pendiente: ya es posible ejecutarlas sobre el despliegue |
+| 5 | #8 · Consulta y supervisión remota | 8 | Cristian Quevedo | Cerrada | ✅ Terminada el 20 de noviembre: ocupación en tiempo real y búsqueda del historial por placa y por fecha, con aviso de «Sin resultados» |
+| 6 | #6 · Documentar despliegue en producción | 3 | Jacob Riveros | Cerrada | ✅ Terminada: manual de despliegue y aplicación desplegada el 20 de noviembre |
+| 6 | #13 · Manual de usuario para empleados | 3 | Santiago Arias | Cerrada | ✅ Terminada el 20 de noviembre: la guía del operario incluye la comparación con el sistema anterior en Access |
+| 6 | #12 · Pruebas de acceso remoto y disponibilidad | 3 | Jacob Riveros | Abierta | 🔄 Ejecutada desde wifi el 20 de noviembre ([resultados](pruebas-acceso-remoto.md)); falta la prueba desde datos móviles |
 
 ### 4.2 Pruebas (Entrega Final)
 
@@ -143,8 +147,8 @@ Responsables de los casos: Sergio Lara (CP-01, 05, 09, 11), Cristian Quevedo
 
 | # | Problema | Impacto | Causa | Solución |
 |---|---|---|---|---|
-| 1 | El tablero no registra ningún cierre desde el 23 de octubre | Alto: quien mire el tablero cree que el proyecto se detuvo, y los sprints 5 y 6 siguen abiertos | Después de la Entrega 2 el trabajo se movió a otras herramientas (Azure, SonarQube, Vercel) y nadie volvió al tablero; la acción de la Starfish «cerrar una tarjeta por semana» no se cumplió | Antes de la sustentación: cerrar #6, actualizar #8 y #13 con su estado real y cerrar los milestones de los sprints 5 y 6 |
-| 2 | El despliegue se hizo 12 días después de lo planeado | Medio: las pruebas de acceso remoto (#12) no alcanzaron a ejecutarse | Faltaba una base que permitiera crear roles con `BYPASSRLS`, requisito del aislamiento | Se eligió Neon tras verificar ese permiso antes de migrar; el aislamiento se comprobó sobre la base real |
+| 1 | El tablero no registró ningún cierre entre el 23 de octubre y el 20 de noviembre | Alto: quien mirara el tablero creía que el proyecto se había detenido | Después de la Entrega 2 el trabajo se movió a otras herramientas (Azure, SonarQube, Vercel) y nadie volvió al tablero; la acción de la Starfish «cerrar una tarjeta por semana» no se cumplió | Se actualizó el 20 de noviembre: 40 historias cerradas como completadas tras verificarlas en el código, #8 y #13 terminadas, y los 19 aportes de la retrospectiva cerrados como no planificados porque no eran tareas |
+| 2 | El despliegue se hizo 12 días después de lo planeado | Medio: las pruebas de acceso remoto (#12) se corrieron recién el 20 de noviembre | Faltaba una base que permitiera crear roles con `BYPASSRLS`, requisito del aislamiento | Se eligió Neon tras verificar ese permiso antes de migrar; el aislamiento se comprobó sobre la base real |
 | 3 | El *pull request* de SonarQube (#174) sigue sin fusionar desde el 8 de noviembre | Medio: las correcciones de fiabilidad no están en `main` | Nadie lo revisó después de abrirlo | Revisarlo y fusionarlo antes de la sustentación |
 | 4 | Las pruebas encontraron 4 defectos, dos de ellos discrepancias entre el código y la especificación | Medio | La especificación de bicicletas y la de placas no se actualizaron cuando el código tomó otra decisión de diseño | Quedan registrados como bugs; el equipo decide en cada caso si corrige el código o la especificación |
 | 5 | La suite completa tiene fallas intermitentes (2 en la última corrida, 14 en una anterior) | Bajo: una falla intermitente puede tapar una real | Las pruebas comparten base y dependen del orden y del tiempo de ejecución | Registrado como deuda; estabilizar la limpieza entre archivos de prueba |
@@ -158,7 +162,7 @@ Responsables de los casos: Sergio Lara (CP-01, 05, 09, 11), Cristian Quevedo
 |---|---|---|---|
 | Falla de internet durante la demostración | Alto | Baja | Llevar también la aplicación corriendo en local |
 | Que se pregunte por los defectos abiertos | Medio | Alta | Presentarlos como resultado de las pruebas, con su decisión pendiente |
-| El tablero desactualizado contradiga el avance presentado | Medio | Alta | Actualizarlo antes de la sustentación (problema 1) |
+| El tablero desactualizado contradiga el avance presentado | Medio | Baja | Se actualizó el 20 de noviembre (problema 1) |
 | La base de producción quede sin datos de demostración | Medio | Media | Crear el administrador y un establecimiento de prueba antes de sustentar |
 
 ---
@@ -168,9 +172,9 @@ Responsables de los casos: Sergio Lara (CP-01, 05, 09, 11), Cristian Quevedo
 | Integrante | Rol | Puntos del plan (S1–S6) | Casos de prueba | Pendientes a su cargo |
 |---|---|:---:|:---:|---|
 | Sergio Alexander L. | Scrum Master · Configuration Manager | 34 | 4 | — |
-| Cristian Quevedo | Product Owner | 32 | 4 | #8 |
-| Jacob Riveros | DevOps Engineer | 32 | 3 | #12 |
-| Santiago Arias | Sprint Planner · QA Lead | 24 | 3 | #13 |
+| Cristian Quevedo | Product Owner | 32 | 4 | — |
+| Jacob Riveros | DevOps Engineer | 32 | 3 | #12 (datos móviles) |
+| Santiago Arias | Sprint Planner · QA Lead | 24 | 3 | — |
 
 Los puntos son los del reparto de la Entrega 2, que ya incluía las historias del
 Sprint 6 y suma los 122 puntos del plan.
@@ -179,8 +183,8 @@ Sprint 6 y suma los 122 puntos del plan.
 
 ## 9. Próximos pasos
 
-1. Actualizar el tablero: cerrar #6, documentar el estado de #8 y #13 y cerrar los milestones de los sprints 5 y 6.
+1. Probar #12 desde datos móviles, cerrarla y cerrar el milestone del Sprint 6.
 2. Revisar y fusionar el *pull request* #174 (SonarQube).
 3. Decidir, para los bugs 215 y 216, si se corrige el código o la especificación; corregir 214 y 217.
-4. Ejecutar #12 (pruebas de acceso remoto) sobre <https://parquivo.vercel.app>.
+4. Fusionar los *pull requests* de la entrega final (#175) y de la búsqueda del historial.
 5. Preparar los datos de demostración en producción y ensayar la sustentación de 30 minutos.
