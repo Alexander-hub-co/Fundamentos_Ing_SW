@@ -192,6 +192,8 @@ Fundamentos_Ing_SW/
 │   │                             reporte gerencial y presentaciones
 │   ├── Entrega-2/                Índice, diseño de la solución (SDD), reporte
 │   │                             gerencial y estándares de programación
+│   ├── Entrega-3/                Índice, reporte de pruebas, postmortem, reporte
+│   │                             gerencial final y registro de deuda técnica
 │   ├── Diagramas/                ÚNICO lugar de los diagramas del diseño (PNG),
 │   │   ├── historias/            secuencia y procesos de HU-001 a HU-010
 │   │   ├── flujos/               secuencia y procesos de otros siete flujos
@@ -276,6 +278,10 @@ Fundamentos_Ing_SW/
 | **Diseño de la solución (SDD)** | [`Docs/Entrega-2/SDD.md`](Docs/Entrega-2/SDD.md) |
 | **Reporte gerencial — Entrega 2** | [`Docs/Entrega-2/reporte-gerencial.md`](Docs/Entrega-2/reporte-gerencial.md) |
 | Estándares de programación | [`Docs/Entrega-2/estandares-de-programacion.md`](Docs/Entrega-2/estandares-de-programacion.md) |
+| **Entrega Final (índice)** | [`Docs/Entrega-3/`](Docs/Entrega-3/) |
+| **Reporte de pruebas** | [`Docs/Entrega-3/informe-casos-de-prueba.pdf`](Docs/Entrega-3/informe-casos-de-prueba.pdf) |
+| **Informe de postmortem** | [`Docs/Entrega-3/postmortem.md`](Docs/Entrega-3/postmortem.md) |
+| **Reporte gerencial — Entrega Final** | [`Docs/Entrega-3/reporte-gerencial.md`](Docs/Entrega-3/reporte-gerencial.md) |
 | **Diagramas del diseño** | [`Docs/Diagramas/`](Docs/Diagramas/) |
 | Taller de Diseño en Software | [`Docs/Talleres/taller-de-diseno/`](Docs/Talleres/taller-de-diseno/) |
 | Hoja de ruta y diseño de la taquilla | [`Docs/Arquitectura/`](Docs/Arquitectura/) |
